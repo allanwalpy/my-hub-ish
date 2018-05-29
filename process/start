@@ -1,4 +1,5 @@
 # 1st argument - desired process name;
 # 2nd argument - path to script in from current folder
 
-screen -d -m -Logfile ~/log/$1.txt -S $1 ./../$2
+cd ../
+screen -d -m -Logfile ~/log/$1.txt -S $1 ./$2
