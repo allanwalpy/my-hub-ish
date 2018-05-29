@@ -1,4 +1,4 @@
-# first argument is language code
+# 1st argument is language code
 
 locale -a
 
