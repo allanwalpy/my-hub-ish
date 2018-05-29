@@ -1,0 +1,3 @@
+# 1st argument - process id;
+
+screen -X -S $1 kill
