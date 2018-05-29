@@ -1,0 +1,10 @@
+# meant to be launch from core folder;
+
+# bots
+./run twitch
+./run dismoodicon
+./run simplicity
+./run music
+
+# vpn service start
+./vpn/start
