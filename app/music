@@ -1,2 +1,2 @@
 cd ~/app/discord_music/
-java -jar musicbot.jar -nogui
+java -jar music_bot.jar -nogui
