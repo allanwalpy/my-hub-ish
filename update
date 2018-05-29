@@ -1,0 +1,5 @@
+# updates all scripts
+
+git checkout -- .
+git pull
+bash grant_premission.sh
