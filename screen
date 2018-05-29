@@ -1,1 +1,4 @@
-screen -d -m -L ~/log/$1.txt -S $1 bash ~/.script/$2.sh
+# 1st argument - desired process name;
+# 2nd argument - path to script in from current folder
+
+screen -d -m -L ~/log/$1.txt -S $1 bash ~/.script/$2
