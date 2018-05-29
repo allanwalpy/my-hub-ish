@@ -1,0 +1,4 @@
+cd ~/app/dismoodicon
+
+git pull
+npm install

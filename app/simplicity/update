@@ -1,0 +1,4 @@
+cd ~/app/simplicity
+
+git pull
+npm install
