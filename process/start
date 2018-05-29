@@ -1,5 +1,5 @@
 # 1st argument - desired process name;
-# 2nd argument - path to script in from current folder
+# 2nd argument - path to script in from current folder;
+# meant to be launch from scripts folder;
 
-cd ../
 screen -d -m -Logfile ~/log/$1.txt -S $1 ./$2
