@@ -40,3 +40,16 @@ cd script
 ```bash
 ./update
 ```
+
+## change origin repository;
+in case you want use your own fork;
+
+### https protocol
+```bash
+git remote set-url origin https://github.com/my_user_name/vultr-hosting-scripts.git
+```
+
+### ssh protocol
+```bash
+git remote set-url origin git@github.com:my_user_name/vultr-hosting-scripts.git
+```
