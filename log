@@ -1,3 +1,3 @@
 # 1st argument - app name;
 
-cat ~/log/$1.log
+tail -100 ~/log/$1.log
