@@ -1,11 +1,15 @@
+#!/bin/bash
+
 # 1st argument - app name;
 # 2nd argument [optional] [default=100] - number of lines shown
 
-name = $1
-count = 100
+NAME=$1
+COUNT=100
 
-if [![ -z "$2" ]] then;
-    count = $2
-fi
+if [ ! -z "$2" ]; then
+    COUNT=$2
+fi;
 
-tail -$(count) ~/log/$(name).log
+tail -$COUNT ~/log/$NAME.log
+
+exit 0
