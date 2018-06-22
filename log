@@ -1,3 +1,11 @@
 # 1st argument - app name;
+# 2nd argument [optional] [default=100] - number of lines shown
 
-tail -100 ~/log/$1.log
+name = $1
+count = 100
+
+if [![ -z "$2" ]] then;
+    count = $2
+fi
+
+tail -$(count) ~/log/$(name).log
