@@ -2,4 +2,4 @@
 
 git checkout -- .
 git pull
-bash grant_premission.sh
+bash _premission.sh
