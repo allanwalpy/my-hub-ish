@@ -2,4 +2,4 @@
 
 git checkout -- .
 git pull
-bash _premission.silent.sh
+bash _permission.silent.sh
