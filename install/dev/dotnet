@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # source from
 #  https://www.microsoft.com/net/download/linux-package-manager/ubuntu18-04/sdk-current
 
@@ -10,4 +12,4 @@ sudo chown root:root /etc/apt/sources.list.d/microsoft-prod.list
 
 sudo apt install apt-transport-https
 sudo apt update
-sudo apt install dotnet-sdk-2.1
+sudo apt install dotnet-sdk-2.2

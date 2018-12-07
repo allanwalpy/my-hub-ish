@@ -1,4 +1,0 @@
-# first argument is package name
-
-sudo apt update
-sudo apt install $1

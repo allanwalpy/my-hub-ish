@@ -41,7 +41,7 @@ cd script
 - run update script;
 
 ```bash
-./update
+./_update
 ```
 
 ## remove

@@ -1,5 +1,0 @@
-# updates all scripts
-
-git checkout -- .
-git pull
-bash _permission.silent.sh
