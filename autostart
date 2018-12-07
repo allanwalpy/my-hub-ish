@@ -11,7 +11,7 @@
 ##   [Service]
 ##   Type=simple
 ##   WorkingDirectory=/home/{user}/script/
-##   ExecStart=bash /home/{user}/script/autostart
+##   ExecStart=/bin/bash /home/{user}/script/autostart
 ##   Restart=no
 ##   KillSignal=SIGINT
 ##   SyslogIdentifier=script-autostart
@@ -25,8 +25,8 @@
 ##  Start service with command `sudo systemctl start {service-name}.service` to make sure it doing it's job;
 ##  You may check out status of service with command `sudo systemctl status {service-name}.service`
 
-# runs music bot;
-./run music
+# runs twitch bot;
+./app/twitch/start
 
-# runs twitchy bot;
-./run twitchy
+# runs music bot;
+./app/music/start
