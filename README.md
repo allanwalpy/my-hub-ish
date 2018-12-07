@@ -27,7 +27,7 @@ cd script
 > NB! `sudo` priveleges required
 
 ```bash
-bash _permission.sh
+bash _permission
 ```
 
 ## update
