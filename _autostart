@@ -11,7 +11,7 @@
 ##   [Service]
 ##   Type=simple
 ##   WorkingDirectory=/home/{user}/script/
-##   ExecStart=/bin/bash /home/{user}/script/autostart
+##   ExecStart=/bin/bash /home/{user}/script/_autostart
 ##   Restart=no
 ##   KillSignal=SIGINT
 ##   SyslogIdentifier=script-autostart
