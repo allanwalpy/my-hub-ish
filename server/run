@@ -2,4 +2,4 @@
 
 # 1st argument - app name;
 
-./process/start $1 app/$1/start
+./server/process/start $1 app/$1/start

@@ -3,4 +3,4 @@
 # 1st argument - app name;
 # meant to start from script core folder;
 
-./app/$1/start
+./server/app/$1/start

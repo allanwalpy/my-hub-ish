@@ -2,4 +2,4 @@
 
 ## makes all script executable;
 
-chmod -R +x ./
+sudo chmod -R +x ./

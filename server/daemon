@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# 1st argument - daemon name;
+# 2nd argument - command to daemon;
+
+sudo systemctl $2 $1A

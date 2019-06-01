@@ -1,0 +1,2 @@
+# ignore scripts with sensitive information
+*.hide

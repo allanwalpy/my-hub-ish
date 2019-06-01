@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# updates repository;
-
-bash _restore.defaults
-git pull
-bash _permission.silent
