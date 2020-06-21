@@ -1,0 +1,15 @@
+[Unit]
+Description=__Some daemon
+After=network.target
+
+[Service]
+Type=__simple
+WorkingDirectory=/home/__user_host/script/
+ExecStart=__some_command
+Restart=no
+KillSignal=SIGINT
+SyslogIdentifier=__some-daemon
+User=__user_host
+
+[Install]
+WantedBy=multi-user.target
