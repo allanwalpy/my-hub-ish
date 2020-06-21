@@ -8,9 +8,9 @@
 # - release update;
 # - [if installed] snap packages refresh;
 
-echo "\n\n update  \n\n" && sudo apt update && \
-echo "\n\n upgrade \n\n" && sudo apt upgrade -y && \
-echo "\n\n remove  \n\n" && sudo apt autoremove -y && \
-echo "\n\n purge   \n\n" && sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1) && \
-echo "\n\n release \n\n" && sudo do-release-upgrade && \
-echo "\n\n snap    \n\n" && command -v snap && sudo snap refresh
+echo -e "\n\n --- update  --- \n\n" && sudo apt update && \
+echo -e "\n\n --- upgrade --- \n\n" && sudo apt upgrade -y && \
+echo -e "\n\n --- remove  --- \n\n" && sudo apt autoremove -y && \
+echo -e "\n\n --- purge   --- \n\n" && sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1) && \
+echo -e "\n\n --- release --- \n\n" && sudo do-release-upgrade && \
+echo -e "\n\n --- snap    --- \n\n" && command -v snap && sudo snap refresh
