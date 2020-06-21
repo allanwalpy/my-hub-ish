@@ -1,0 +1,6 @@
+# simple `.gitignore` file for hiding vs code files with dotnet;
+
+# build files
+[Oo]bj
+[Oo]ut
+[Bb]in

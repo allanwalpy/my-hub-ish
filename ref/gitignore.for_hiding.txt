@@ -1,0 +1,5 @@
+# simple `.gitignore` file for easy hiding some folders and files without father changes to `.gitignore` file;
+
+# confidentioal files
+*.secret.*
+*.hide.*

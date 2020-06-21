@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk.___">
+
+    <!-- assembly config; -->
+    <PropertyGroup>
+        <OutputType>___Exe</OutputType>
+        <TargetFramework>___net5.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <RuntimeIdentifiers>___linux-x64;debian.10-x64;ubuntu-x64;alpine-x64;</RuntimeIdentifiers>
+        <AssemblyName>___Sample.Project</AssemblyName>
+        <RootNamespace>___Sample.Project</RootNamespace>
+    </PropertyGroup>
+
+    <!-- package info; -->
+    <PropertyGroup>
+        <AssemblyTitle>___Sample.Project</AssemblyTitle>
+        <PackageId>___Sample.Project</PackageId>
+        <Version>0.1.0-alpha</Version>
+        <Authors>allan_walpy aka Andrey Lysenkov</Authors>
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <Description>__description</Description>
+        <PackageProjectUrl>https://github.com/allan-walpy/___project</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/allan-walpy/___project/blob/master/license</PackageLicenseUrl>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/allan-walpy/___project</RepositoryUrl>
+    </PropertyGroup>
+
+    <!-- compilation config; -->
+    <PropertyGroup>
+        <OutputPath>../../out/bin/$(Configuration)/</OutputPath>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <DocumentationFile>../../out/bin/$(Configuration)/$(TargetFramework)/docs/core.xml</DocumentationFile>
+        <DebugSymbols>false</DebugSymbols>
+        <IncludeSource>true</IncludeSource>
+    </PropertyGroup>
+
+    <!-- debug configuration; -->
+    <PropertyGroup Condition="$(Configuration)=='Debug'">
+        <DefineConstants>DEBUG;</DefineConstants>
+    </PropertyGroup>
+
+    <!-- TODO:TMP: turn off documentation warnings; -->
+    <PropertyGroup>
+        <NoWarn>1591;1573;</NoWarn>
+    </PropertyGroup>
+
+    <!-- __some dependecies; -->
+    <ItemGroup>
+        <PackageReference Include="_Some.Packet" Version="___version.*" />
+    </ItemGroup>
+
+</Project>
