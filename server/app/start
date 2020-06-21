@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# 1st argument - app name;
-# meant to start from script core folder;
-
-./server/app/$1/start

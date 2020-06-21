@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# 1st argument - app name;
-
-./server/process/start $1 app/$1/start

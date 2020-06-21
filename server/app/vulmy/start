@@ -1,2 +1,0 @@
-cd ../app/vulmy/
-dotnet run -p src/Server/Server.csproj -c Debug

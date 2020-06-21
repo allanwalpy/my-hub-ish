@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# 1st argument - desired process name;
-# 2nd argument - path to script in from current folder;
-# meant to be launch from scripts folder;
-
-screen -d -m -L -Logfile ~/log/$1.log -S $1 ./$2

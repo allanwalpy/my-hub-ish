@@ -1,5 +1,0 @@
-#!/bin/bash
-
-## makes all script executable;
-
-sudo chmod -R +x ./

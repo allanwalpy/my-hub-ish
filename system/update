@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# manages apt packages, updates snap packages;
+# - update ppa's and others;
+# - update packages;
+# - autoremove unused poackages;
+# - remove resudential package configs;
+# - release update;
+# - [if installed] snap packages refresh;
+
+echo "\n\n update  \n\n" && sudo apt update && \
+echo "\n\n upgrade \n\n" && sudo apt upgrade -y && \
+echo "\n\n remove  \n\n" && sudo apt autoremove -y && \
+echo "\n\n purge   \n\n" && sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1) && \
+echo "\n\n release \n\n" && sudo do-release-upgrade && \
+echo "\n\n snap    \n\n" && command -v snap && sudo snap refresh

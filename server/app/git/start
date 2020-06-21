@@ -1,9 +1,0 @@
-#!/bin/bash
-
-eval "$(ssh-agent)";
-
-ssh-add /home/walpy/.ssh/git_allanwalpy_gmail
-
-export GPG_TTY=$(tty)
-
-/usr/lib/node_modules/ungit/bin/ungit

@@ -1,6 +1,0 @@
-#!/bin/bash
-
-
-export GIT_TRACE=1
-
-git commit -S -m "$*"

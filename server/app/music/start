@@ -1,4 +1,0 @@
-#!/bin/bash
-
-cd ~/app/music/
-java -jar music_bot.jar -nogui

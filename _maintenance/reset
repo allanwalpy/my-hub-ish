@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# deletes all users changes;
-
-git checkout -- .
