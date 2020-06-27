@@ -3,4 +3,4 @@
 # connects to `vultr` hosting;
 # ssh uses ~/.ssh/config on default;
 
-ssh -q -X vultr
+ssh -X vultr
