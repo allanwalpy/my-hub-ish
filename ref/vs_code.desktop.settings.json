@@ -8,6 +8,7 @@
 
     /* system.theme; */
     "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "GitHub Dark",
 
     /* system.theme.icon.material; */
     "material-icon-theme.showWelcomeMessage": false,
