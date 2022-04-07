@@ -11,5 +11,4 @@ echo -e "\n\n --- update  --- \n\n" && sudo apt update && \
 echo -e "\n\n --- upgrade --- \n\n" && sudo apt upgrade && \
 echo -e "\n\n --- remove  --- \n\n" && sudo apt autoremove && \
 echo -e "\n\n --- purge   --- \n\n" && sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1) && \
-echo -e "\n\n --- release --- \n\n" &&  && \
 echo -e "\n\n --- snap    --- \n\n" && command -v snap && sudo snap refresh

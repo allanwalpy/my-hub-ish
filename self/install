@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# link scripts folder to `/home` user folder for easy use;
+#   arguments:
+#     - folder name to create in user home folder
+
+# ln -s . $HOME/$
+
+if [ $# -ne 1 ]
+  then
+    Red='\033[0;33m'
+    NoColor='\033[0m'
+    echo -e "${Red} error: requires one argument: folder name to create in $HOME ${NoColor}"
+    exit 1
+fi
+
+echo -e " - linking \"$(pwd)\" to \"$HOME/$1\"" && \
+ln -s $(pwd) $HOME/$1 && \
+echo -e " - done"

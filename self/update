@@ -2,4 +2,5 @@
 
 # updates script repository;
 
+echo -e " - updating repository " && \
 git pull
