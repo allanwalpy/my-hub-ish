@@ -1,7 +1,7 @@
 Host github
     User git
     Hostname github.com
-    IdentityFile /home/__user_desktop/.ssh/github
+    IdentityFile /home/__user_desktop/.ssh/___github
     IdentitiesOnly yes
 Host vultr
     User ___user_host

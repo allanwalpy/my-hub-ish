@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# connects to `vultr` hosting;
-# ssh uses ~/.ssh/config on default;
-
-ssh -X vultr

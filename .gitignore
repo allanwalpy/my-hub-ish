@@ -1,3 +1,5 @@
 # confidential files
-*.secret.*
+*.hide
 *.hide.*
+*.secret
+*.secret.*

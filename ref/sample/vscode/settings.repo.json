@@ -1,0 +1,18 @@
+{
+    "diffEditor.ignoreTrimWhitespace": false,
+
+    "editor.detectIndentation": false,
+    "editor.emptySelectionClipboard": false,
+    "editor.formatOnPaste": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+
+    "files.encoding": "utf8",
+    "files.eol": "\n",
+    "files.trimFinalNewlines": false,
+    "files.trimTrailingWhitespace": true,
+
+    "git.enableCommitSigning": true,
+
+    "search.useIgnoreFiles": true
+}

@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "__some_extension"
+    ],
+    "unwantedRecommendations": [
+        "__some_other_extension"
+    ]
+}
