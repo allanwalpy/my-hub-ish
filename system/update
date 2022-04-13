@@ -1,14 +1,15 @@
 #!/bin/bash
 
-# manages apt packages, updates snap packages;
-# - update ppa's and others;
-# - update packages;
-# - autoremove unused poackages;
-# - remove resudential package configs;
-# - [if installed] snap packages refresh;
+#? manages apt packages, updates snap packages;
+#? - update ppa's and others;
+#? - update packages;
+#? - autoremove unused poackages;
+#? - remove resudential package configs;
+#? - [if installed] snap packages refresh;
 
 echo -e "\n\n --- update  --- \n\n" && sudo apt update && \
 echo -e "\n\n --- upgrade --- \n\n" && sudo apt upgrade && \
 echo -e "\n\n --- remove  --- \n\n" && sudo apt autoremove && \
 echo -e "\n\n --- purge   --- \n\n" && sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1) && \
-echo -e "\n\n --- snap    --- \n\n" && command -v snap && sudo snap refresh
+(command -v snap &> /dev/null && echo -e "\n\n --- snap    --- \n\n" && sudo snap refresh || true) && \
+echo -e "\n\n --- done   --- \n\n"
