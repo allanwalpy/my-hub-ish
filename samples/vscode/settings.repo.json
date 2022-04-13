@@ -14,5 +14,71 @@
 
     "git.enableCommitSigning": true,
 
-    "search.useIgnoreFiles": true
+    "search.useIgnoreFiles": true,
+
+    "better-comments.tags": [
+        {
+            "tag": "!!",
+            "color": "#d21",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "#transparent",
+            "bold": true,
+            "italic": false
+        },
+        {
+            "tag": "+",
+            "color": "#4af",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "--",
+            "color": "#555",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": true
+        },
+        {
+            "tag": "**",
+            "color": "#8f8",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "TODO",
+            "color": "#f84",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": true,
+            "italic": false
+        },
+        {
+            "tag": "FIXME",
+            "color": "#f21",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": true,
+            "italic": false
+        },
+        {
+            "tag": "TMP",
+            "color": "#f00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "#000",
+            "bold": true,
+            "italic": false
+        }
+    ]
 }

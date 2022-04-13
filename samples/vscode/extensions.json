@@ -1,6 +1,6 @@
 {
     "recommendations": [
-        "__some_extension"
+        "aaron-bond.better-comments"
     ],
     "unwantedRecommendations": [
         "__some_other_extension"
