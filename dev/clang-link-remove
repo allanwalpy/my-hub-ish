@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-#? installs clang, llvm, tools etc.
-#? arguments:
-#?  - lang verison;
+#++ installs clang, llvm, tools etc.
+#++ arguments:
+#++  - lang verison;
 
 if [ $# -ne 1 ] ; then echo -e "\033[0;33m requires one argument: clang version \033[0m"; exit 1; fi
 

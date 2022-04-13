@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#? removes all configured links and deletes
+#++ removes all configured links and deletes
 
 sudo update-alternatives --remove-all llvm-config
 sudo update-alternatives --remove-all clang

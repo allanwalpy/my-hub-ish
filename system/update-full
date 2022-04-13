@@ -1,7 +1,6 @@
 #!/bin/bash
 
-#? manages ubuntu distribution upgrade as well as usual upgrades;
+#++ manages ubuntu distribution upgrade as well as usual upgrades;
 
-./system/update && \
-echo -e "\n\n --- operation system  --- \n\n" && \
-sudo do-release-upgrade
+./system/update --hide-done && \
+echo -e "\n\n --- operation system --- \n\n" && sudo do-release-upgrade

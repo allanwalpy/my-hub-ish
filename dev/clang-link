@@ -1,20 +1,20 @@
 #!/bin/bash
 
-# a bit edited code gist.github.com/junkdog/70231d6953592cd6f27def59fe19e50d ;
-# authors: github.com/junkdog , github.com/ricab , github.com/StatusCode404, github.com/tyler274 , github.com/allan-walpy;
+#** a bit edited code gist.github.com/junkdog/70231d6953592cd6f27def59fe19e50d ;
+#** authors: github.com/junkdog , github.com/ricab , github.com/StatusCode404, github.com/tyler274 , github.com/allan-walpy;
 
-#? links `/usr/bin/` clang to versioned alternatives through `update-alternatives`,
-#?   since `clang` and other packages in ubuntu repositories are a bit outdated
-#?   compared to latest release versions;
-#? arguments:
-#?  - version of installed clang;
-#?  - prioprity for `update-alternatives` package, use `100` if doubt;
+#++ links `/usr/bin/` clang to versioned alternatives through `update-alternatives`,
+#++   since `clang` and other packages in ubuntu repositories are a bit outdated
+#++   compared to latest release versions;
+#++ arguments:
+#++  - version of installed clang;
+#++  - prioprity for `update-alternatives` package, use `100` if doubt;
 
-#* tested on ubuntu 20.04.4 lts with clang14.0.1
+#** tested on ubuntu 20.04.4 lts with clang 14.0.1;
 
-# oudated(?):
-#   --slave   /usr/bin/llvm-mcmarkup         llvm-mcmarkup         /usr/bin/llvm-mcmarkup-${version}
-#   --slave   /usr/bin/clang-import-test     clang-import-test     /usr/bin/clang-import-test-${version}
+#-- oudated(?):
+#--  --slave   /usr/bin/llvm-mcmarkup         llvm-mcmarkup         /usr/bin/llvm-mcmarkup-${version}
+#--  --slave   /usr/bin/clang-import-test     clang-import-test     /usr/bin/clang-import-test-${version}
 
 if [ $# -ne 2 ] ; then echo -e "\033[0;33m requires two arguments: clang version and integer config priority \033[0m"; exit 1; fi
 

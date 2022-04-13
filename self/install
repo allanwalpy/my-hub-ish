@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#? link scripts folder to `/home` user folder for easy use;
-#? arguments:
-#?  - folder name to create in user home folder;
+#++ link scripts folder to `/home` user folder for easy use;
+#++ arguments:
+#++  - folder name to create in user home folder;
 
 if [ $# -ne 1 ] ; then echo -e "\033[0;33m requires one argument: folder name to create in $HOME \033[0m"; exit 1; fi
 
