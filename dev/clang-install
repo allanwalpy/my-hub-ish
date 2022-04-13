@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+#? installs clang, llvm, tools etc.
+#? arguments:
+#?  - lang verison;
+
+# * see also https://apt.llvm.org/llvm.sh
+
+if [ $# -ne 1 ] ; then echo -e "\033[0;33m requires one argument: clang version \033[0m"; exit 1; fi
+
+wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+sudo touch /etc/apt/sources.list.d/clang.list
+echo "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-$1 main" | sudo tee -a /etc/apt/sources.list.d/clang.list >/dev/null
+echo "# deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-$1 main" | sudo tee -a /etc/apt/sources.list.d/clang.list >/dev/null
+sudo apt update
+sudo apt install llvm-$1 clang-$1 clang-tools-$1 clang-format-$1 clang-tidy-$1 lldb-$1 lld-$1
