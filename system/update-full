@@ -2,5 +2,6 @@
 
 #++ manages ubuntu distribution upgrade as well as usual upgrades;
 
-./system/update --hide-done && \
+script_directory=$(dirname "$(readlink -fm "$0")")
+$script_directory/update --hide-done && \
 echo -e "\n\n --- operation system --- \n\n" && sudo do-release-upgrade
