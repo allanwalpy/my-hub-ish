@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#++ switches vscode theme;
+
+# if [[ $# == 1 && $1 == "clear" ]]
+# then
+#     rm file=/home/allan_walpy/.config/Code/User/settings.json.*.bak
+# fi
+
+file=/home/allan_walpy/.config/Code/User/settings.json
+bakFile=/home/allan_walpy/.config/Code/User/settings.json.$(date +%s ).bak
+
+if [[ $# == 1 && ($1 == "off" || $1 == "light") ]]
+then
+    echo " --- seting light vscode theme ---"
+    theme="Default Light+"
+else
+    echo " --- setting dark vscode theme ---"
+    theme="Default Dark+"
+fi
+
+cp $file $bakFile &&
+cat $bakFile | jq '."workbench.colorTheme"=$value' --arg value "$theme" --indent 4 > $file ||
+    mv $bakFile $file
