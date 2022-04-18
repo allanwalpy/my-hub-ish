@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#++ changes `xubuntu` apperance to darker;
+
+if [[ $# == 1 && ($1 == "off" || $1 == "light") ]]; then
+    echo " --- activating light theme ---" &&
+    xfconf-query -c xsettings -p "/Net/ThemeName" -s "Ant-Nebula" &&
+    xfconf-query -c xsettings -p "/Net/IconThemeName" -s "Numix-Circle" &&
+    xfconf-query -c xsettings -p "/Gtk/CursorThemeName" -s "volantes_cursors" &&
+    xfconf-query -c xfwm4 -p "/general/theme" -s "Ant-Nebula" &&
+    echo " --- done ---" && exit 0 || (echo " --- failed ---" && exit 1)
+fi
+
+echo " --- activating dark theme ---" &&
+xfconf-query -c xsettings -p "/Net/ThemeName" -s "Dracula" &&
+xfconf-query -c xsettings -p "/Net/IconThemeName" -s "Numix-Circle" &&
+xfconf-query -c xsettings -p "/Gtk/CursorThemeName" -s "volantes_light_cursors" &&
+xfconf-query -c xfwm4 -p "/general/theme" -s "Dracula" &&
+echo " --- done ---" && exit 0 || (echo " --- failed ---" && exit 1)
