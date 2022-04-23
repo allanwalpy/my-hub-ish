@@ -14,7 +14,7 @@ ubuntu_codename=$(lsb_release --codename --short)
 $script_directory/../system/apt-key-add https://apt.llvm.org/llvm-snapshot.gpg.key clang.gpg
 
 sudo touch /etc/apt/sources.list.d/clang.list
-echo "deb http://apt.llvm.org/$ubuntu_codename/ llvm-toolchain-$ubuntu_codename-$1 main" | sudo tee -a /etc/apt/sources.list.d/clang.list >/dev/null
-echo "# deb-src http://apt.llvm.org/$ubuntu_codename/ llvm-toolchain-$ubuntu_codename-$1 main" | sudo tee -a /etc/apt/sources.list.d/clang.list >/dev/null
+echo "deb [signed-by=/usr/share/keyrings/clang.gpg] http://apt.llvm.org/$ubuntu_codename/ llvm-toolchain-$ubuntu_codename-$1 main" | sudo tee -a /etc/apt/sources.list.d/clang.list >/dev/null
+echo "# deb-src [signed-by=/usr/share/keyrings/clang.gpg] http://apt.llvm.org/$ubuntu_codename/ llvm-toolchain-$ubuntu_codename-$1 main" | sudo tee -a /etc/apt/sources.list.d/clang.list >/dev/null
 sudo apt update
 sudo apt install clang-$1 llvm-$1 llvm-$1-dev llvm-$1-tools clangd-$1 clang-tools-$1 clang-format-$1 clang-tidy-$1 lldb-$1 lld-$1 libomp-$1-dev libc++-$1-dev libc++abi-$1-dev libclang-common-$1-dev libclang-$1-dev libclang-cpp$1-dev libunwind-$1-dev
