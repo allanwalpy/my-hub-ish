@@ -10,3 +10,8 @@
 
 # configs
 .vscode
+
+# build files
+bin/
+obj/
+out/
