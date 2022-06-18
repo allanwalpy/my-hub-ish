@@ -5,54 +5,86 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700');
 
-    .frame {
-        border-width: 1px;
-        border-style: solid;
-        border-color: #f00;
-    }
-
     .numbers {
         font-family: "Roboto Mono", monospace;
         font-size: 42px;
         font-weight: 300;
     }
+
+    .label {
+        font-family: "Roboto Mono", monospace;
+        font-size: 32px;
+        font-weight: 300;
+    }
+
+    .button {
+        font-family: "Roboto Mono", monospace;
+        font-size: 42px;
+        font-weight: 800;
+    }
+
+    .message {
+        font-family: "Roboto Mono", monospace;
+        font-size: 18px;
+        font-weight: 300;
+    }
 </style>
-
-<g id="platform_frames" opacity="1">
-
-</g>
 
 <g id="image_main" opacity="1">
     <rect id="background" fill="#444"
         x="0" y="0" width="100%" height="100%" />
 
-    <g id="numbers">
+    <g id="numbers" opacity="1">
 
-        <text id="numers_line_0" class="numbers" fill="#4f4" x="-5" y="34">3a73797374656d3b6d6573736167653b73746172742f73797374656d3b6d</text>
+        <text id="numers_line_0" class="numbers" fill="#4d4" x="-5" y="34">3a73797374656d3b6d6573736167653b73746172742f73797374656d3b6d</text>
 
-        <text id="numers_line_1" class="numbers" fill="#4f4" x="-5" y="76">6573736167653b6d657461646174613b757365725f66726f6d3b616c6c61</text>
+        <text id="numers_line_1" class="numbers" fill="#4d4" x="-5" y="76">6573736167653b6d657461646174613b757365725f66726f6d3b616c6c61</text>
 
-        <text id="numers_line_2" class="numbers" fill="#4f4" x="-5" y="118">6e5f77616c70792f73797374656d3b6d6573736167653b6d657461646174</text>
+        <text id="numers_line_2" class="numbers" fill="#4d4" x="-5" y="118">6e5f77616c70792f73797374656d3b6d6573736167653b6d657461646174</text>
 
-        <text id="numers_line_3" class="numbers" fill="#4f4" x="-5" y="160">613b656e746974795f746f3b7075626c69632f6561745f7468655f726963</text>
+        <text id="numers_line_3" class="numbers" fill="#4d4" x="-5" y="160">613b656e746974795f746f3b7075626c69632f6561745f7468655f726963</text>
 
-        <text id="numers_line_4" class="numbers" fill="#4f4" x="-5" y="202">683b61626f6c6973685f6361706974616c69736d3b656e645f6661736369</text>
+        <text id="numers_line_4" class="numbers" fill="#4d4" x="-5" y="202">683b61626f6c6973685f6361706974616c69736d3b656e645f6661736369</text>
 
-        <text id="numers_line_5" class="numbers" fill="#4f4" x="-5" y="244">736d2f7768617469665f69646561735f636f756c647468696e6b5f666f72</text>
+        <text id="numers_line_5" class="numbers" fill="#4d4" x="-5" y="244">736d2f7768617469665f69646561735f636f756c647468696e6b5f666f72</text>
 
-        <text id="numers_line_6" class="numbers" fill="#4f4" x="-5" y="286">7468656d73656c7665733b7768617469665f647265616d735f6e6f6c6f6e</text>
+        <text id="numers_line_6" class="numbers" fill="#4d4" x="-5" y="286">7468656d73656c7665733b7768617469665f647265616d735f6e6f6c6f6e</text>
 
-        <text id="numers_line_7" class="numbers" fill="#4f4" x="-5" y="328">6765725f6e65656465656475733b7768656e5f74686574696d6577696c6c</text>
+        <text id="numers_line_7" class="numbers" fill="#4d4" x="-5" y="328">6765725f6e65656465656475733b7768656e5f74686574696d6577696c6c</text>
 
-        <text id="numers_line_8" class="numbers" fill="#4f4" x="-5" y="370">62655f75706f6e75733b74686574696d655f6f665f746865616e676c6573</text>
+        <text id="numers_line_8" class="numbers" fill="#4d4" x="-5" y="370">62655f75706f6e75733b74686574696d655f6f665f746865616e676c6573</text>
 
-        <text id="numers_line_9" class="numbers" fill="#4f4" x="-5" y="412">2f646f6e7474656c6c5f7468656f74686572735f746865796c6c5f6f6e6c</text>
+        <text id="numers_line_9" class="numbers" fill="#4d4" x="-5" y="412">2f646f6e7474656c6c5f7468656f74686572735f746865796c6c5f6f6e6c</text>
 
-        <text id="numers_line_10" class="numbers" fill="#4f4" x="-5" y="454">796c617567683b695f63616e747468696e6b3b695f646f6e746b6e6f773b</text>
+        <text id="numers_line_10" class="numbers" fill="#4d4" x="-5" y="454">796c617567683b695f63616e747468696e6b3b695f646f6e746b6e6f773b</text>
 
-        <text id="numers_line_11" class="numbers" fill="#4f4" x="-5" y="496">693b696365637265616d2f73797374656d3b6d6573736167653b656e643a</text>
+        <text id="numers_line_11" class="numbers" fill="#4d4" x="-5" y="496">693b696365637265616d2f73797374656d3b6d6573736167653b656e643a</text>
 
     </g>
+
+    <g id="notification" opacity="0.9">
+
+        <rect id="window"
+            x="300" y="200" width="900" height="80"
+            fill="#eee" rx="10"
+        />
+
+        <text id="window_label" class="label"
+            x="316" y="232"
+        >system://parser --type warning</text>
+
+        <circle id="window_button"
+            cx="1200" cy="240" r="32"
+            fill="#d44"
+        />
+        <text class="button"
+            x="1186" y="252"
+            fill="#fff"
+            >x</text>
+
+        <text class="message"
+            x="316" y="264"
+            >::/unrecognized_formatof_incomingmessage;switchingto_rawoutput;/::</text>
 </g>
 
 </svg>
