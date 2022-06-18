@@ -1,6 +1,7 @@
-const String file_output_txt = "output.hide.txt";
-const String file_output_svg = "output.hide.svg.txt";
-const int output_length = 64;
+const int output_length = 60;
+const char leading_zero = '0';
+const byte output_base = 16;
+const int symbol_length_default = 2;
 
 if (args.Length < 1)
 {
@@ -10,10 +11,19 @@ if (args.Length < 1)
 String input = args[0];
 
 var output_raw = "";
+var current_symbol = "";
+var char_length = 0;
 
 for (int i = 0; i < input.Length; i++)
 {
-    output_raw += Convert.ToString((byte)input[i], toBase: 2).ToString();
+    current_symbol = Convert.ToString((byte)input[i], toBase: output_base).ToString();
+    char_length = current_symbol.Length;
+    for (int j = char_length; j < symbol_length_default; j++)
+    {
+        current_symbol = leading_zero + current_symbol;
+    }
+
+    output_raw += current_symbol;
 }
 
 Console.WriteLine(output_raw);
@@ -32,7 +42,7 @@ for (int i = 0; i < raws_count; i++)
 
     output_svg += "\n"
         + $"<text id=\"numers_line_{i}\" class=\"numbers\" fill=\"#fff\" "
-        + $"x=\"-7\" y=\"{42 * (i + 1) - 24}\""
+        + $"x=\"-5\" y=\"{42 * (i + 1) - 8}\""
         + $">{output_raw.Substring(i * output_length, substring_length)}</text>"
         + "\n"
     ;
