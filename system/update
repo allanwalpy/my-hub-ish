@@ -6,6 +6,7 @@
 #++ - autoremove unused poackages;
 #++ - remove resudential package configs;
 #++ - [if installed] snap packages refresh;
+#++ - [if installed] flatpak packages update;
 
 echo -e "\n\n --- update --  -- -- --- \n\n" && sudo apt update && \
 echo -e "\n\n --- upgrade -- -- -- --- \n\n" && sudo apt upgrade && \
@@ -13,4 +14,7 @@ echo -e "\n\n --- full-upgrade  -- --- \n\n" && sudo apt full-upgrade && \
 echo -e "\n\n --- auto-remove   -- --- \n\n" && sudo apt autoremove && \
 echo -e "\n\n --- purge   -- -- -- --- \n\n" && sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1) && \
 (command -v snap &> /dev/null && echo -e "\n\n --- snap -- -- -- -- --- \n\n" && sudo snap refresh || true) && \
+(command -v flatpak &> /dev/null && echo -e "\n\n --- flatpak -- -- -- --- \n\n" && sudo flatpak update || true) && \
 [[ $1 != "--hide-done" ]] && echo -e "\n\n --- done -- -- -- -- --- \n\n" || true
+
+#-- use `sudo apt -o APT::Get::Always-Include-Phased-Updates=true for disabling phased updates upgrade`;
