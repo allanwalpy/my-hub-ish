@@ -5,6 +5,7 @@
 #++ - update packages;
 #++ - autoremove unused poackages;
 #++ - remove resudential package configs;
+#++ - remove non-relevant downloaded apckages;
 #++ - [if installed] snap packages refresh;
 #++ - [if installed] flatpak packages update;
 #++ - [if installed] gnome-shell extensions update;
@@ -14,6 +15,7 @@ echo -e "\n\n --- upgrade -- -- -- --- \n\n" && sudo apt upgrade && \
 echo -e "\n\n --- full-upgrade  -- --- \n\n" && sudo apt full-upgrade && \
 echo -e "\n\n --- auto-remove   -- --- \n\n" && sudo apt autoremove && \
 echo -e "\n\n --- purge   -- -- -- --- \n\n" && sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1) && \
+echo -e "\n\n --- auto-clean    -- --- \n\n" && sudo apt autoclean && \
 (command -v snap &> /dev/null && echo -e "\n\n --- snap -- -- -- -- --- \n\n" && sudo snap refresh || true) && \
 (command -v flatpak &> /dev/null && echo -e "\n\n --- flatpak -- -- -- --- \n\n" && sudo flatpak update || true) && \
 [[ $1 != "--hide-done" ]] && echo -e "\n\n --- done -- -- -- -- --- \n\n" || true
