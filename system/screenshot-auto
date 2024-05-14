@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#++ saves screenshot to `~/Pictures/Screenshot/auto` folder;
+#++  - argument passed to `xfce4-screenshooter`, if specified have to contain either `full`, `window` or `region`; `full` on default or if specified incorrectly;
+
+
+arg="-f"
+if [[ $# -ge 1 ]]; then
+    if [[ $1 == "window" ]]; then
+        arg="-w"
+    fi
+    if [[ $1 == "region" ]]; then
+        arg="-r"
+    fi
+fi
+
+timestamp=$(date +%F_%H-%M-%S_%N)
+
+xfce4-screenshooter $arg -s ~/Pictures/Screenshots/auto/screenshot-$timestamp$arg.png
