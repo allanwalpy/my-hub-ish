@@ -8,7 +8,9 @@
 #++ - remove non-relevant downloaded apckages;
 #++ - [if installed] snap packages refresh;
 #++ - [if installed] flatpak packages update;
-#++ - [if installed] gnome-shell extensions update;
+
+script_directory=$(dirname "$(readlink -fm "$0")")
+non_package_manager_directory="$HOME/app/system"
 
 echo -e "\n\n --- update --  -- -- --- \n\n" && sudo apt update && \
 echo -e "\n\n --- upgrade -- -- -- --- \n\n" && sudo apt upgrade && \
@@ -17,7 +19,9 @@ echo -e "\n\n --- auto-remove   -- --- \n\n" && sudo apt autoremove && \
 echo -e "\n\n --- purge   -- -- -- --- \n\n" && sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1) && \
 echo -e "\n\n --- auto-clean    -- --- \n\n" && sudo apt autoclean && \
 (command -v snap &> /dev/null && echo -e "\n\n --- snap -- -- -- -- --- \n\n" && sudo snap refresh || true) && \
-(command -v flatpak &> /dev/null && echo -e "\n\n --- flatpak -- -- -- --- \n\n" && sudo flatpak update || true) && \
+(command -v flatpak &> /dev/null && echo -e "\n\n --- flatpak -- -- -- --- \n\n" && flatpak update || true) && \
+echo -e "\n\n --- non-package-manager update --- \n\n" && \
+( [ -f "$non_package_manager_directory/xpadneo/update" ] && echo -e " --- :// --- xbox controller driver \`xpadneo\` --- \n\n" && cd "$non_package_manager_directory/xpadneo" && "./update" || cd $script_directory ) && \
 [[ $1 != "--hide-done" ]] && echo -e "\n\n --- done -- -- -- -- --- \n\n" || true
 
 #-- use `sudo apt -o APT::Get::Always-Include-Phased-Updates=true for disabling phased updates upgrade`;
