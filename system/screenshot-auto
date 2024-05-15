@@ -3,8 +3,6 @@
 #++ saves screenshot to `$HOME/Pictures/Screenshot/auto` folder and showing notification with process;
 #++  - screenshot type, if specified have to contain either `full`, `window` or `region`; `full` on default or if specified incorrectly;
 
-notification_id=$(notify-send -p -u low -c im -a Screenshot -i accessories-screenshot -h string:desktop-entry:xfce4-screenshooter "screenshot" "... ::// processing //:: ...")
-
 arg="-f"
 if [[ $# -ge 1 ]]; then
     if [[ $1 == "window" ]]; then
@@ -22,8 +20,8 @@ filename="$HOME/Pictures/Screenshots/auto/screenshot-$timestamp$arg.png"
 command=""
 
 xfce4-screenshooter $arg -s $filename && \
-command=$(notify-send -r $notification_id -t 5000 -i $filename -A "i"=image -A "f"=folder "screenshot" "... __:: success ::__ ...") || \
-notify-send -r $notification_id -t 10000 -i dialog-warning "screenshot" "... ::|| failure ||:: ..."
+command=$(notify-send -u low -c im -a Screenshot -h string:desktop-entry:xfce4-screenshooter -t 5000 -i $filename -A "i"=image -A "f"=folder "screenshot" "... __:: success ::__ ...") || \
+notify-send -u low -c im -a Screenshot -h string:desktop-entry:xfce4-screenshooter -t 10000 -i dialog-warning "screenshot" "... ::|| failure ||:: ..."
 
 if [[ $command == "i" ]]; then
     shotwell $filename
