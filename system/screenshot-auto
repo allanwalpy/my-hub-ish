@@ -1,8 +1,9 @@
 #!/bin/bash
 
-#++ saves screenshot to `~/Pictures/Screenshot/auto` folder;
-#++  - argument passed to `xfce4-screenshooter`, if specified have to contain either `full`, `window` or `region`; `full` on default or if specified incorrectly;
+#++ saves screenshot to `$HOME/Pictures/Screenshot/auto` folder and showing notification with process;
+#++  - screenshot type, if specified have to contain either `full`, `window` or `region`; `full` on default or if specified incorrectly;
 
+notification_id=$(notify-send -p -u low -c im -a Screenshot -i accessories-screenshot -h string:desktop-entry:xfce4-screenshooter "screenshot" "... ::// processing //:: ...")
 
 arg="-f"
 if [[ $# -ge 1 ]]; then
@@ -16,4 +17,18 @@ fi
 
 timestamp=$(date +%F_%H-%M-%S_%N)
 
-xfce4-screenshooter $arg -s ~/Pictures/Screenshots/auto/screenshot-$timestamp$arg.png
+filename="$HOME/Pictures/Screenshots/auto/screenshot-$timestamp$arg.png"
+
+command=""
+
+xfce4-screenshooter $arg -s $filename && \
+command=$(notify-send -r $notification_id -t 5000 -i $filename -A "i"=image -A "f"=folder "screenshot" "... __:: success ::__ ...") || \
+notify-send -r $notification_id -t 10000 -i dialog-warning "screenshot" "... ::|| failure ||:: ..."
+
+if [[ $command == "i" ]]; then
+    shotwell $filename
+fi
+
+if [[ $command == "f" ]]; then
+    nemo $filename
+fi
