@@ -4,18 +4,22 @@
 #++  - screenshot type, if specified have to contain either `full`, `window` or `region`; `full` on default or if specified incorrectly;
 
 arg="-f"
+postfix="fullscreen"
 if [[ $# -ge 1 ]]; then
     if [[ $1 == "window" ]]; then
         arg="-w"
+        postfix="window"
     fi
     if [[ $1 == "region" ]]; then
         arg="-r"
+        postfix="region"
     fi
 fi
 
 timestamp=$(date +%F_%H-%M-%S_%N)
+sub_folder=$(date +%Y_%m)
 
-filename="$HOME/Pictures/Screenshots/auto/screenshot-$timestamp$arg.png"
+filename="$HOME/Pictures/Screenshots/$sub_folder/screenshot-$timestamp-$postfix.png"
 
 command=""
 
