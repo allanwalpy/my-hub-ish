@@ -28,7 +28,7 @@ command=$(notify-send -u low -c im -a Screenshot -h string:desktop-entry:xfce4-s
 notify-send -u low -c im -a Screenshot -h string:desktop-entry:xfce4-screenshooter -t 10000 -i dialog-warning "screenshot" "... ::|| failure ||:: ..."
 
 if [[ $command == "i" ]]; then
-    shotwell $filename
+    eog $filename
 fi
 
 if [[ $command == "f" ]]; then
