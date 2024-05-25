@@ -7,7 +7,7 @@
 #++ - remove resudential package configs;
 #++ - remove non-relevant downloaded apckages;
 #++ - [if installed] snap packages refresh;
-#++ - [if installed] flatpak packages update;
+#++ - [if installed] flatpak packages update & auto-remove;
 
 script_directory=$(dirname "$(readlink -fm "$0")")
 non_package_manager_directory="$HOME/app/system"
@@ -19,5 +19,6 @@ echo -e "\n\n --- apt auto-remove - --- \n\n" && sudo apt autoremove && \
 echo -e "\n\n --- apt purge - -- -- --- \n\n" && sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1) && \
 echo -e "\n\n --- apt auto-clean -- --- \n\n" && sudo apt autoclean && \
 (command -v snap &> /dev/null && echo -e "\n\n --- snap update -- -- --- \n\n" && sudo snap refresh || true) && \
-(command -v flatpak &> /dev/null && echo -e "\n\n --- flatpak update -- --- \n\n" && flatpak update || true) && \
+(command -v flatpak &> /dev/null && echo -e "\n\n --- flatpak update -- --- \n\n" && flatpak update || \
+    echo -e "\n\n --- flatpak auto-remove -- --- \n\n" && flatpak uninstall --unused || true) && \
 [[ $1 != "--hide-done" ]] && echo -e "\n\n --- done -- -- -- -- --- \n\n" || true
