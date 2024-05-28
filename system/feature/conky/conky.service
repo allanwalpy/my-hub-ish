@@ -7,7 +7,8 @@ Type=simple
 WorkingDirectory=/home/walpy/script/system/feature/conky/
 ExecStart=/bin/bash /home/walpy/script/system/feature/conky/start
 SyslogIdentifier="conky-daemon"
-Restart=never
+Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=default.target
