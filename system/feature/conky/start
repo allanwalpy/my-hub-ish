@@ -5,7 +5,6 @@ script_directory=$(dirname "$(readlink -fm "$0")")
 sleep 5
 
 conky -c $script_directory/left_up_0.conf & \
-conky -c $script_directory/left_up_1.conf & \
 conky -c $script_directory/left_bottom.conf & \
 conky -c $script_directory/right_up_0.conf & \
 conky -c $script_directory/right_bottom_0.conf
