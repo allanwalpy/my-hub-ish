@@ -1,11 +1,11 @@
 [Unit]
-Description=Conky
+Description=Conky %I
 After=network.target
 
 [Service]
 Type=simple
 WorkingDirectory=/home/walpy/script/system/feature/conky/
-ExecStart=/bin/bash /home/walpy/script/system/feature/conky/start
+ExecStart=/bin/bash /home/walpy/script/system/feature/conky/start %i
 SyslogIdentifier="conky-daemon"
 Restart=always
 RestartSec=5
