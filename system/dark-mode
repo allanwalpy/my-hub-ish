@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#++ changes `xubuntu` apperance to darker;
+# ? changes `xubuntu` apperance to darker;
 
 script_directory=$(dirname "$(readlink -fm "$0")")
 

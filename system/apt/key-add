@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#++ alternative to `apt-key add`;
-#++ arguments:
-#++  - url link to `*.gpg.key` file;
-#++  - output filename at `/usr/share/keyrings/` folder;
+# ? alternative to `apt-key add`;
+# ? arguments:
+# ?  - url link to `*.gpg.key` file;
+# ?  - output filename at `/usr/share/keyrings/` folder;
 
 if [ $# -ne 2 ] ; then echo -e "\033[0;33m requires two arguments: link to key and output filename \033[0m"; exit 1; fi
 

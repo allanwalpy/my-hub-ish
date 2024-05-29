@@ -1,13 +1,13 @@
 #!/bin/bash
 
-#++ manages apt packages, updates snap packages;
-#++ - update ppa's and others;
-#++ - update packages;
-#++ - autoremove unused poackages;
-#++ - remove resudential package configs;
-#++ - remove non-relevant downloaded apckages;
-#++ - [if installed] snap packages refresh;
-#++ - [if installed] flatpak packages update & auto-remove;
+# ? manages apt packages, updates snap packages;
+# ? - update ppa's and others;
+# ? - update packages;
+# ? - autoremove unused poackages;
+# ? - remove resudential package configs;
+# ? - remove non-relevant downloaded apckages;
+# ? - [if installed] snap packages refresh;
+# ? - [if installed] flatpak packages update & auto-remove;
 
 script_directory=$(dirname "$(readlink -fm "$0")")
 non_package_manager_directory="$HOME/app/system"

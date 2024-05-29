@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#++ manages ubuntu distribution upgrade as well as usual upgrades;
+# ? manages ubuntu distribution upgrade as well as usual upgrades;
 
 script_directory=$(dirname "$(readlink -fm "$0")")
 $script_directory/update --hide-done && \

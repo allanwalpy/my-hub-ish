@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#++ saves screenshot to `$HOME/Pictures/Screenshot/%Year%_%Month%/` folder and showing notification with process;
-#++  - screenshot type, if specified have to contain either `full`, `window` or `region`; `full` on default or if specified incorrectly;
+# ? saves screenshot to `$HOME/Pictures/Screenshot/%Year%_%Month%/` folder and showing notification with process;
+# ?  - screenshot type, if specified have to contain either `full`, `window` or `region`; `full` on default or if specified incorrectly;
 
 arg="-f"
 postfix="fullscreen"

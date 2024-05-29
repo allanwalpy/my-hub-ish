@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#++ updates splash screen on ubuntu; (plymouth theme);
+# ? updates splash screen on ubuntu; (plymouth theme);
 
 sudo update-alternatives --config default.plymouth
 
