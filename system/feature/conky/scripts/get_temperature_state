@@ -1,0 +1,17 @@
+#!/bin/bash
+
+value=$(~/script/system/feature/conky/scripts/get_temperature_value $1)
+
+if [[ $value -ge 90 ]]; then
+    status="critical"
+elif [[ $value -ge 70 ]]; then
+    status="hot"
+elif [[ $value -ge 40 ]]; then
+    status="warm"
+elif [[ $value -ge 20 ]]; then
+    status="norm"
+else
+    status="cold"
+fi
+
+echo $status
