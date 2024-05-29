@@ -1,9 +1,5 @@
 #!/bin/bash
 
-if [ $1 = "cpu" ]; then
-    id="3"
-else
-    id="1"
-fi
+id="1"
 
 cat /sys/class/hwmon/hwmon$id/temp1_input | sed 's/.\{3\}$//'

@@ -18,7 +18,7 @@ ICON_13=""
 ICON_50=""
 NO_DATA=""
 
-WEATHER_ICON=$(cat ~/.cache/weather.json | jq -r '.weather[0].icon')
+WEATHER_ICON=$(~/script/system/feature/conky/scripts/get_weather_state)
 
 if [[ "${WEATHER_ICON}" = *01d* ]]; then
     echo "${ICON_01D}"
