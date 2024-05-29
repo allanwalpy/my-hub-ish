@@ -1,10 +1,9 @@
 #!/bin/bash
 
 if [ $1 = "cpu" ]; then
-    raw_temp=$(cat /sys/class/hwmon/hwmon4/temp1_input)
+    id="4"
 else
-    raw_temp=$(cat /sys/class/hwmon/hwmon1/temp1_input)
+    id="1"
 fi
 
-scale=1000
-expr $raw_temp / $scale
+cat /sys/class/hwmon/hwmon$id/temp1_input | sed 's/.\{3\}$//'
