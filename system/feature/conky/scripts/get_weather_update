@@ -23,8 +23,23 @@ function get_file_age() {
     fi
 }
 
+function get_info_secret() {
+    ~/script/system/feature/conky/scripts/get_weather.secret $1
+}
+
+function get_request_uri() {
+    echo "https://www.meteosource.com/api/v1/free/point?place_id=$3&sections=$1&language=en&units=metric&key=$2"
+}
+
 function update_report() {
     ~/script/system/feature/conky/scripts/get_weather_report $1 $2
+
+    location=$(get_info_secret "location")
+    key=$(get_info_secret "key")
+
+    uri=$(get_request_uri $1 $key $location)
+
+    curl -X 'GET' $uri -H 'accept: application/json' -s -o $2
 }
 
 function update_on_need() {
