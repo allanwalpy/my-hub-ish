@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cat ~/.cache/weather.json | jq -r '.weather[0].icon'
