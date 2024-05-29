@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $1 = "cpu" ]; then
+    raw_temp=$(cat /sys/class/hwmon/hwmon4/temp1_input)
+else
+    raw_temp=$(cat /sys/class/hwmon/hwmon1/temp1_input)
+fi
+
+scale=1000
+expr $raw_temp / $scale
