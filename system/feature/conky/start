@@ -2,6 +2,4 @@
 
 script_directory=$(dirname "$(readlink -fm "$0")")
 
-sleep 3
-
-conky -c $script_directory/$1.conf
+conky -X :0 -p 2 -c $script_directory/$1.conf
