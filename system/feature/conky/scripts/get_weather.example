@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# ? copy this script to `get_weather.secret` and fill the feilds
+
+if [ $1 = "key" ]; then
+    echo "api key for https://www.meteosource.com"
+elif [ $1 = "location" ]; then
+    echo "location [place id] for https://www.meteosource.com"
+fi

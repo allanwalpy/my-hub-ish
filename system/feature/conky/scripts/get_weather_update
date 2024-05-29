@@ -1,24 +1,54 @@
 #!/bin/bash
 
-# v2.0 Closebox73
-# This script is to get weather data from openweathermap.com in the form of a json file
-# so that conky will still display the weather when offline even though it doesn't up to date
+maximum_update_interval=100000
+current_update_interval=600
 
-# Variables
-# get your city id at https://openweathermap.org/find and replace
-city_id=1528675
+time_now=$(date +%s)
 
-# replace with yours
-api_key=e46d6b1c945f2e9983f0735f8928ea2f
+function get_filename() {
+    echo ~/.cache/weather.$1.json
+}
 
-# choose between metric for Celcius or imperial for fahrenheit
-unit=metric
+current_filename=$(get_filename current)
+hourly_filename=$(get_filename hourly)
+daily_filename=$(get_filename daily)
 
-# i'm not sure it will support all languange, 
-lang=en
+function get_file_age() {
+    if [ ! -f $1 ]; then
+        touch $1
+        echo $maximum_update_interval
+    else
+        modification_time=$(date -r $1 +%s)
+        echo $(($time_now - $modification_time))
+    fi
+}
 
-# Main command
-url="api.openweathermap.org/data/2.5/weather?id=${city_id}&appid=${api_key}&cnt=5&units=${unit}&lang=${lang}"
-curl ${url} -s -o ~/.cache/weather.json
+function update_report() {
+    ~/script/system/feature/conky/scripts/get_weather_report $1 $2
+}
 
-exit
+function update_on_need() {
+    if [[ $(get_file_age $2) -ge $3 ]]; then
+        echo $(update_report $1 $2)
+    fi
+}
+
+function update_current_on_need() {
+    echo $(update_on_need current $current_filename $current_update_interval)
+}
+
+function update_hourly_on_need() {
+    minutes_since_hour=$(date +%M)
+    max_age=$(($int($minutes_since_hour) * 60))
+    echo $(update_on_need hourly $hourly_filename $max_age)
+}
+
+function update_daily_on_need() {
+    hours_since_day=$(date +%H)
+    max_age=$(($int($hours_since_day) * 60 * 60))
+    echo $(update_on_need daily $daily_filename $max_age)
+}
+
+echo $(update_current_on_need)
+echo $(update_hourly_on_need)
+echo $(update_daily_on_need)
