@@ -1,6 +1,6 @@
 #!/bin/bash
 
-value=$(~/script/system/feature/conky/scripts/get_temperature_value)
+value=$(~/script/system/feature/conky/temperature_value)
 
 if [[ $value -ge 90 ]]; then
     status="critical"
