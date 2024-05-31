@@ -1,0 +1,77 @@
+#!/bin/bash
+
+# ? script intended to be used by `xfce4-genmon-plugin`
+# ? based on https://github.com/bimlas/xfce4-night-mode
+
+config="nightmode"
+
+echo "<txt>test<span size="xx-large">&#x262F;</span></txt>"
+echo "<txtclick>$0 toggle</txtclick>"
+echo "<tool>nigth mode toggler with config in \`xfce-settings-editor\` section \`$config\`</tool>"
+
+if [[ $1 != "toggle" ]]; then
+    echo "none"
+    exit
+fi
+
+function get_any_config() {
+    echo $(xfconf-query --channel $1 --property $2 2> /dev/null)
+}
+
+function get_config() {
+    echo $(get_any_config $config $1)
+}
+
+function set_new_config() {
+    xfconf-query --create --channel $config --property $1 --type $2 --set $3
+    echo $3
+}
+
+function set_any_config() {
+    xfconf-query --channel $1 --property $2 --set $3
+}
+
+function get_config_default() {
+    value=$(get_config $1)
+    if [ -z $value ] ; then
+        value=$(set_new_config $1 $2 $3)
+    fi
+    echo $value
+}
+
+ck_mode_current="/current"
+ck_gtk="/gtk"
+ck_xfwm="/xfwm"
+ck_icon="/icon"
+ck_cursor="/cursor"
+
+mode=$(get_config_default $ck_mode_current "string" "one")
+case $mode in
+    one)
+        mode="two"
+        ;;
+    two)
+        mode="one"
+        ;;
+    *)
+        echo "incorrect mode \`$mode\` is set"
+        exit 1
+esac
+
+gtk=$(get_config_default "/$mode$ck_gtk" "string" $(get_any_config "xsettings" "/Net/ThemeName"))
+xfwm=$(get_config_default "/$mode$ck_xfwm" "string" $(get_any_config "xfwm4" "/general/theme"))
+icon=$(get_config_default "/$mode$ck_icon" "string" $(get_any_config "xsettings" "/Net/IconThemeName"))
+cursor=$(get_config_default "/$mode$ck_cursor" "string" $(get_any_config "xsettings" "/Gtk/CursorThemeName"))
+
+set_any_config "xsettings" "/Net/ThemeName" $gtk
+gsettings set org.gnome.desktop.interface gtk-theme $gtk
+
+set_any_config "xfwm4" "/general/theme" $xfwm
+
+set_any_config "xsettings" "/Net/IconThemeName" $icon
+
+set_any_config "xsettings" "/Gtk/CursorThemeName" $cursor
+
+set_any_config $config $ck_mode_current $mode
+
+exit
