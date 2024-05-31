@@ -5,14 +5,9 @@
 
 config="nightmode"
 
-echo "<txt>test<span size="xx-large">&#x262F;</span></txt>"
-echo "<txtclick>$0 toggle</txtclick>"
+echo "<iconclick>$0 toggle</iconclick>"
 echo "<tool>nigth mode toggler with config in \`xfce-settings-editor\` section \`$config\`</tool>"
 
-if [[ $1 != "toggle" ]]; then
-    echo "none"
-    exit
-fi
 
 function get_any_config() {
     echo $(xfconf-query --channel $1 --property $2 2> /dev/null)
@@ -48,15 +43,23 @@ ck_cursor="/cursor"
 mode=$(get_config_default $ck_mode_current "string" "one")
 case $mode in
     one)
+        echo "<icon>weather-clear-small</icon>"
         mode="two"
         ;;
     two)
+        echo "<icon>weather-clear-night-small</icon>"
         mode="one"
         ;;
     *)
         echo "incorrect mode \`$mode\` is set"
         exit 1
 esac
+
+if [[ $1 != "toggle" ]]; then
+    exit
+fi
+
+xfce4-panel --plugin-event=genmon-3:refresh:bool:true
 
 gtk=$(get_config_default "/$mode$ck_gtk" "string" $(get_any_config "xsettings" "/Net/ThemeName"))
 xfwm=$(get_config_default "/$mode$ck_xfwm" "string" $(get_any_config "xfwm4" "/general/theme"))
