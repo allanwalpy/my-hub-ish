@@ -4,7 +4,7 @@
 
 script_folder=$(dirname "$(readlink -fm "$0")")
 
-sync_conf="-rlt"
+sync_conf="-rltv"
 
 system_folder_sources="/etc/apt/sources.list.d"
 system_file_sources="/etc/apt/sources.list"
@@ -37,3 +37,5 @@ else
     echo -e "\033[0;33m --- must specify action \`pull\` or \`push\` --- \033[0m"
     exit 1
 fi
+
+echo " --- done --- "
