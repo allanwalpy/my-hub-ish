@@ -22,7 +22,7 @@ sub_folder=$(date +%Y_%m)
 folder="$HOME/Pictures/Screenshots/$sub_folder"
 filename="$HOME/Pictures/Screenshots/$sub_folder/screenshot-$timestamp-$postfix.png"
 
-mkdir -p folder
+mkdir -p $folder
 
 command=""
 
