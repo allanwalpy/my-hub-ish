@@ -1,6 +1,9 @@
 #!/bin/bash
 
 # ? copy repository apt configuration to system folder `/etc/apt/` or other way around;
+# ? arguments:
+# ?  - action `pull` (from system to repo) or `push` (from `repo` to `system`);
+# ?  - [optional] arguments for `rsync` to pass (intended for `-n` argument for dry-run);
 
 script_folder=$(dirname "$(readlink -fm "$0")")
 
