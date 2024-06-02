@@ -2,24 +2,36 @@
 
 # ? copy repository apt configuration to system folder `/etc/apt/` or other way around;
 
+script_directory=$(dirname "$(readlink -fm "$0")")
+
 sync_conf="-rlt"
+
+system_folder_sources="/etc/apt/sources.list.d"
+system_file_sources="/etc/apt/sources.list"
+system_folder_preferences="/etc/apt/preferences.d"
+
+repo_folder_sources=$script_directory"/sources"
+repo_file_sources=$script_directory"/sources.list"
+repo_folder_preferences=$script_directory"/preferences"
+
 
 if [[ $1 == "pull" ]]; then
     echo " --- pulling apt configuration from system folder to repository --- "
     echo "     --- with \'$sync_conf\` args for rsync --- "
 
-    sudo rsync $sync_conf /etc/apt/sources.list.d sources
-    sudo rsync $sync_conf /etc/apt/sources.list sources.list
+    rsync $sync_conf $system_folder_sources/* $repo_folder_sources
+    rsync $sync_conf $system_file_sources $repo_file_sources
 
-    sudo rsync $sync_conf /etc/apt/preferences.d preferences
+    rsync $sync_conf $system_folder_preferences/* $repo_folder_preferences
 
 elif [[ $1 == "push" ]]; then
-    echo " --- pushing apt configuration from repository to system folder with $sync_conf args for rsync --- "
+    echo " --- pushing apt configuration from repository to system folder --- "
+    echo "     --- with \'$sync_conf\` args for rsync --- "
 
-    sudo rsync $sync_conf sources /etc/apt/sources.list.d
-    sudo rsync $sync_conf sources.list /etc/apt/sources.list
+    sudo rsync $sync_conf $repo_folder_sources/* $system_folder_sources
+    sudo rsync $sync_conf $repo_file_sources $system_file_sources
 
-    sudo rsync $sync_conf preferences /etc/apt/preferences.d
+    sudo rsync $sync_conf $repo_folder_preferences/* $system_folder_preferences
   
 else
     echo -e "\033[0;33m --- must specify action \`pull\` or \`push\` --- \033[0m"
