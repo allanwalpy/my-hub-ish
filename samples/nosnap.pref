@@ -1,7 +1,0 @@
-# prevent apt from installing snaps;
-# see for reference https://askubuntu.com/a/1345401 and https://linuxmint-user-guide.readthedocs.io/en/latest/snap.html ;
-# file location: /etc/apt/preferences.d/nosnap.pref ;
-
-Package: snapd
-Pin: release a=*
-Pin-Priority: -10

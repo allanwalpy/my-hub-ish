@@ -14,7 +14,7 @@
     <PropertyGroup>
         <AssemblyTitle>___Sample.Project</AssemblyTitle>
         <PackageId>___Sample.Project</PackageId>
-        <Version>0.1.0-alpha</Version>
+        <Version>__0.1.0-alpha</Version>
         <Authors>allan_walpy aka Andrey Lysenkov</Authors>
         <NeutralLanguage>en-US</NeutralLanguage>
         <Description>__description</Description>
