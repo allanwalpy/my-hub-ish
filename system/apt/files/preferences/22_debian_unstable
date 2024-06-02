@@ -1,0 +1,8 @@
+Package: *
+Pin: release a=unstable
+Pin-Priority: 2
+
+Package: *
+Pin: release a=sid
+Pin-Priority: 2
+

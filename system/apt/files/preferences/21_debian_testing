@@ -1,0 +1,8 @@
+Package: *
+Pin: release a=testing
+Pin-Priority: 3
+
+Package: *
+Pin: release a=trixie
+Pin-Priority: 3
+
