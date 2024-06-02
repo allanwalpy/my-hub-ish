@@ -1,5 +1,5 @@
 #!/bin/bash
 
-script_directory=$(dirname "$(readlink -fm "$0")")
+script_folder=$(dirname "$(readlink -fm "$0")")
 
-conky -X :0 -p 2 -c $script_directory/$1.conf
+conky -X :0 -p 2 -c $script_folder/$1.conf

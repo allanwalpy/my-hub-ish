@@ -2,7 +2,7 @@
 
 # ? manages ubuntu distribution upgrade as well as usual upgrades;
 
-script_directory=$(dirname "$(readlink -fm "$0")")
-$script_directory/update --hide-done && \
+script_folder=$(dirname "$(readlink -fm "$0")")
+$script_folder/update --hide-done && \
 echo -e "\n\n --- install os manger -- \n\n" && sudo apt install update-manager-core && \
 echo -e "\n\n --- operation system --- \n\n" && sudo do-release-upgrade --allow-third-party

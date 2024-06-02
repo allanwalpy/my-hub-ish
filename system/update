@@ -9,7 +9,7 @@
 # ? - [if installed] snap packages refresh;
 # ? - [if installed] flatpak packages update & auto-remove;
 
-script_directory=$(dirname "$(readlink -fm "$0")")
+script_folder=$(dirname "$(readlink -fm "$0")")
 non_package_manager_directory="$HOME/app/system"
 
 echo -e "\n\n --- apt update  -- -- --- \n\n" && sudo apt update && \
