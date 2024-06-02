@@ -19,7 +19,10 @@ fi
 timestamp=$(date +%F_%H-%M-%S_%N)
 sub_folder=$(date +%Y_%m)
 
+folder="$HOME/Pictures/Screenshots/$sub_folder"
 filename="$HOME/Pictures/Screenshots/$sub_folder/screenshot-$timestamp-$postfix.png"
+
+mkdir -p folder
 
 command=""
 
