@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# ? copy repository apt configuration to system folder `/etc/apt/` or other way around;
+
+sync_conf="-rlt"
+
+if [[ $1 == "pull" ]]; then
+    echo " --- pulling apt configuration from system folder to repository --- "
+    echo "     --- with \'$sync_conf\` args for rsync --- "
+
+    sudo rsync $sync_conf /etc/apt/sources.list.d sources
+    sudo rsync $sync_conf /etc/apt/sources.list sources.list
+
+    sudo rsync $sync_conf /etc/apt/preferences.d preferences
+
+elif [[ $1 == "push" ]]; then
+    echo " --- pushing apt configuration from repository to system folder with $sync_conf args for rsync --- "
+
+    sudo rsync $sync_conf sources /etc/apt/sources.list.d
+    sudo rsync $sync_conf sources.list /etc/apt/sources.list
+
+    sudo rsync $sync_conf preferences /etc/apt/preferences.d
+  
+else
+    echo -e "\033[0;33m --- must specify action \`pull\` or \`push\` --- \033[0m"
+    exit 1
+fi
