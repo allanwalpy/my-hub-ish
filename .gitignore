@@ -8,9 +8,6 @@
 *-secret
 *-secret-*
 
-# configs
-.vscode
-
 # build files
 bin/
 obj/
