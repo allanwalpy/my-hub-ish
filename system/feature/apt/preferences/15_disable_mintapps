@@ -1,0 +1,4 @@
+Package: mintsources
+Pin: release a=*
+Pin-Priority: -5
+

@@ -1,0 +1,5 @@
+Types: deb deb-src
+URIs: http://packages.linuxmint.com
+Suites: faye
+Architectures: i386 amd64
+Components: main upstream import backport
