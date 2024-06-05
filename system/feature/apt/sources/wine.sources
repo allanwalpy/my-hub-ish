@@ -1,4 +1,4 @@
-Types: deb
+Types: deb deb-src
 URIs: https://dl.winehq.org/wine-builds/debian
 Suites: bookworm
 Components: main

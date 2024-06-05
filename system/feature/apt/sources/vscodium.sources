@@ -1,6 +1,6 @@
 Components: main
 Suites: vscodium
-Architectures: amd64 i386
+Architectures: amd64
 Uris: https://download.vscodium.com/debs
-Types: deb deb-src
+Types: deb
 Signed-By: /usr/share/keyrings/vscodium-archive-keyring.gpg
