@@ -3,6 +3,8 @@
 # ? script intended to be used by `xfce4-genmon-plugin`
 # ? based on https://github.com/bimlas/xfce4-night-mode
 
+script_folder=$(dirname "$(readlink -fm "$0")")
+
 config="nightmode"
 
 echo "<iconclick>$0 toggle</iconclick>"
@@ -39,6 +41,8 @@ ck_gtk="/gtk"
 ck_xfwm="/xfwm"
 ck_icon="/icon"
 ck_cursor="/cursor"
+ck_vscode="/vscode"
+ck_vscode_appname="/vscode_appname"
 
 mode=$(get_config_default $ck_mode_current "string" "one")
 case $mode in
@@ -59,12 +63,13 @@ if [[ $1 != "toggle" ]]; then
     exit
 fi
 
-xfce4-panel --plugin-event=genmon-3:refresh:bool:true
-
 gtk=$(get_config_default "/$mode$ck_gtk" "string" $(get_any_config "xsettings" "/Net/ThemeName"))
 xfwm=$(get_config_default "/$mode$ck_xfwm" "string" $(get_any_config "xfwm4" "/general/theme"))
 icon=$(get_config_default "/$mode$ck_icon" "string" $(get_any_config "xsettings" "/Net/IconThemeName"))
 cursor=$(get_config_default "/$mode$ck_cursor" "string" $(get_any_config "xsettings" "/Gtk/CursorThemeName"))
+vscode=$(get_config_default "/$mode$ck_vscode" "string" "Dark")
+
+vscode_appname=$(get_config_default "$ck_vscode_appname" "string" "VSCodium")
 
 set_any_config "xsettings" "/Net/ThemeName" $gtk
 gsettings set org.gnome.desktop.interface gtk-theme $gtk
@@ -77,4 +82,8 @@ set_any_config "xsettings" "/Gtk/CursorThemeName" $cursor
 
 set_any_config $config $ck_mode_current $mode
 
-exit
+
+$script_folder/set_vscode_theme $vscode $vscode_appname
+
+# ! TODO FIXME
+xfce4-panel --plugin-event=genmon-3:refresh:bool:true

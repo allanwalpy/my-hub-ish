@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# ? set vscodium theme
+# ? argument:
+# ?  - mode name - "Light" or "Dark";
+# ?  - [optional] folder name in `~/.config` folder; `VSCodium` is default;
+
+if [ $# -lt 1 ] ; then
+    echo -e "\033[0;33m requires one argument: theme name \033[0m"
+    exit 1
+fi
+
+app="VSCodium"
+if [ $# -ge 2 ] ; then
+    app=$2
+fi
+
+tmp="$HOME/.cache/nightmode.vscode.settings.json"
+settings="$HOME/.config/$2/User/settings.json"
+
+theme_name=$(jq ".[\"workbench.preferred${1}ColorTheme\"]" $settings)
+
+jq ".[\"workbench.colorTheme\"] = $theme_name" <<<"$jsonStr" $settings --indent 4 > $tmp
+mv $tmp $settings
