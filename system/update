@@ -13,6 +13,11 @@
 # ? - [if installed] `flatpak`, update & auto-remove:
 # ?   `update`, update packages;
 # ?   `autoremove`, remove unused packages;
+# ? args:
+# ?   --no-apt, no-apt, --noapt, noapt - disable apt commands;
+# ?   --no-snap, no-snap, --nosnap, nosnap - disable snap commands;
+# ?   --no-flat, no-flat, --noflat, noflat, --no-flatpak, no-flatpak, --noflatpak, noflatpak - disable flatpak commands;
+# ?   --dist, dist, --full, full - enable dist upgrading command, executes `update.dist` in same folder;
 
 script_folder=$(dirname "$(readlink -fm "$0")")
 
@@ -55,7 +60,7 @@ echo -e "${ct_main}    === ${ct_h}${tm_bold}update${tm_clear}${ct_main}  --- ---
 echo -e "${ct_main}    === ${ct_h}${tm_bold}autoremove${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
     echo flatpak uninstall --unused && \
 echo -e "${ct_main}-\- ${ct_h}${tm_bold}flatpak done${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
-(([[ "$*" == *"--dist"* ]] || [[ "$*" == *"--full"* ]] || [[ "$*" == *"dist"* ]] || [[ "$*" == *"full"* ]]) && \
+(([[ "$*" == *"--dist"* ]] || [[ "$*" == *"dist"* ]] || [[ "$*" == *"--full"* ]] || [[ "$*" == *"full"* ]]) && \
 echo -e "${ct_main}-/- ${ct_h}${tm_bold}dist${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
     echo $script_folder/update.dist && \
 echo -e "${ct_main}-\- ${ct_h}${tm_bold}dist done${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
