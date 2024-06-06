@@ -25,34 +25,38 @@ ct_h="\033[0;34m"
 tm_clear=$(tput sgr0)
 tm_bold=$(tput bold)
 
-(command -v apt &> /dev/null && \
+([[ "$*" != *"--no-apt"* ]] && [[ "$*" != *"no-apt"* ]] && [[ "$*" != *"--noapt"* ]] && [[ "$*" != *"noapt"* ]] && \
+command -v apt &> /dev/null && \
 echo -e "${ct_main}-/- ${ct_h}${tm_bold}apt${tm_clear}${ct_main} --- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}update${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    sudo apt update && \
+    echo sudo apt update && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}upgrade${tm_clear}${ct_main} --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    sudo apt upgrade && \
+    echo sudo apt upgrade && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}full-upgrade${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    sudo apt full-upgrade && \
+    echo sudo apt full-upgrade && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}autoremove${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    sudo apt autoremove && \
+    echo sudo apt autoremove && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}purge${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1) && \
+    echo sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1) && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}autoclean${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    sudo apt autoclean && \
+    echo sudo apt autoclean && \
 echo -e "${ct_main}-\- ${ct_h}${tm_bold}apt done${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
-(command -v snap &> /dev/null && \
+([[ "$*" != *"--no-snap"* ]] && [[ "$*" != *"no-snap"* ]] && [[ "$*" != *"--nosnap"* ]] && [[ "$*" != *"nosnap"* ]] && \
+command -v snap &> /dev/null && \
 echo -e "${ct_main}-/- ${ct_h}${tm_bold}snap${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    snap refresh && \
+    echo snap refresh && \
 echo -e "${ct_main}-\- ${ct_h}${tm_bold}snap done${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
-(command -v flatpak &> /dev/null && \
+([[ "$*" != *"--no-flat"* ]] && [[ "$*" != *"no-flat"* ]] && [[ "$*" != *"--noflat"* ]] && [[ "$*" != *"noflat"* ]] && \
+[[ "$*" != *"--no-flatpak"* ]] && [[ "$*" != *"no-flatpak"* ]] && [[ "$*" != *"--noflatpak"* ]] && [[ "$*" != *"noflatpak"* ]] && \
+command -v flatpak &> /dev/null && \
 echo -e "${ct_main}-/- ${ct_h}${tm_bold}flatpak${tm_clear}${ct_main} --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}update${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    flatpak update && \
+    echo flatpak update && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}autoremove${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    flatpak uninstall --unused && \
+    echo flatpak uninstall --unused && \
 echo -e "${ct_main}-\- ${ct_h}${tm_bold}flatpak done${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
 (([[ "$*" == *"--dist"* ]] || [[ "$*" == *"--full"* ]] || [[ "$*" == *"dist"* ]] || [[ "$*" == *"full"* ]]) && \
 echo -e "${ct_main}-/- ${ct_h}${tm_bold}dist${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    $script_folder/update.dist && \
+    echo $script_folder/update.dist && \
 echo -e "${ct_main}-\- ${ct_h}${tm_bold}dist done${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
 echo -e "${ct_main}${ct_h}${tm_bold}done${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || echo -e "${ct_main}${tm_clear}"
