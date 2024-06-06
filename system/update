@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ? manages diverse package manager updates on linux, mainly debian and ubuntu;
-# ?  sensitive to many errors in command chain and often requires human conformations;
+# ?  sensitive to most errors in command chain and often requires human conformations;
 # ? - [if installed] `apt`, updates and cleans up:
 # ?   `update`, update info of packages from repository;
 # ?   `upgrade`, update packages;
@@ -13,13 +13,19 @@
 # ? - [if installed] `flatpak`, update & auto-remove:
 # ?   `update`, update packages;
 # ?   `autoremove`, remove unused packages;
+# ? - [if present] `non-managed`, launch `update.user` script intended for updating your system parts not managed by any package manager;
+# ?   modify `update.user` script in the same folder for your system configuration and liking or delete script to permanently disable;
+# ? - [if installed] `dist`, perform distribution version update; see `update.dist` in same folder to see supported commands/distributions;
 # ? args:
 # ?   --no-apt, no-apt, --noapt, noapt - disable apt commands;
 # ?   --no-snap, no-snap, --nosnap, nosnap - disable snap commands;
 # ?   --no-flat, no-flat, --noflat, noflat, --no-flatpak, no-flatpak, --noflatpak, noflatpak - disable flatpak commands;
+# ?   --no-user, no-user, --nouser, nouser - disable
 # ?   --dist, dist, --full, full - enable dist upgrading command, executes `update.dist` in same folder;
 
 script_folder=$(dirname "$(readlink -fm "$0")")
+
+script_user=$script_folder/update.user
 
 # ct - color_text; h - header;
 ct_clear="\033[0m"
@@ -34,34 +40,39 @@ tm_bold=$(tput bold)
 command -v apt &> /dev/null && \
 echo -e "${ct_main}-/- ${ct_h}${tm_bold}apt${tm_clear}${ct_main} --- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}update${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    echo sudo apt update && \
+    sudo apt update && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}upgrade${tm_clear}${ct_main} --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    echo sudo apt upgrade && \
+    sudo apt upgrade && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}full-upgrade${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    echo sudo apt full-upgrade && \
+    sudo apt full-upgrade && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}autoremove${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    echo sudo apt autoremove && \
+    sudo apt autoremove && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}purge${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    echo sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1) && \
+    sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1) && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}autoclean${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    echo sudo apt autoclean && \
+    sudo apt autoclean && \
 echo -e "${ct_main}-\- ${ct_h}${tm_bold}apt done${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
 ([[ "$*" != *"--no-snap"* ]] && [[ "$*" != *"no-snap"* ]] && [[ "$*" != *"--nosnap"* ]] && [[ "$*" != *"nosnap"* ]] && \
 command -v snap &> /dev/null && \
 echo -e "${ct_main}-/- ${ct_h}${tm_bold}snap${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    echo snap refresh && \
+    snap refresh && \
 echo -e "${ct_main}-\- ${ct_h}${tm_bold}snap done${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
 ([[ "$*" != *"--no-flat"* ]] && [[ "$*" != *"no-flat"* ]] && [[ "$*" != *"--noflat"* ]] && [[ "$*" != *"noflat"* ]] && \
 [[ "$*" != *"--no-flatpak"* ]] && [[ "$*" != *"no-flatpak"* ]] && [[ "$*" != *"--noflatpak"* ]] && [[ "$*" != *"noflatpak"* ]] && \
 command -v flatpak &> /dev/null && \
 echo -e "${ct_main}-/- ${ct_h}${tm_bold}flatpak${tm_clear}${ct_main} --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}update${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    echo flatpak update && \
+    flatpak update && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}autoremove${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    echo flatpak uninstall --unused && \
+    flatpak uninstall --unused && \
 echo -e "${ct_main}-\- ${ct_h}${tm_bold}flatpak done${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
-(([[ "$*" == *"--dist"* ]] || [[ "$*" == *"dist"* ]] || [[ "$*" == *"--full"* ]] || [[ "$*" == *"full"* ]]) && \
+([[ "$*" != *"--no-user"* ]] && [[ "$*" != *"no-user"* ]] && [[ "$*" != *"--nouser"* ]] && [[ "$*" != *"nouser"* ]] && \
+[[ -f $script_user ]] && \
+echo -e "${ct_main}-/- ${ct_h}${tm_bold}non-managed${tm_clear}${ct_main} --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+    $script_user "${ct_main}    === ${ct_h}${tm_bold}" "${tm_clear}${ct_main}--- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+echo -e "${ct_main}-\- ${ct_h}${tm_bold}non-managed done${tm_clear}${ct_main}--- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
+([[ "$*" == *"--dist"* ]] || [[ "$*" == *"dist"* ]] || [[ "$*" == *"--full"* ]] || [[ "$*" == *"full"* ]] && \
 echo -e "${ct_main}-/- ${ct_h}${tm_bold}dist${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    echo $script_folder/update.dist && \
+    $script_folder/update.dist && \
 echo -e "${ct_main}-\- ${ct_h}${tm_bold}dist done${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
 echo -e "${ct_main}${ct_h}${tm_bold}done${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || echo -e "${ct_main}${tm_clear}"
