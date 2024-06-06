@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# ? upgrades debian or ubuntu dist version if available;
+# ? intended for use by `update` script;
+
+(command -v do-release-upgrade &> /dev/null && sudo do-release-upgrade --allow-third-party) || \
+(command -v apt &> /dev/null && sudo apt dist-upgrade)

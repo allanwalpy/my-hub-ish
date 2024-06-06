@@ -1,23 +1,58 @@
 #!/bin/bash
 
-# ? manages apt packages, updates snap packages;
-# ? - update ppa's and others;
-# ? - update packages;
-# ? - autoremove unused poackages;
-# ? - remove resudential package configs;
-# ? - remove non-relevant downloaded apckages;
-# ? - [if installed] snap packages refresh;
-# ? - [if installed] flatpak packages update & auto-remove;
+# ? manages diverse package manager updates on linux, mainly debian and ubuntu;
+# ?  sensitive to many errors in command chain and often requires human conformations;
+# ? - [if installed] `apt`, updates and cleans up:
+# ?   `update`, update info of packages from repository;
+# ?   `upgrade`, update packages;
+# ?   `full-upgrade`, update packages including possibly breaking changes into the system;
+# ?   `autoremove`, remove unused packages;
+# ?   `purge`, remove residual package configs;
+# ?   `autoclean`, remove non-relevant downloaded packages;
+# ? - [if installed] `snap`, updates;
+# ? - [if installed] `flatpak`, update & auto-remove:
+# ?   `update`, update packages;
+# ?   `autoremove`, remove unused packages;
 
 script_folder=$(dirname "$(readlink -fm "$0")")
 
-echo -e "\n\n --- apt update  -- -- --- \n\n" && sudo apt update && \
-echo -e "\n\n --- apt upgrade -- -- --- \n\n" && sudo apt upgrade && \
-echo -e "\n\n --- apt full-upgrade  --- \n\n" && sudo apt full-upgrade && \
-echo -e "\n\n --- apt auto-remove - --- \n\n" && sudo apt autoremove && \
-echo -e "\n\n --- apt purge - -- -- --- \n\n" && sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1) && \
-echo -e "\n\n --- apt auto-clean -- --- \n\n" && sudo apt autoclean && \
-(command -v snap &> /dev/null && echo -e "\n\n --- snap update -- -- --- \n\n" && sudo snap refresh || true) && \
-(command -v flatpak &> /dev/null && echo -e "\n\n --- flatpak update -- --- \n\n" && flatpak update && \
-    echo -e "\n\n --- flatpak auto-remove -- --- \n\n" && flatpak uninstall --unused || true) && \
-[[ $1 != "--hide-done" ]] && echo -e "\n\n --- done -- -- -- -- --- \n\n" || true
+# ct - color_text; h - header;
+ct_clear="\033[0m"
+ct_main="\033[0;32m"
+ct_h="\033[0;34m"
+
+# tm - text modifier;
+tm_clear=$(tput sgr0)
+tm_bold=$(tput bold)
+
+(command -v apt &> /dev/null && \
+echo -e "${ct_main}-/- ${ct_h}${tm_bold}apt${tm_clear}${ct_main} --- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+echo -e "${ct_main}    === ${ct_h}${tm_bold}update${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+    sudo apt update && \
+echo -e "${ct_main}    === ${ct_h}${tm_bold}upgrade${tm_clear}${ct_main} --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+    sudo apt upgrade && \
+echo -e "${ct_main}    === ${ct_h}${tm_bold}full-upgrade${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+    sudo apt full-upgrade && \
+echo -e "${ct_main}    === ${ct_h}${tm_bold}autoremove${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+    sudo apt autoremove && \
+echo -e "${ct_main}    === ${ct_h}${tm_bold}purge${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+    sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1) && \
+echo -e "${ct_main}    === ${ct_h}${tm_bold}autoclean${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+    sudo apt autoclean && \
+echo -e "${ct_main}-\- ${ct_h}${tm_bold}apt done${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
+(command -v snap &> /dev/null && \
+echo -e "${ct_main}-/- ${ct_h}${tm_bold}snap${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+    snap refresh && \
+echo -e "${ct_main}-\- ${ct_h}${tm_bold}snap done${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
+(command -v flatpak &> /dev/null && \
+echo -e "${ct_main}-/- ${ct_h}${tm_bold}flatpak${tm_clear}${ct_main} --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+echo -e "${ct_main}    === ${ct_h}${tm_bold}update${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+    flatpak update && \
+echo -e "${ct_main}    === ${ct_h}${tm_bold}autoremove${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+    flatpak uninstall --unused && \
+echo -e "${ct_main}-\- ${ct_h}${tm_bold}flatpak done${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
+(([[ "$*" == *"--dist"* ]] || [[ "$*" == *"--full"* ]] || [[ "$*" == *"dist"* ]] || [[ "$*" == *"full"* ]]) && \
+echo -e "${ct_main}-/- ${ct_h}${tm_bold}dist${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+    $script_folder/update.dist && \
+echo -e "${ct_main}-\- ${ct_h}${tm_bold}dist done${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
+echo -e "${ct_main}${ct_h}${tm_bold}done${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || echo -e "${ct_main}${tm_clear}"
