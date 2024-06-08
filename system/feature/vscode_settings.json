@@ -1,0 +1,210 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "git.confirmSync": false,
+    "editor.fontFamily": "'DejaVu Sans Mono for Powerline', 'Noto Sans Mono', 'Noto Mono', 'feather', 'monospace', monospace",
+    "workbench.colorTheme": "Default Light+",
+    "git.suggestSmartCommit": false,
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingComments": "never",
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.codeLens": false,
+    "editor.emptySelectionClipboard": false,
+    "diffEditor.experimental.showMoves": true,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "diffEditor.hideUnchangedRegions.minimumLineCount": 5,
+    "diffEditor.maxFileSize": 16,
+    "editor.minimap.maxColumn": 70,
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.sectionHeaderFontSize": 8,
+    "editor.minimap.showSlider": "always",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.quickSuggestions": {
+        "comments": "on",
+        "strings": "on"
+    },
+    "editor.quickSuggestionsDelay": 250,
+    "editor.snippetSuggestions": "bottom",
+    "editor.suggest.shareSuggestSelections": true,
+    "files.autoGuessEncoding": true,
+    "files.eol": "\n",
+    "files.readonlyFromPermissions": true,
+    "files.simpleDialog.enable": true,
+    "workbench.commandPalette.history": 128,
+    "workbench.editorLargeFileConfirmation": 8,
+    "workbench.preferredDarkColorTheme": "Default Dark+",
+    "window.customTitleBarVisibility": "windowed",
+    "window.dialogStyle": "custom",
+    "window.menuBarVisibility": "visible",
+    "window.titleBarStyle": "custom",
+    "window.title": "${appName}://${rootName}",
+    "window.newWindowDimensions": "inherit",
+    "explorer.fileNesting.enabled": true,
+    "update.mode": "none",
+    "security.workspace.trust.banner": "always",
+    "workbench.preferredLightColorTheme": "Default Light+",
+    "editor.inlayHints.fontFamily": "''",
+    "projectManager.any.ignoredFolders": [
+        "node_modules",
+        "out",
+        "typings",
+        "test"
+    ],
+    "projectManager.git.baseFolders": [
+        "/home/walpy/git"
+    ],
+    "projectManager.git.maxDepthRecursion": 2,
+    "projectManager.cacheProjectsBetweenSessions": true,
+    "projectManager.checkInvalidPathsBeforeListing": true,
+    "projectManager.confirmSwitchOnActiveWindow": "never",
+    "projectManager.filterOnFullPath": false,
+    "projectManager.groupList": false,
+    "projectManager.ignoreProjectsWithinProjects": false,
+    "projectManager.openInCurrentWindowIfEmpty": "always",
+    "projectManager.openInNewWindowWhenClickingInStatusBar": false,
+    "projectManager.removeCurrentProjectFromList": false,
+    "projectManager.showParentFolderInfoOnDuplicates": false,
+    "projectManager.showProjectNameInStatusBar": true,
+    "projectManager.supportSymlinksOnBaseFolders": true,
+    "projectManager.tags": [
+        "mine",
+        "alien"
+    ],
+    "gitProjectManager.storeRepositoriesBetweenSessions": true,
+    "gitProjectManager.supportsSVN": false,
+    "gitProjectManager.supportsMercurial": false,
+    "gitProjectManager.openInNewWindow": true,
+    "gitProjectManager.displayProjectPath": true,
+    "gitProjectManager.maxDepthRecursion": 2,
+    "gitProjectManager.checkRemoteOrigin": false,
+    "gitProjectManager.baseProjectsFolders": [
+        "/home/walpy/git"
+    ],
+    "gitProjectManager.ignoredFolders": [
+        "node_modules"
+    ],
+    "statsBar.location": "Right",
+    "statsBar.refreshInterval": 2000,
+    "statsBar.modules": [
+        "uptime",
+        "memoUsage",
+        "cpuLoad"
+    ],
+    "statsBar.cpuLoad.format": "${percent}%",
+    "statsBar.loadavg.format": "[${1} ${5} ${15}]",
+    "statsBar.memoUsage.format": "${used}${unit}",
+    "statsBar.uptime.format": "${days}d ${hours}h ${minutes}m",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format",
+        "prettier.tabWidth": 4
+    },
+    "[jsonc]": {
+        "editor.autoIndent": "full",
+        "editor.indentSize": 4
+    },
+    "editor.colorDecorators": false,
+    "editor.hover.enabled": true,
+    "shellformat.flag": "-i 4",
+    "better-comments.multilineComments": true,
+    "better-comments.highlightPlainText": true,
+    "better-comments.tags": [
+        {
+            "tag": [
+                "!",
+                "NB",
+                "nb"
+            ],
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": true,
+            "italic": false
+        },
+        {
+            "tag": [
+                "?",
+                "++"
+            ],
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": [
+                "todo"
+            ],
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        }
+    ],
+    "colorInfo.languages": [
+        {
+            "selector": "css",
+            "colors": "css"
+        },
+        {
+            "selector": "sass",
+            "colors": "css"
+        },
+        {
+            "selector": "scss",
+            "colors": "css"
+        },
+        {
+            "selector": "less",
+            "colors": "css"
+        },
+        {
+            "selector": "json",
+            "colors": "css"
+        },
+        {
+            "selector": "jsonc",
+            "colors": "css"
+        }
+    ],
+    "editor.defaultColorDecorators": true,
+    "colorHelper.disableGpu": 0,
+    "colorHelper.pickerForm": "largePalette",
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 144,
+    "editor.rulers": [
+        80, 128
+    ],
+    "color-highlight.languages": [
+        "*"
+    ],
+    "color-highlight.markerType": "dot-before",
+    "color-highlight.markRuler": false,
+    "color-highlight.matchWords": true,
+    "color-highlight.matchRgbWithNoFunction": true,
+    "color-highlight.matchHslWithNoFunction": true,
+    "color-highlight.useARGB": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "git.enableCommitSigning": true,
+    "window.autoDetectColorScheme": false,
+    "cSpell.enableFiletypes": [
+        "shellscript"
+    ],
+    "cSpell.allowCompoundWords": true,
+    "cSpell.caseSensitive": true,
+    "cSpell.enabled": true,
+    "cSpell.userWords": [
+        "argb",
+        "debian",
+        "deinstall",
+        "flatpak",
+        "linux",
+        "walpy"
+    ],
+    "workbench.editor.enablePreview": false
+}
