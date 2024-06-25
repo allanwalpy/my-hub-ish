@@ -47,11 +47,11 @@ ck_vscode_appname="/vscode_appname"
 mode=$(get_config_default $ck_mode_current "string" "one")
 case $mode in
     one)
-        echo "<icon>weather-clear-small</icon>"
+        echo "<icon>notification-display-brightness-full</icon>"
         mode="two"
         ;;
     two)
-        echo "<icon>weather-clear-night-small</icon>"
+        echo "<icon>notification-display-brightness-off</icon>"
         mode="one"
         ;;
     *)
@@ -81,7 +81,6 @@ set_any_config "xsettings" "/Net/IconThemeName" $icon
 set_any_config "xsettings" "/Gtk/CursorThemeName" $cursor
 
 set_any_config $config $ck_mode_current $mode
-
 
 $script_folder/set_vscode_theme $vscode $vscode_appname
 
