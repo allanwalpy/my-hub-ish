@@ -1,8 +1,8 @@
 Package: *
 Pin: release a=testing
-Pin-Priority: 3
+Pin-Priority: 500
 
 Package: *
 Pin: release a=trixie
-Pin-Priority: 3
+Pin-Priority: 500
 

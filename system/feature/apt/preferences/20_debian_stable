@@ -1,0 +1,8 @@
+Package: *
+Pin: release a=stable
+Pin-Priority: 10
+
+Package: *
+Pin: release a=bookworm
+Pin-Priority: 10
+
