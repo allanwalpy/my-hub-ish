@@ -1,5 +1,3 @@
 #!/bin/bash
 
-id="1"
-
-cat /sys/class/hwmon/hwmon$id/temp1_input | sed 's/.\{3\}$//'
+cat /sys/class/hwmon/hwmon*/temp1_input | sed 's/.\{3\}$//'
