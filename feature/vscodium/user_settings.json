@@ -178,7 +178,8 @@
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 144,
     "editor.rulers": [
-        80, 128
+        80,
+        128
     ],
     "color-highlight.languages": [
         "*"
@@ -206,5 +207,17 @@
         "linux",
         "walpy"
     ],
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": true,
+    "openInExternalApp.openMapper": [
+        {
+            "extensionName": "html",
+            "apps": [
+                {
+                    "title": "firefox-esr",
+                    "openCommand": "firefox-esr"
+                }
+            ]
+        }
+    ],
+    "openInExternalApp.enableLog": true
 }
