@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# ? starts `audio-share-server-cmd`, see https://github.com/mkckr0/audio-share/ for more info;
+# ? arguments:
+# ?  - network interface name;
+
+script_folder=$(dirname "$(readlink -fm "$0")")
+
+build="$HOME/app/system/audio-share/server-core/out/install/linux-Release/bin/"
+
+ip=$(ip -4 -br -j addr show $1 | jq -r '.[0].addr_info[0].local')
+
+echo "start script detected ip $ip in $1 interface"
+
+$script_folder/create-sink external-$1
+
+$build/as-cmd -b $ip
