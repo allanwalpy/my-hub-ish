@@ -24,7 +24,7 @@ function get_file_age() {
 }
 
 function get_info_secret() {
-    ~/script/system/feature/conky/weather.secret $1
+    ~/hub/system/feature/conky/weather.secret $1
 }
 
 function get_request_uri() {
@@ -32,7 +32,7 @@ function get_request_uri() {
 }
 
 function update_report() {
-    ~/script/system/feature/conky/weather_report $1 $2
+    ~/hub/system/feature/conky/weather_report $1 $2
 
     location=$(get_info_secret "location")
     key=$(get_info_secret "key")

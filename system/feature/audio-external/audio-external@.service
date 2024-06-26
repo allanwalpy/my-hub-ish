@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/home/walpy/script/system/feature/audio-external/
-ExecStart=/home/walpy/script/system/feature/audio-external/start %i
+WorkingDirectory=/home/walpy/hub/system/feature/audio-external/
+ExecStart=/home/walpy/hub/system/feature/audio-external/start %i
 SyslogIdentifier="audio-external"
 Restart=always
 RestartSec=5
