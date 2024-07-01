@@ -10,17 +10,12 @@ original_PWD=$PWDS
 
 # d - folder; f - script;
 
-d_ohmyzsh="$HOME/.oh-my-zsh/tools"
-f_ohmyzsh="$d_ohmyzsh/upgrade.sh"
 d_qogir_theme="$HOME/app/system/qogir/theme"
 d_qogir_icon="$HOME/app/system/qogir/icon-theme"
 d_volantes="$HOME/app/system/volantes-cursors"
 d_gamepad_xone="$HOME/app/system/gamepad/xone"
 d_gamepad_xpadneo="$HOME/app/system/gamepad/xpadneo"
 
-([[ -f $f_ohmyzsh ]] && echo -e "${1}oh-my-zsh - --- ${2}" && cd $d_ohmyzsh && \
-    $f_ohmyzsh -v minimal -i && \
-    cd $original_PWD || cd $original_PWD) && \
 ([[ -d $d_qogir_theme/.git ]] && cd $d_qogir_theme && [ $(git diff origin --name-only) ] && echo -e "${1}qogir.theme --- ${2}" && \
     git pull && \
     sudo ./install.sh --dest /usr/share/themes --theme all --icon gnome --libadwaita --name Qogir-git && \
