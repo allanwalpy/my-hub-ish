@@ -1,8 +1,12 @@
 Package: *
 Pin: release a=stable
-Pin-Priority: 10
+Pin-Priority: 100
 
 Package: *
-Pin: release a=bookworm
-Pin-Priority: 10
+Pin: release a=stable-security
+Pin-Priority: 100
+
+Package: *
+Pin: release a=stable-backport
+Pin-Priority: 100
 

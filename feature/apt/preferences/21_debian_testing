@@ -3,6 +3,10 @@ Pin: release a=testing
 Pin-Priority: 500
 
 Package: *
-Pin: release a=trixie
+Pin: release a=testing-backport
+Pin-Priority: 500
+
+Package: *
+Pin: release a=testing-security
 Pin-Priority: 500
 
