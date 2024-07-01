@@ -44,7 +44,7 @@ echo -e "${ct_main}    === ${ct_h}${tm_bold}update${tm_clear}${ct_main}  --- ---
 echo -e "${ct_main}    === ${ct_h}${tm_bold}upgrade${tm_clear}${ct_main} --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
     sudo apt upgrade && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}full-upgrade${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-    sudo apt full-upgrade && sudo apt dist-upgrade && sudo apt --with-new-pkgs upgrade && \
+    sudo apt --with-new-pkgs upgrade && sudo apt full-upgrade && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}autoremove${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
     sudo apt autoremove && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}purge${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
@@ -66,11 +66,11 @@ echo -e "${ct_main}    === ${ct_h}${tm_bold}update${tm_clear}${ct_main}  --- ---
 echo -e "${ct_main}    === ${ct_h}${tm_bold}autoremove${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
     flatpak uninstall --unused && \
 echo -e "${ct_main}-\- ${ct_h}${tm_bold}flatpak done${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
-([[ "$*" != *"--no-user"* ]] && [[ "$*" != *"no-user"* ]] && [[ "$*" != *"--nouser"* ]] && [[ "$*" != *"nouser"* ]] && \
+([[ "$*" == *"--full"* ]] || [[ "$*" == *"full"* ]] && [[ "$*" != *"--user"* ]] && [[ "$*" != *"user"* ]] && \
 [[ -f $script_user ]] && \
-echo -e "${ct_main}-/- ${ct_h}${tm_bold}non-managed${tm_clear}${ct_main} --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+echo -e "${ct_main}-/- ${ct_h}${tm_bold}non-managed${tm_clear}${ct_main} --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
     $script_user "${ct_main}    === ${ct_h}${tm_bold}" "${tm_clear}${ct_main}--- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
-echo -e "${ct_main}-\- ${ct_h}${tm_bold}non-managed done${tm_clear}${ct_main}--- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
+echo -e "${ct_main}-\- ${ct_h}${tm_bold}non-managed done${tm_clear}${ct_main}--- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
 ([[ "$*" == *"--dist"* ]] || [[ "$*" == *"dist"* ]] || [[ "$*" == *"--full"* ]] || [[ "$*" == *"full"* ]] && \
 echo -e "${ct_main}-/- ${ct_h}${tm_bold}dist${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
     $script_folder/update.dist && \
