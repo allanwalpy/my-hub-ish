@@ -4,14 +4,21 @@
 # ? arguments:
 # ?  - network interface name;
 
+echo "DBG"
+
 script_folder=$(dirname "$(readlink -fm "$0")")
 
-build="$HOME/app/system/audio-share/server-core/out/install/linux-Release/bin/"
+build="$HOME/app/system/audio-share/server-core/out/install/linux-Release/bin"
 
 ip=$(ip -4 -br -j addr show $1 | jq -r '.[0].addr_info[0].local')
+sink="external-$1-sink"
 
-echo "start script detected ip $ip in $1 interface"
+echo "start_script detected ip $ip in $1 interface to $sink sink"
+$script_folder/create-sink $sink
 
-$script_folder/create-sink external-$1
+sink_id=$($build/as-cmd --list | grep $sink | awk '{print $2}')
+echo "launching $build/as-cmd -b $ip -e $sink_id"
+$build/as-cmd -b $ip -e $sink_id
 
-$build/as-cmd -b $ip
+
+
