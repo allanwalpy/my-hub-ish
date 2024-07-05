@@ -1,0 +1,6 @@
+Types: deb deb-src
+URIs: https://mxrepo.com/mx/repo/
+Suites: bookworm
+Architectures: i386 amd64
+Components: main ahs non-free
+Signed-By: /usr/share/keyrings/mx-23-archive-keyring.gpg

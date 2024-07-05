@@ -1,0 +1,3 @@
+Package: baobab gnome-calculator gnome-logs
+Pin: release a=faye
+Pin-Priority: 1000
