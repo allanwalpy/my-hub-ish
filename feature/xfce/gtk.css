@@ -1,17 +1,17 @@
-@import 'colors.css';
+@import "colors.css";
 
 /* modified version of arc + nelio theme
     see https://github.com/xfce-ricer/custom-xfce-panels/blob/main/Different%20styles/Arc%20x%20Nelio%20Theme/gtk.css */
 
 .xfce4-panel {
-    background-color: #2F343F;
-    color: #2F343F;
+    /*background-color: #2F343F;*/
+    color: #2f343f;
 }
 
 /*Applications Button*/
 
 #whiskermenu-button {
-    background-color: #454C5A;
+    background-color: #454c5a;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
@@ -19,10 +19,10 @@
     border-bottom-right-radius: 2px;
     margin: 4px;
     padding: 2px;
-    }
-    
-    #whiskermenu-button:checked {
-    background-color: #5294E2;
+}
+
+#whiskermenu-button:checked {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
@@ -30,10 +30,10 @@
     border-bottom-right-radius: 2px;
     margin: 4px;
     padding: 2px;
-    }
-    
-    #whiskermenu-button:hover {
-    background-color: #5294E2;
+}
+
+#whiskermenu-button:hover {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
@@ -41,12 +41,12 @@
     border-bottom-right-radius: 2px;
     margin: 4px;
     padding: 2px;
-    }
-    
-    /*Clock*/
-    
-    #clock-button {
-    background-color: #454C5A;
+}
+
+/*Clock*/
+
+#clock-button {
+    background-color: #454c5a;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
@@ -54,10 +54,10 @@
     border-bottom-right-radius: 2px;
     margin: 4px;
     padding: 2px;
-    }
-    
-    #clock-button:checked {
-    background-color: #5294E2;
+}
+
+#clock-button:checked {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
@@ -65,10 +65,10 @@
     border-bottom-right-radius: 2px;
     margin: 4px;
     padding: 2px;
-    }
-    
-    #clock-button:hover {
-    background-color: #5294E2;
+}
+
+#clock-button:hover {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
@@ -76,10 +76,10 @@
     border-bottom-right-radius: 2px;
     margin: 4px;
     padding: 2px;
-    }
-    
-    #pulseaudio-button {
-    background-color: #454C5A;
+}
+
+#pulseaudio-button {
+    background-color: #454c5a;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
@@ -87,12 +87,12 @@
     border-bottom-right-radius: 2px;
     margin: 4px;
     padding: 2px;
-    }
-    
-    /*Sound*/
-    
-    #pulseaudio-button:checked {
-    background-color: #5294E2;
+}
+
+/*Sound*/
+
+#pulseaudio-button:checked {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
@@ -100,10 +100,10 @@
     border-bottom-right-radius: 2px;
     margin: 4px;
     padding: 2px;
-    }
-    
-    #pulseaudio-button:hover {
-    background-color: #5294E2;
+}
+
+#pulseaudio-button:hover {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
@@ -111,10 +111,10 @@
     border-bottom-right-radius: 2px;
     margin: 4px;
     padding: 2px;
-    }
-    
-    #xfce4-notification-plugin {
-    background-color: #454C5A;
+}
+
+#xfce4-notification-plugin {
+    background-color: #454c5a;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
@@ -122,10 +122,10 @@
     border-bottom-right-radius: 2px;
     margin: 4px;
     padding: 2px;
-    }
-    
-    #xfce4-notification-plugin:checked {
-    background-color: #5294E2;
+}
+
+#xfce4-notification-plugin:checked {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -133,10 +133,10 @@
     border-bottom-right-radius: 5px;
     margin: 4px;
     padding: 2px;
-    }
-    
-    #xfce4-notification-plugin:hover {
-    background-color: #5294E2;
+}
+
+#xfce4-notification-plugin:hover {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
@@ -144,44 +144,44 @@
     border-bottom-right-radius: 2px;
     margin: 4px;
     padding: 2px;
-    }
-    
-    /*Workspace Switcher*/
-    
-    #pager-11 #xfce-panel-toggle-button:checked {
-    background-color: #5294E2;
+}
+
+/*Workspace Switcher*/
+
+#pager-11 #xfce-panel-toggle-button:checked {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
     margin: 4px;
-    }
-    
-    #pager-11 #xfce-panel-toggle-button:hover {
-    background-color: #5294E2;
+}
+
+#pager-11 #xfce-panel-toggle-button:hover {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
     margin: 4px;
-    }
-    
-    #pager-11 #xfce-panel-toggle-button {
-    background-color: #454C5A;
+}
+
+#pager-11 #xfce-panel-toggle-button {
+    background-color: #454c5a;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
     margin: 4px;
-    }
-    
-    /*Firefox Launcher*/
-    
-    #launcher-4 #launcher-arrow {
-    background-color: #454C5A;
+}
+
+/*Firefox Launcher*/
+
+#launcher-4 #launcher-arrow {
+    background-color: #454c5a;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 0px;
@@ -190,11 +190,11 @@
     margin-left: 4px;
     margin-right: 0px;
     margin-top: 4px;
-    margin-bottom:4px;
-    }
-    
-    #launcher-4 #launcher-arrow:checked {
-    background-color: #5294E2;
+    margin-bottom: 4px;
+}
+
+#launcher-4 #launcher-arrow:checked {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 0px;
@@ -203,11 +203,11 @@
     margin-left: 4px;
     margin-right: 0px;
     margin-top: 4px;
-    margin-bottom:4px;
-    }
-    
-    #launcher-4 #launcher-arrow:hover {
-    background-color: #5294E2;
+    margin-bottom: 4px;
+}
+
+#launcher-4 #launcher-arrow:hover {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 2px;
     border-top-right-radius: 0px;
@@ -216,13 +216,13 @@
     margin-left: 4px;
     margin-right: 0px;
     margin-top: 4px;
-    margin-bottom:4px;
-    }
-    
-    /*Files*/
-    
-    #launcher-5 #launcher-arrow {
-    background-color: #454C5A;
+    margin-bottom: 4px;
+}
+
+/*Files*/
+
+#launcher-5 #launcher-arrow {
+    background-color: #454c5a;
     color: #ffffff;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
@@ -231,11 +231,11 @@
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 4px;
-    margin-bottom:4px;
-    }
-    
-    #launcher-5 #launcher-arrow:checked {
-    background-color: #5294E2;
+    margin-bottom: 4px;
+}
+
+#launcher-5 #launcher-arrow:checked {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
@@ -244,11 +244,11 @@
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 4px;
-    margin-bottom:4px;
-    }
-    
-    #launcher-5 #launcher-arrow:hover {
-    background-color: #5294E2;
+    margin-bottom: 4px;
+}
+
+#launcher-5 #launcher-arrow:hover {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
@@ -257,13 +257,13 @@
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 4px;
-    margin-bottom:4px;
-    }
-    
-    /*Terminal*/
-    
-    #launcher-6 #launcher-arrow {
-    background-color: #454C5A;
+    margin-bottom: 4px;
+}
+
+/*Terminal*/
+
+#launcher-6 #launcher-arrow {
+    background-color: #454c5a;
     color: #ffffff;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
@@ -272,11 +272,11 @@
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 4px;
-    margin-bottom:4px;
-    }
-    
-    #launcher-6 #launcher-arrow:checked {
-    background-color: #5294E2;
+    margin-bottom: 4px;
+}
+
+#launcher-6 #launcher-arrow:checked {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
@@ -285,11 +285,11 @@
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 4px;
-    margin-bottom:4px;
-    }
-    
-    #launcher-6 #launcher-arrow:hover {
-    background-color: #5294E2;
+    margin-bottom: 4px;
+}
+
+#launcher-6 #launcher-arrow:hover {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
@@ -298,13 +298,13 @@
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 4px;
-    margin-bottom:4px;
-    }
-    
-    /*Music*/
-    
-    #launcher-8 #launcher-arrow {
-    background-color: #454C5A;
+    margin-bottom: 4px;
+}
+
+/*Music*/
+
+#launcher-8 #launcher-arrow {
+    background-color: #454c5a;
     color: #ffffff;
     border-top-left-radius: 0px;
     border-top-right-radius: 2px;
@@ -313,11 +313,11 @@
     margin-left: 0px;
     margin-right: 4px;
     margin-top: 4px;
-    margin-bottom:4px;
-    }
-    
-    #launcher-8 #launcher-arrow:checked {
-    background-color: #5294E2;
+    margin-bottom: 4px;
+}
+
+#launcher-8 #launcher-arrow:checked {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 0px;
     border-top-right-radius: 2px;
@@ -326,11 +326,11 @@
     margin-left: 0px;
     margin-right: 4px;
     margin-top: 4px;
-    margin-bottom:4px;
-    }
-    
-    #launcher-8 #launcher-arrow:hover {
-    background-color: #5294E2;
+    margin-bottom: 4px;
+}
+
+#launcher-8 #launcher-arrow:hover {
+    background-color: #5294e2;
     color: #ffffff;
     border-top-left-radius: 0px;
     border-top-right-radius: 2px;
@@ -339,5 +339,5 @@
     margin-left: 0px;
     margin-right: 4px;
     margin-top: 4px;
-    margin-bottom:4px;
-    }
+    margin-bottom: 4px;
+}
