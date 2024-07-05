@@ -20,10 +20,13 @@ d_gamepad_xpadneo="$HOME/app/system/gamepad/xpadneo"
     git pull && \
     sudo ./install.sh --dest /usr/share/themes --theme all --icon gnome --libadwaita --name Qogir-git && \
     sudo ./install.sh --dest /usr/share/themes --theme all --icon gnome --libadwaita --name Qogir-round-git --tweaks round && \
+    ./install.sh --dest /home/walpy/.themes --theme all --icon gnome --libadwaita --name Qogir-git && \
+    ./install.sh --dest /home/walpy/.themes --theme all --icon gnome --libadwaita --name Qogir-round-git --tweaks round && \
     cd $original_PWD || cd $original_PWD) && \
 ([[ -d $d_qogir_icon/.git ]] && cd $d_qogir_icon && [ $(git diff origin --name-only) ] && echo -e "${1}qogir.icon  --- ${2}" && \
     git pull && \
     sudo ./install.sh --dest /usr/share/icons --theme all --name Qogir-git && \
+    ./install.sh --dest /home/walpy/.icons --theme all --name Qogir-git && \
     cd $original_PWD || cd $original_PWD) && \
 ([[ -d $d_volantes/.git ]]  && cd $d_volantes && [ $(git diff origin --name-only) ] && echo -e "${1}volantes.cursor ${2}" && \
     git pull && \
