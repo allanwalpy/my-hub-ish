@@ -15,12 +15,16 @@
 # ?   `autoremove`, remove unused packages;
 # ? - [if present] `non-managed`, launch `update.user` script intended for updating your system parts not managed by any package manager;
 # ?   modify `update.user` script in the same folder for your system configuration and liking or delete script to permanently disable;
+# ? - [if present] `firmware`, updates firmware drivers and firmware itself;
+# ? - [if present] `initramfs`, updates initramfs for all kernels;
 # ? - [if installed] `dist`, perform distribution version update; see `update.dist` in same folder to see supported commands/distributions;
 # ? args:
 # ?   --no-apt, no-apt, --noapt, noapt - disable apt commands;
 # ?   --no-snap, no-snap, --nosnap, nosnap - disable snap commands;
 # ?   --no-flat, no-flat, --noflat, noflat, --no-flatpak, no-flatpak, --noflatpak, noflatpak - disable flatpak commands;
-# ?   --no-user, no-user, --nouser, nouser - disable
+# ?   --user, user, --full, full - enable user script update at `update.user` in same folder as script;
+# ?   --firmware, firmware, --full, full - enable firmware update;
+# ?   --initramfs, initramfs, --full, full - enable initramfs update for all kernels;
 # ?   --dist, dist, --full, full - enable dist upgrading command, executes `update.dist` in same folder;
 
 script_folder=$(dirname "$(readlink -fm "$0")")
@@ -37,7 +41,7 @@ tm_clear=$(tput sgr0)
 tm_bold=$(tput bold)
 
 ([[ "$*" != *"--no-apt"* ]] && [[ "$*" != *"no-apt"* ]] && [[ "$*" != *"--noapt"* ]] && [[ "$*" != *"noapt"* ]] && \
-command -v apt &> /dev/null && \
+(command -v apt &> /dev/null) && \
 echo -e "${ct_main}-/- ${ct_h}${tm_bold}apt${tm_clear}${ct_main} --- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}update${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
     sudo apt update && \
@@ -53,13 +57,13 @@ echo -e "${ct_main}    === ${ct_h}${tm_bold}autoclean${tm_clear}${ct_main} - ---
     sudo apt autoclean && \
 echo -e "${ct_main}-\- ${ct_h}${tm_bold}apt done${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
 ([[ "$*" != *"--no-snap"* ]] && [[ "$*" != *"no-snap"* ]] && [[ "$*" != *"--nosnap"* ]] && [[ "$*" != *"nosnap"* ]] && \
-command -v snap &> /dev/null && \
+(command -v snap &> /dev/null) && \
 echo -e "${ct_main}-/- ${ct_h}${tm_bold}snap${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
     snap refresh && \
 echo -e "${ct_main}-\- ${ct_h}${tm_bold}snap done${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
 ([[ "$*" != *"--no-flat"* ]] && [[ "$*" != *"no-flat"* ]] && [[ "$*" != *"--noflat"* ]] && [[ "$*" != *"noflat"* ]] && \
 [[ "$*" != *"--no-flatpak"* ]] && [[ "$*" != *"no-flatpak"* ]] && [[ "$*" != *"--noflatpak"* ]] && [[ "$*" != *"noflatpak"* ]] && \
-command -v flatpak &> /dev/null && \
+(command -v flatpak &> /dev/null) && \
 echo -e "${ct_main}-/- ${ct_h}${tm_bold}flatpak${tm_clear}${ct_main} --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
 echo -e "${ct_main}    === ${ct_h}${tm_bold}update${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
     flatpak update && \
@@ -71,6 +75,16 @@ echo -e "${ct_main}-\- ${ct_h}${tm_bold}flatpak done${tm_clear}${ct_main} -- ---
 echo -e "${ct_main}-/- ${ct_h}${tm_bold}non-managed${tm_clear}${ct_main} --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
     $script_user "${ct_main}    === ${ct_h}${tm_bold}" "${tm_clear}${ct_main}--- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
 echo -e "${ct_main}-\- ${ct_h}${tm_bold}non-managed done${tm_clear}${ct_main}--- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
+([[ "$*" == *"--firmware"* ]] || [[ "$*" == *"firmware"* ]] || [[ "$*" == *"--full"* ]] || [[ "$*" == *"full"* ]] && \
+(command -v fwupdmgr &> /dev/null) && \
+echo -e "${ct_main}-/- ${ct_h}${tm_bold}firmware${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+    sudo fwupdmgr update && \
+echo -e "${ct_main}-\- ${ct_h}${tm_bold}firmware done${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
+([[ "$*" == *"--initramfs"* ]] || [[ "$*" == *"initramfs"* ]] || [[ "$*" == *"--full"* ]] || [[ "$*" == *"full"* ]] && \
+(command -v update-initramfs &> /dev/null) && \
+echo -e "${ct_main}-/- ${ct_h}${tm_bold}initramfs${tm_clear}${ct_main} - --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
+    sudo update-initramfs -u -k all && \
+echo -e "${ct_main}-\- ${ct_h}${tm_bold}initramfs done${tm_clear}${ct_main}  --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" || true) && \
 ([[ "$*" == *"--dist"* ]] || [[ "$*" == *"dist"* ]] || [[ "$*" == *"--full"* ]] || [[ "$*" == *"full"* ]] && \
 echo -e "${ct_main}-/- ${ct_h}${tm_bold}dist${tm_clear}${ct_main} -- --- --- --- --- --- --- --- --- --- --- --- --- ---${ct_clear}" && \
     $script_folder/update.dist && \
