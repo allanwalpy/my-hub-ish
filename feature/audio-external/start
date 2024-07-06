@@ -8,6 +8,9 @@ echo "DBG"
 
 script_folder=$(dirname "$(readlink -fm "$0")")
 
+# ? alternative solution;
+pactl load-module module-simple-protocol-tcp rate=48000 format=s16le channels=2 source=external-sink record=true port=27130
+
 build="$HOME/app/system/audio-share/server-core/out/install/linux-Release/bin"
 
 ip=$(ip -4 -br -j addr show $1 | jq -r '.[0].addr_info[0].local')
