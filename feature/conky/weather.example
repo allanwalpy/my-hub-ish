@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ? copy this script to `weather.secret` and fill the feilds
+# ? copy this script to `weather.secret` and fill the fields
 
 if [ $1 = "key" ]; then
     echo "api key for https://www.meteosource.com"

@@ -1,14 +1,9 @@
 #!/bin/bash
 
-# This script is to get weather data from openweathermap.com in the form of a json file
-# so that conky will still display the weather when offline even though it doesn't up to date
+script_folder=$(dirname "$(readlink -fm "$0")")
 
-# you can use this or replace with yours
-api_key=15a4a0555f091f107b8f1212bb39c2cf
-# get your city id at https://openweathermap.org/find and replace
-city_id=1528675
+key=$($script_folder/weather.secret key)
+location=$($script_folder/weather.secret location)
+url="api.openweathermap.org/data/2.5/weather?id=${location}&appid=${key}&cnt=5&units=metric&lang=en"
 
-url="api.openweathermap.org/data/2.5/weather?id=${city_id}&appid=${api_key}&cnt=5&units=metric&lang=en"
-curl  -s -o ~/.cache/weather.json ${url}
-
-exit
+curl -s -o ~/.cache/weather.json $url
