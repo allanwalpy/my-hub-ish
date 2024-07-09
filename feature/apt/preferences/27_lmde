@@ -1,4 +1,4 @@
 Package: *
-Pin: origin packages.linuxmint.com
-Pin-Priority: 1
+Pin: release a=faye
+Pin-Priority: 10
 

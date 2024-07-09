@@ -1,8 +1,8 @@
 Package: *
 Pin: release a=unstable
-Pin-Priority: 2
+Pin-Priority: 25
 
 Package: *
-Pin: release a=sid
-Pin-Priority: 2
+Pin: release a=experimental
+Pin-Priority: 1
 

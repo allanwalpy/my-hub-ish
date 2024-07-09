@@ -10,3 +10,10 @@ Package: *
 Pin: release a=testing-security
 Pin-Priority: 500
 
+Package: *
+Pin: release a=testing-updates
+Pin-Priority: 500
+
+Package: *
+Pin: release a=testing-proposed-updates
+Pin-Priority: 500

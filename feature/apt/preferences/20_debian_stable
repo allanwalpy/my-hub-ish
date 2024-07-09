@@ -1,12 +1,19 @@
 Package: *
 Pin: release a=stable
-Pin-Priority: 100
+Pin-Priority: 50
 
 Package: *
 Pin: release a=stable-security
-Pin-Priority: 100
+Pin-Priority: 50
 
 Package: *
 Pin: release a=stable-backport
-Pin-Priority: 100
+Pin-Priority: 50
 
+Package: *
+Pin: release a=stable-updates
+Pin-Priority: 50
+
+Package: *
+Pin: release a=stable-proposed-updates
+Pin-Priority: 50
