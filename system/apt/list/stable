@@ -1,3 +1,0 @@
-#!/bin/bash
-
-apt list --installed | grep stable | grep -v testing | grep -v unstable
