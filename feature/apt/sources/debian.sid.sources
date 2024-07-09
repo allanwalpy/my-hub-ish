@@ -16,3 +16,20 @@ Components: main non-free-firmware contrib non-free
 Architectures: i386 amd64
 Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
+Enabled: no
+X-Repolib-Name: Debian Sid [source code]
+Types: deb-src
+URIs: https://deb.debian.org/debian
+Suites: sid
+Components: main non-free-firmware contrib non-free
+Architectures: i386 amd64
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+Enabled: no
+X-Repolib-Name: Debian Experimental [source code]
+Types: deb-src
+URIs: https://deb.debian.org/debian
+Suites: experimental
+Components: main non-free-firmware contrib non-free
+Architectures: i386 amd64
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg

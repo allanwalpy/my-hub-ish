@@ -6,3 +6,10 @@ Suites: faye
 Components: main upstream import backport
 Architectures: i386 amd64
 
+Enabled: no
+X-Repolib-Name: Linux Mint Debian Edition 6 Faye [source code]
+Types: deb-src
+URIs: http://packages.linuxmint.com
+Suites: faye
+Components: main upstream import backport
+Architectures: i386 amd64
