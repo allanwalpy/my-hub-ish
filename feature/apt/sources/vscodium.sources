@@ -1,6 +1,8 @@
-Components: main
-Suites: vscodium
-Architectures: amd64
-Uris: https://download.vscodium.com/debs
+Enabled: yes
+X-Repolib-Name: vscodium
 Types: deb
+Uris: https://download.vscodium.com/debs
+Suites: vscodium
+Components: main
+Architectures: amd64
 Signed-By: /usr/share/keyrings/vscodium-archive-keyring.gpg

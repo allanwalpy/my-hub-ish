@@ -1,5 +1,8 @@
-Types: deb deb-src
+Enabled: yes
+X-Repolib-Name: Linux Mint Debian Edition 6 Faye
+Types: deb
 URIs: http://packages.linuxmint.com
 Suites: faye
-Architectures: i386 amd64
 Components: main upstream import backport
+Architectures: i386 amd64
+

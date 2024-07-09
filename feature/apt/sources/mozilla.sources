@@ -1,0 +1,9 @@
+Enabled: yes
+X-Repolib-Name: Mozilla Firefox
+Types: deb
+URIs: https://packages.mozilla.org/apt
+Suites: mozilla
+Components: main
+Architectures: i386 amd64
+Signed-By: /etc/apt/keyrings/packages.mozilla.org.asc
+
