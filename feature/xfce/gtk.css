@@ -127,10 +127,10 @@
 #xfce4-notification-plugin:checked {
     background-color: #5294e2;
     color: #ffffff;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
     margin: 4px;
     padding: 2px;
 }
