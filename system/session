@@ -1,16 +1,12 @@
 #!/bin/bash
 
-# ? simple session manage;
-# ? args:
-# ?     - `sleep`;
-# ?         - [`suspend`] `soft`;
-# ?     - `save`, `hibernate`
+# ? simple session manage; see "`script_name` help" to see available commands;
 
 function get_confirmation {
-    read -p " --- enter \`y\` to continue" choice
+    read -p " --- enter \`y\` to continue " choice
     case "$choice" in
         y|Y ) echo " --- proceeding";;
-        * ) return 1;;
+        * ) echo " -x- abort -x-"; exit 1;;
     esac
 }
 
@@ -18,7 +14,8 @@ function do_systemctl_action {
     # ? 1 - command; 2 - name;
     echo " --- chosen: $2 ---"
     get_confirmation
-    echo "sudo systemctl $1" #sudo systemctl $1
+    echo " --- executing \`sudo systemctl $1\`"
+    #sudo systemctl $1
 }
 
 function do_sleep_soft {
@@ -56,6 +53,32 @@ function do_shut_reboot {
     return
 }
 
+([[ "$*" == *"help"* ]] || [[ "$*" == *"man"* ]] || [[ "$*" == *"--help"* ]] || [[ "$*" == *"-h"* ]]) && \
+echo " --- use \`script_name\` args; only one action permitted; only the first action in a following list will be executed;
+
+    suspend - suspends session with \`systemctl suspend\`;
+    aka: sus; sleep soft;
+
+    hibernate - hibernate session with \`systemctl hibernate\`;
+    aka: hib; sleep hard;
+
+    hybrid - suspends and hibernates session at the same time with \`systemctl hybrid-sleep\`;
+    aka: hyb; sleep mix; sleep both;
+
+    slumber - suspends and later hibernates session with \`systemctl suspend-then-hibernate\`;
+    aka: slum; slumb; sleep chain; sleep seq; sleep sequence; sleep bat; sleep battery;
+
+    reload - reloads userspace without reloading machine with \`systemctl soft-reboot\`;
+    aka: shut load;
+
+    shutdown - shutdowns machine with \`systemctl poweroff\`;
+    aka: shut down;
+
+    reboot - reboots machine with \`systemctl reboot\`;
+    aka: shut boot;
+
+ ---" && exit 0
+
 (([[ "$*" == *"sleep"* ]] && [[ "$*" == *"soft"* ]]) || [[ "$*" == *"suspend"* ]] || [[ "$*" == *"sus"* ]]) && do_sleep_soft
 
 (([[ "$*" == *"sleep"* ]] && [[ "$*" == *"hard"* ]]) || [[ "$*" == *"hibernate"* ]] || [[ "$*" == *"hib"* ]]) && do_sleep_hard
@@ -69,3 +92,5 @@ function do_shut_reboot {
 (([[ "$*" == *"shut"* ]] && [[ "$*" == *"down"* ]]) || [[ "$*" == *"shutdown"* ]]) && do_shut_down
 
 (([[ "$*" == *"shut"* ]] && [[ "$*" == *"boot"* ]]) || [[ "$*" == *"reboot"* ]]) && do_shut_reboot
+
+echo " -x- command or action not found; see \"\`script_name\` help\" to see available actions; -x-"
