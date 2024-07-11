@@ -6,7 +6,7 @@ function get_confirmation {
     read -p " --- enter \`y\` to continue " choice
     case "$choice" in
         y|Y ) echo " --- proceeding";;
-        * ) echo " -x- abort -x-"; exit 1;;
+        * ) echo " -x- abort -x-"; exit 2;;
     esac
 }
 
@@ -15,42 +15,36 @@ function do_systemctl_action {
     echo " --- chosen: $2 ---"
     get_confirmation
     echo " --- executing \`sudo systemctl $1\`"
-    #sudo systemctl $1
+    sudo systemctl $1
+    exit
 }
 
 function do_sleep_soft {
     do_systemctl_action suspend "[sleep soft] --- suspend ---"
-    return
 }
 
 function do_sleep_hard {
     do_systemctl_action hibernate "[sleep hard] --- hibernate ---"
-    return
 }
 
 function do_sleep_mix {
     do_systemctl_action hybrid-sleep "[sleep mix] --- hybrid ---"
-    return
 }
 
 function do_sleep_chain {
     do_systemctl_action suspend-then-hibernate "[sleep chain] --- slumber ---"
-    return
 }
 
 function do_shut_reload {
     do_systemctl_action soft-reboot "[shut reload] --- reload ---"
-    return
 }
 
 function do_shut_down {
     do_systemctl_action poweroff "[shut down] --- shutdown ---"
-    return
 }
 
 function do_shut_reboot {
     do_systemctl_action reboot "[shut reboot] --- reboot ---"
-    return
 }
 
 ([[ "$*" == *"help"* ]] || [[ "$*" == *"man"* ]] || [[ "$*" == *"--help"* ]] || [[ "$*" == *"-h"* ]]) && \
@@ -93,4 +87,4 @@ echo " --- use \`script_name\` args; only one action permitted; only the first a
 
 (([[ "$*" == *"shut"* ]] && [[ "$*" == *"boot"* ]]) || [[ "$*" == *"reboot"* ]]) && do_shut_reboot
 
-echo " -x- command or action not found; see \"\`script_name\` help\" to see available actions; -x-"
+echo " -x- command or action not found; see \"\`script_name\` help\" to see available actions; -x-" && exit 1
