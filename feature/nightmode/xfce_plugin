@@ -10,7 +10,6 @@ config="nightmode"
 echo "<iconclick>$0 toggle</iconclick>"
 echo "<tool>nigth mode toggler with config in \`xfce-settings-editor\` section \`$config\`</tool>"
 
-
 function get_any_config() {
     echo $(xfconf-query --channel $1 --property $2 2> /dev/null)
 }
