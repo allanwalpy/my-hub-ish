@@ -1,3 +1,5 @@
 #!/bin/bash
 
-cat /sys/class/hwmon/hwmon*/temp1_input | sed 's/.\{3\}$//'
+[ $1 == "cpu" ] && cat /sys/class/hwmon/hwmon*/temp1_input | sed 's/.\{3\}$//'
+
+[ $1 == "drive" ] && (echo test) && (sudo smartctl -A /dev/$2 | grep -i temperature | awk  '{print $10}')
