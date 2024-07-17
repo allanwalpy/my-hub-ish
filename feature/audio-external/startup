@@ -1,0 +1,10 @@
+#!/bin/bash
+
+script_folder=$(dirname "$(readlink -fm "$0")")
+sink="external-sink"
+
+echo "creating $sink sink"
+$script_folder/create-sink $sink
+
+pactl load-module module-simple-protocol-tcp rate=48000 format=s16le channels=2 source=external-sink record=true port=27130
+
