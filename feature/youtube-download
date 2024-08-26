@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# ? download video from youtube using `yt-dlp`; if only youtube link provided - 
+# ? arguments:
+# ?   - link to youtube video;
+# ?   - [optional] codec name; use `default` if in doubts;
+# ?   - [optional] location, relative to `~/Share/tube/`, if folder do not exists it will be created;
+
+link=$1
+
+if [ "$#" -le 1 ]; then
+    yt-dlp -R infinite --list-formats $link
+    exit 0
+fi
+
+codec=$2
+
+if [[ "$codec" == *"default"* ]]; then
+    codec="avc"
+fi
+
+location="$HOME/Share/tube/$3/"
+
+mkdir -p $location
+cd $location
+
+echo " --- detected 
+        video:    $link
+        codec:    $codec
+        location: $location
+ ---"
+
+yt-dlp -o "%(title)s.%(ext)s" -R infinite -S +vcodec:$codec -f "bv*[height<=1200]+ba" --concurrent-fragments 2 --write-sub --write-auto-sub --convert-subs=srt --sub-lang en --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --extractor-retries infinite $link
+
