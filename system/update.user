@@ -15,6 +15,9 @@ d_qogir_icon="$HOME/app/system/qogir/icon-theme"
 d_volantes="$HOME/app/system/volantes-cursors"
 d_gamepad_xone="$HOME/app/system/gamepad/xone"
 d_gamepad_xpadneo="$HOME/app/system/gamepad/xpadneo"
+d_audio_share="$HOME/app/system/audio-share"
+
+# systemctl --user stop audio-external@* --all && \
 
 ([[ -d $d_qogir_theme/.git ]] && cd $d_qogir_theme && [ $(git diff origin --name-only) ] && echo -e "${1}qogir.theme --- ${2}" && \
     git pull && \
@@ -39,5 +42,12 @@ d_gamepad_xpadneo="$HOME/app/system/gamepad/xpadneo"
 ([[ -d $d_gamepad_xpadneo/.git ]]  && cd $d_gamepad_xpadneo && [ $(git diff origin --name-only) ] && echo -e "${1}gamepad.xpadneo ${2}" && \
     git pull && \
     sudo ./update.sh && \
+    cd $original_PWD || cd $original_PWD) && \
+([[ -d $d_audio_share/.git ]] && cd $d_audio_share && [ $(git diff origin --name-only) ] && echo -e "${1}audio share --- ${2}" && \
+    git pull && \
+    cd server-core && \
+    rm -r out.bak && mv out out.bak && \
+    cmake --preset linux-Release && \
+    cmake --build --preset linux-Release && \
     cd $original_PWD || cd $original_PWD) && \
 cd $original_PWD || cd $original_PWD
