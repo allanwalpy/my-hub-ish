@@ -9,7 +9,7 @@
 link=$1
 
 if [ "$#" -le 1 ]; then
-    yt-dlp -R infinite --list-formats $link
+    yt-dlp -R infinite --list-formats --list-subs $link
     exit 0
 fi
 
@@ -30,5 +30,5 @@ echo " --- detected
         location: $location
  ---"
 
-yt-dlp -o "%(title)s.%(ext)s" -R infinite -S +vcodec:$codec -f "bv*[height<=1200]+ba" --concurrent-fragments 2 --write-sub --write-auto-sub --convert-subs=srt --sub-lang en --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --extractor-retries infinite $link
+yt-dlp -o "%(title)s.%(ext)s" -R infinite -S +vcodec:$codec -f "bv*[height<=1200]+ba" --concurrent-fragments 2 --write-auto-sub --sub-lang en --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --extractor-retries infinite $link
 
