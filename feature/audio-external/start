@@ -17,5 +17,3 @@ echo "start_script detected ip $ip in $1 interface to $sink [$sink_id] sink"
 echo "launching $build/as-cmd -b $ip -e $sink_id"
 $build/as-cmd -b $ip -e $sink_id
 
-
-

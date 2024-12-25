@@ -1,0 +1,15 @@
+#!/bin/bash
+
+pid_sharer=$(pidof as-cmd)
+pid_server=$(pidof pipewire)
+pid_server_pulse=$(pidof pipewire-pulse)
+
+echo " --- detected ---"
+echo " ---   sharers: $pid_sharer ---"
+echo " ---   servers: $pid_server and $pid_server_pulse ---"
+
+sudo renice -19 --pid $pid_sharer && \
+sudo renice -19 --pid $pid_server && \
+sudo renice -19 --pid $pid_server_pulse
+
+#wireplumer

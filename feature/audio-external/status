@@ -1,3 +1,9 @@
 #!/bin/bash
 
-systemctl status --user audio-external@* --all --no-pager && sudo ifconfig -a
+systemctl status --user audio-external@* --all --no-pager -l
+
+sudo ifconfig -a
+
+ps -eo pid,ppid,ni,comm | grep as-cmd
+ps -eo pid,ppid,ni,comm | grep pipewire
+sudo systemctl status audio-external-elevate.service --no-pager -l

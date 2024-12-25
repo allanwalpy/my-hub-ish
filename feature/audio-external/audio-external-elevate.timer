@@ -1,0 +1,17 @@
+[Unit]
+Description=Audio Share With External Device Elevate Process Priority Fix
+
+[Timer]
+OnBootSec="5min"
+OnActiveSec="15min"
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/walpy/hub/feature/audio-external/
+ExecStart=/home/walpy/hub/feature/audio-external/elevate
+SyslogIdentifier="audio-external-elevate-fix"
+RemainAfterExit=no
+RestartSec="45s"
+
+[Install]
+WantedBy=timers.target
