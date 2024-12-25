@@ -1,8 +1,0 @@
-Package: baobab gnome-calculator gnome-logs
-Pin: release a=faye
-Pin-Priority: 1001
-
-Package: gnome-system-monitor
-Pin: version 42.*
-Pin-Priority: 1001
-
