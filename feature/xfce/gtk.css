@@ -5,225 +5,69 @@
 
 .xfce4-panel {
     /*background-color: #2F343F;*/
-    color: #2f343f;
+    /*color: #2f343f;*/
 }
 
-/*Applications Button*/
-
-#whiskermenu-button {
-    background-color: #454c5a;
+#xfce-panel-button,
+#whiskermenu-button,
+#clock-button,
+#pulseaudio-button,
+#xfce4-notification-plugin,
+#xfce4-power-manager-plugin,
+#xfce4-clipman-plugin,
+#launcher-arrow {
+    background-color: #555566;
     color: #ffffff;
+}
+/* .xfce4-panel .tasklist .toggle */
+
+#xfce-panel-button:hover,
+#whiskermenu-button:hover,
+#clock-button:hover,
+#pulseaudio-button:hover,
+#xfce4-notification-plugin:hover,
+#xfce4-power-manager-plugin:hover,
+#xfce4-clipman-plugin:hover,
+#launcher-arrow:hover,
+.xfce4-panel .tasklist .toggle:hover {
+    background-color: #4488aa;
+    color: #ffffff;
+}
+
+#xfce-panel-button:checked,
+#whiskermenu-button:checked,
+#clock-button:checked,
+#pulseaudio-button:checked,
+#xfce4-notification-plugin:checked,
+#xfce4-power-manager-plugin:checked,
+#xfce4-clipman-plugin:checked,
+#launcher-arrow:checked,
+.xfce4-panel .tasklist .toggle:checked {
+    background-color: #33aa66;
+    color: #ffffff;
+}
+
+#xfce-panel-button,
+#whiskermenu-button,
+#clock-button,
+#pulseaudio-button,
+#xfce4-notification-plugin,
+#xfce4-power-manager-plugin,
+#xfce4-clipman-plugin,
+#launcher-arrow {
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
     margin: 4px;
-    padding: 2px;
+    padding: 1px;
 }
 
-#whiskermenu-button:checked {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    margin: 4px;
-    padding: 2px;
-}
+/*#xfce4-clipman-plugin {
+    border: 1px dashed #f00;
+}*/
 
-#whiskermenu-button:hover {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    margin: 4px;
-    padding: 2px;
-}
-
-/*Clock*/
-
-#clock-button {
-    background-color: #454c5a;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    margin: 4px;
-    padding: 2px;
-}
-
-#clock-button:checked {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    margin: 4px;
-    padding: 2px;
-}
-
-#clock-button:hover {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    margin: 4px;
-    padding: 2px;
-}
-
-#pulseaudio-button {
-    background-color: #454c5a;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    margin: 4px;
-    padding: 2px;
-}
-
-/*Sound*/
-
-#pulseaudio-button:checked {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    margin: 4px;
-    padding: 2px;
-}
-
-#pulseaudio-button:hover {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    margin: 4px;
-    padding: 2px;
-}
-
-#xfce4-notification-plugin {
-    background-color: #454c5a;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    margin: 4px;
-    padding: 2px;
-}
-
-#xfce4-notification-plugin:checked {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    margin: 4px;
-    padding: 2px;
-}
-
-#xfce4-notification-plugin:hover {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    margin: 4px;
-    padding: 2px;
-}
-
-/*Workspace Switcher*/
-
-#pager-11 #xfce-panel-toggle-button:checked {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    margin: 4px;
-}
-
-#pager-11 #xfce-panel-toggle-button:hover {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    margin: 4px;
-}
-
-#pager-11 #xfce-panel-toggle-button {
-    background-color: #454c5a;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    margin: 4px;
-}
-
-/*Firefox Launcher*/
-
-#launcher-4 #launcher-arrow {
-    background-color: #454c5a;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 0px;
-    margin-left: 4px;
-    margin-right: 0px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-}
-
-#launcher-4 #launcher-arrow:checked {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 0px;
-    margin-left: 4px;
-    margin-right: 0px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-}
-
-#launcher-4 #launcher-arrow:hover {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 0px;
-    margin-left: 4px;
-    margin-right: 0px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-}
-
-/*Files*/
-
-#launcher-5 #launcher-arrow {
-    background-color: #454c5a;
-    color: #ffffff;
+/*#launcher-arrow, #xfce-panel-toggle-button:checked {
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -232,112 +76,14 @@
     margin-right: 0px;
     margin-top: 4px;
     margin-bottom: 4px;
+}*/
+
+.xfce4-panel .tasklist .toggle {
+    margin: 0px 1px;
+    padding: 0px 5px;
 }
 
-#launcher-5 #launcher-arrow:checked {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-}
-
-#launcher-5 #launcher-arrow:hover {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-}
-
-/*Terminal*/
-
-#launcher-6 #launcher-arrow {
-    background-color: #454c5a;
-    color: #ffffff;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-}
-
-#launcher-6 #launcher-arrow:checked {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-}
-
-#launcher-6 #launcher-arrow:hover {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-}
-
-/*Music*/
-
-#launcher-8 #launcher-arrow {
-    background-color: #454c5a;
-    color: #ffffff;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 2px;
-    margin-left: 0px;
-    margin-right: 4px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-}
-
-#launcher-8 #launcher-arrow:checked {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 2px;
-    margin-left: 0px;
-    margin-right: 4px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-}
-
-#launcher-8 #launcher-arrow:hover {
-    background-color: #5294e2;
-    color: #ffffff;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 2px;
-    margin-left: 0px;
-    margin-right: 4px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-}
+/*  
+old 5599dd
+old 55dd99
+*/
