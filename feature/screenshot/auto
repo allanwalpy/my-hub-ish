@@ -27,7 +27,7 @@ mkdir -p $folder
 command=""
 
 xfce4-screenshooter $arg -s $filename && \
-command=$(notify-send -u low -c im -a Screenshot -h string:desktop-entry:xfce4-screenshooter -t 5000 -i $filename -A "i"=image -A "f"=folder "screenshot" "... __:: success ::__ ...") || \
+command=$(notify-send -u low -c im -a Screenshot -h string:desktop-entry:xfce4-screenshooter -t 2000 -i $filename -A "i"=image -A "f"=folder "screenshot" "... __:: success ::__ ...") || \
 notify-send -u low -c im -a Screenshot -h string:desktop-entry:xfce4-screenshooter -t 10000 -i dialog-warning "screenshot" "... ::|| failure ||:: ..."
 
 if [[ $command == "i" ]]; then
