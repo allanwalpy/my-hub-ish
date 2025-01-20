@@ -1,0 +1,29 @@
+# user configuration & tweaks
+
+export GPG_TTY=$(tty)
+
+#export GTK_THEME=Arc
+
+export EDITOR=gedit
+
+export VCPKG_ROOT=~/app/system/vcpkg
+alias vcpkg='~/app/system/vcpkg/vcpkg'
+
+# add nodejs local folder
+export PATH="$HOME/.local/bin/:$PATH"
+
+# qt and kde settings
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+# alias'es
+
+alias l='ls -hal'
+
+alias m='mv -i'
+
+alias r='rm -i'
+
+alias c='cp -i'
+
+alias grep='grep --color=auto'
+
