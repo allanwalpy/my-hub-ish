@@ -1,0 +1,6 @@
+Types: deb
+URIs: https://codeberg.org/api/packages/yataro/debian/
+Suites: generic
+Components: main 
+Signed-By: /etc/apt/keyrings/sourcegit.asc
+Architectures: amd64

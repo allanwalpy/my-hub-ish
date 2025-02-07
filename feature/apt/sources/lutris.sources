@@ -1,15 +1,5 @@
-Enabled: yes
-X-Repolib-Name: Lutris Game Hub
 Types: deb
-URIs: https://download.opensuse.org/repositories/home:/strycore/
-Suites: Debian_12/ Debian_Testing/ Debian_Unstable/
-Architectures: i386 amd64
-Signed-By: /etc/apt/keyrings/lutris.gpg
-
-Enabled: no
-X-Repolib-Name: Lutris Game Hub [source code]
-Types: deb-src
-URIs: https://download.opensuse.org/repositories/home:/strycore/
-Suites: Debian_12/ Debian_Testing/ Debian_Unstable/
-Architectures: i386 amd64
+URIs: https://download.opensuse.org/repositories/home:/strycore/Debian_12/
+Suites: ./
+Components: 
 Signed-By: /etc/apt/keyrings/lutris.gpg

@@ -5,6 +5,7 @@ URIs: http://packages.linuxmint.com
 Suites: faye
 Components: main upstream import backport
 Architectures: i386 amd64
+Signed-By: /etc/apt/keyrings/linuxmint-keyring.gpg
 
 Enabled: no
 X-Repolib-Name: Linux Mint Debian Edition 6 Faye [source code]
@@ -13,3 +14,4 @@ URIs: http://packages.linuxmint.com
 Suites: faye
 Components: main upstream import backport
 Architectures: i386 amd64
+Signed-By: /etc/apt/keyrings/linuxmint-keyring.gpg
