@@ -2,4 +2,4 @@
 
 script_folder=$(dirname "$(readlink -fm "$0")")
 
-conky -p 3 -c $script_folder/$1.conf
+conky -p 7 -c $script_folder/$1.conf
