@@ -1,0 +1,11 @@
+#!/bin/bash
+
+internet_connection="$(nmcli connection | grep enx | xargs | rev |  cut -d ' ' -f 4- | rev | xargs)"
+
+echo "detected $internet_connection connection"
+
+nmcli connection modify "$internet_connection" ipv4.method link-local
+# nmcli connection modify "$internet_connection" ipv4.auto-route-ext-gw false
+
+nmcli connection modify "$internet_connection" ipv6.method link-local
+# nmcli connection modify "$internet_connection" ipv6.auto-route-ext-gw false
