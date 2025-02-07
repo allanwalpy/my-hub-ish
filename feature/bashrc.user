@@ -19,11 +19,13 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 
 alias l='ls -hal'
 
-alias m='mv -i'
+alias m='mv'
 
-alias r='rm -i'
+alias r='rm'
 
-alias c='cp -i'
+alias c='cp'
 
-alias grep='grep --color=auto'
+alias markdown='glow'
+alias md='markdown'
 
+alias neofetch='fastfetch'
