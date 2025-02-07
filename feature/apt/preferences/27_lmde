@@ -1,4 +1,4 @@
 Package: *
 Pin: release a=faye
-Pin-Priority: 10
+Pin-Priority: 80
 

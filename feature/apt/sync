@@ -10,7 +10,6 @@ script_folder=$(dirname "$(readlink -fm "$0")")
 sync_conf="-rltv --delete $2"
 
 system_folder_sources="/etc/apt/sources.list.d"
-system_file_sources="/etc/apt/sources.list"
 system_folder_preferences="/etc/apt/preferences.d"
 
 repo_folder_sources=$script_folder"/sources"
@@ -22,7 +21,6 @@ if [[ $1 == "pull" ]]; then
     echo "     --- with \'$sync_conf\` args for rsync --- "
 
     rsync $sync_conf $system_folder_sources/ $repo_folder_sources
-    rsync $sync_conf $system_file_sources $repo_file_sources
 
     rsync $sync_conf $system_folder_preferences/ $repo_folder_preferences
 
@@ -31,7 +29,6 @@ elif [[ $1 == "push" ]]; then
     echo "     --- with \'$sync_conf\` args for rsync --- "
 
     sudo rsync $sync_conf $repo_folder_sources/ $system_folder_sources
-    sudo rsync $sync_conf $repo_file_sources $system_file_sources
 
     sudo rsync $sync_conf $repo_folder_preferences/ $system_folder_preferences
   
