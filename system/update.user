@@ -10,8 +10,8 @@ original_PWD=$PWDS
 
 # d - folder; f - script;
 
-d_qogir_theme="$HOME/app/system/qogir/theme"
-d_qogir_icon="$HOME/app/system/qogir/icon-theme"
+# !TODO: add navidrome and vcpkg
+
 d_volantes="$HOME/app/system/volantes-cursors"
 d_gamepad_xone="$HOME/app/system/gamepad/xone"
 d_gamepad_xpadneo="$HOME/app/system/gamepad/xpadneo"
@@ -19,18 +19,7 @@ d_audio_share="$HOME/app/system/audio-share"
 
 # systemctl --user stop audio-external@* --all && \
 
-([[ -d $d_qogir_theme/.git ]] && cd $d_qogir_theme && [ $(git diff origin --name-only) ] && echo -e "${1}qogir.theme --- ${2}" && \
-    git pull && \
-    sudo ./install.sh --dest /usr/share/themes --theme all --icon gnome --libadwaita --name Qogir-git && \
-    sudo ./install.sh --dest /usr/share/themes --theme all --icon gnome --libadwaita --name Qogir-round-git --tweaks round && \
-    ./install.sh --dest /home/walpy/.themes --theme all --icon gnome --libadwaita --name Qogir-git && \
-    ./install.sh --dest /home/walpy/.themes --theme all --icon gnome --libadwaita --name Qogir-round-git --tweaks round && \
-    cd $original_PWD || cd $original_PWD) && \
-([[ -d $d_qogir_icon/.git ]] && cd $d_qogir_icon && [ $(git diff origin --name-only) ] && echo -e "${1}qogir.icon  --- ${2}" && \
-    git pull && \
-    sudo ./install.sh --dest /usr/share/icons --theme all --name Qogir-git && \
-    ./install.sh --dest /home/walpy/.icons --theme all --name Qogir-git && \
-    cd $original_PWD || cd $original_PWD) && \
+
 ([[ -d $d_volantes/.git ]]  && cd $d_volantes && [ $(git diff origin --name-only) ] && echo -e "${1}volantes.cursor ${2}" && \
     git pull && \
     make build && sudo make install && \
