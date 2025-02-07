@@ -1,167 +1,60 @@
-/* terminal tabs */
-
-terminal-window notebook tab {
-    background-color: #2f343f;
-    padding-left: 1em;
-    padding-right: 1em;
-    border-width: 0px;
-    border-color: #2f343f;
-}
-
-terminal-window notebook tab:checked {
-    background-color: #2f343f;
-    background-image: none;
-    border-width: 0px;
-    border-color: #2f343f;
-}
-
-terminal-window notebook tab label {
-    background-color: #2f343f;
-    border-color: #2f343f;
-    border-width: 0px;
-}
-
-terminal-window notebook tab:checked label {
-    font-weight: 700;
-    border-width: 0px;
-    border-color: #2f343f;
-}
-
-terminal-window notebook tab button {
-    padding: 0px;
-    background-color: transparent;
-    border-width: 0px;
-    border-color: #2f343f;
-}
-
-terminal-window notebook header {
-    background-color: #2f343f;
-    border-width: 0px;
-    border-color: #2f343f;
-}
-
-terminal-window notebook tab button:hover {
-    background-image: none;
-    border-width: 0px;
-    border-color: #2f343f;
-}
-
-terminal-window notebook header.top {
-    background-color: #2f343f;
-    padding: 0px;
-    padding-top: 0px;
-    box-shadow: none;
-    border-width: 0px;
-    border-color: #2f343f;
-}
-
-terminal-window notebook tab:checked button {
-    background-color: #2f343f;
-    border-width: 1px;
-    border-color: #2f343f;
-}
-
-
-
-/*
-
-
-terminal-window,
-.mate-terminal {
-
-  notebook {
-    > header.top {
-      padding-top: 3px;
-
-      box-shadow: inset 0  1px opacify($header_border, 1),
-                  inset 0 -1px $borders_color;
-
-      button {
-        padding: 0;
-        min-width: 24px;
-        min-height: 24px;
-      }
-    }
-  }
-}
-
-
-terminal-window notebook > header.top > tabs {
-    background-color: #2f343f;
-    border-color: #2f343f;
-}
-
-terminal-window notebook > header.top > tabs > tab {
-    background-color: #2f343f;
-    border-color: #2f343f;
-}
-*/
-
 /* window list */
-
-.xfce4-panel .tasklist .toggle {
-    background-color: rgba(12, 24, 32, 0.7);
-}
 
 .xfce4-panel .tasklist .toggle:hover {
     background-color: rgba(82, 226, 148, 0.7);
+    color: #eeeeee;
 }
 
 .xfce4-panel .tasklist .toggle:checked {
     background-color: rgba(82, 148, 226, 0.7);
 }
 
-/*.gedit-bottom-panel-paned notebook > header.top > tabs > tab:checked,
-terminal-window notebook > header.top > tabs > tab:checked {
-  box-shadow: inset 0 -1px #ffffff; }
+/* terminal */
 
-\
-
-.gedit-bottom-panel-paned notebook,
-terminal-window notebook {
-  > header.top > tabs > tab:checked { box-shadow: inset 0 -1px $borders_color; }
+terminal-window header.top,
+.mate-terminal header.top {
+    background-color: #2f343f;
+    color: #aaaaaa;
+    box-shadow: none;
 }
 
-terminal-window notebook > header.top,
-.mate-terminal notebook > header.top {
-  padding-top: 3px;
-  box-shadow: inset 0 1px #d4d5db, inset 0 -1px #ffffff; }
-  terminal-window notebook > header.top button,
-  .mate-terminal notebook > header.top button {
-    padding: 0;
-    min-width: 24px;
-    min-height: 24px; }
-    
-    .gedit-bottom-panel-paned notebook > header.top > tabs > tab:checked,
-terminal-window notebook > header.top > tabs > tab:checked {
-  box-shadow: inset 0 -1px #2b2e39; }
-  
-  terminal-window notebook > header > box {
-  margin: -2px;
+terminal-window scrollbar,
+.mate-terminal scrollbar {
+    background-color: #2f343f;
 }
+
+/*
+
+terminal-window.background.csd, terminal-window.background.csd.maximized {
+  border-radius: 0 0 0 0;
+}
+
+terminal-window decoration {
+  border-radius: 3px 3px 0 0;
+}
+
+terminal-window notebook > header > box {
+  padding: 0;
+}
+
 terminal-window notebook > header > box button {
-  border-radius: 0;
+  border: none;
 }
 
-
-.terminal-titlebar button {
-  border-radius: 0;
+window.background > box.vertical > box.horizontal > frame > border {
+  border-width: 0 1px 0 0;
 }
 
-.terminator-terminal-window paned > separator {
-  background-color: #4C4F69;
-}
-.terminator-terminal-window notebook.frame {
-  border-style: none;
-  background-color: transparent;
+window.background > box.vertical > box.horizontal > frame > scrolledwindow > viewport.frame list {
+  border-bottom-left-radius: 3px;
 }
 
-VteTerminal, vte-terminal {
-	padding: 20px;
+window.background > box.vertical > box.horizontal > stack > widget > notebook.frame {
+  border-width: 0;
 }
-    
-    
-terminal-window notebook > header.top,
-.mate-terminal notebook > header.top {
-    background: #ff0000;
-} */
+
+window.background > box.vertical > box.horizontal > stack > widget > notebook.frame > stack {
+  border-bottom-right-radius: 3px;
+}
+
+*/
