@@ -19,13 +19,19 @@
 # ? - [if present & args enabled] `initramfs`, updates initramfs for all kernels;
 # ? - [if present & args enabled] `dist`, perform distribution version update;
 # ? args:
-# ?   --no-apt, no-apt, --noapt, noapt - disable apt commands;
-# ?   --no-snap, no-snap, --nosnap, nosnap - disable snap commands;
-# ?   --no-flat, no-flat, --noflat, noflat, --no-flatpak, no-flatpak, --noflatpak, noflatpak - disable flatpak commands;
-# ?   --user, user, --full, full - enable user script update at `update.user` in same folder as script;
-# ?   --firmware, firmware, --full, full - enable firmware update;
-# ?   --initramfs, initramfs, --full, full - enable initramfs update for all kernels;
-# ?   --dist, dist, --full, full - enable dist upgrading command, do not funcition if `no-apt` - apt commands disabled;
+# ?   apt - disable all commands, except apt ones - i.e. run only apt commands;
+# ?   --no-apt - do not run apt commands;
+# ?     --no-apt-update - do not run apt update command;
+# ?     --no-apt-upgrade - do not run apt upgrade command;
+# ?     --no-apt-full-upgrade - do not run apt full-upgrade command;
+# ?     --no-apt-dist-upgrade - do not run apt dist-upgrade command;
+# ?     --no-apt-autoremove - do not run apt autoremove command;
+# ?     --no-apt-purge - do not run apt purge command;
+# ?   --no-snap - do not run snap commands;
+# ?   --no-flatpak - do not run flatpak commands;
+# ?     --no-flatpak-update - do not run flatpak update command;
+# ?   --no-user - do not run `update.user` script in the same folder;
+# ?   --no-firmware - do not run firmware update comand;
 
 script_folder=$(dirname "$(readlink -fm "$0")")
 script_user=$script_folder/update.user
@@ -41,53 +47,70 @@ ch="\033[0;34m"
 mc=$(tput sgr0)
 mb=$(tput bold)
 
-([[ "$*" != *"--no-apt"* ]] && [[ "$*" != *"no-apt"* ]] && [[ "$*" != *"--noapt"* ]] && [[ "$*" != *"noapt"* ]] && \
-    (command -v apt &> /dev/null) && \
-echo -e "${cm}-/- ${ch}${mb}apt${mc}${cm} --- --- --- --- --- --- --- --- --- --- --- --- --- ---${cc}" && \
-echo -e "${cm}    === ${ch}${mb}update${mc}${cm}  --- --- --- --- --- --- --- --- --- --- --- ---${cc}" && \
-    sudo apt update && \
-echo -e "${cm}    === ${ch}${mb}upgrade${mc}${cm} --- --- --- --- --- --- --- --- --- --- --- ---${cc}" && \
-    sudo apt upgrade --with-new-pkgs && \
-echo -e "${cm}    === ${ch}${mb}full-upgrade${mc}${cm} -- --- --- --- --- --- --- --- --- --- ---${cc}" && \
-    sudo apt full-upgrade && \
-([[ "$*" == *"--dist"* ]] || [[ "$*" == *"dist"* ]] || [[ "$*" == *"--full"* ]] || [[ "$*" == *"full"* ]] && \
-echo -e "${cm}-/- ${ch}${mb}dist${mc}${cm} -- --- --- --- --- --- --- --- --- --- --- --- --- ---${cc}" && \
-    (command -v do-release-upgrade &> /dev/null && sudo do-release-upgrade --allow-third-party) || sudo apt dist-upgrade && \
-echo -e "${cm}-\- ${ch}${mb}dist done${mc}${cm} - --- --- --- --- --- --- --- --- --- --- --- ---${cc}" || true) && \
-echo -e "${cm}    === ${ch}${mb}autoremove${mc}${cm}  --- --- --- --- --- --- --- --- --- --- ---${cc}" && \
-    sudo apt autoremove && \
-echo -e "${cm}    === ${ch}${mb}autoclean${mc}${cm} - --- --- --- --- --- --- --- --- --- --- ---${cc}" && \
-    sudo apt autoclean && \
-echo -e "${cm}    === ${ch}${mb}purge${mc}${cm} - --- --- --- --- --- --- --- --- --- --- --- ---${cc}" && \
-    sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1) && \
-echo -e "${cm}-\- ${ch}${mb}apt done${mc}${cm} -- --- --- --- --- --- --- --- --- --- --- --- ---${cc}" || true) && \
-([[ "$*" != *"--no-snap"* ]] && [[ "$*" != *"no-snap"* ]] && [[ "$*" != *"--nosnap"* ]] && [[ "$*" != *"nosnap"* ]] && \
-(command -v snap &> /dev/null) && \
-echo -e "${cm}-/- ${ch}${mb}snap${mc}${cm} -- --- --- --- --- --- --- --- --- --- --- --- --- ---${cc}" && \
+padding_full=$(tput cols)
+padding_rest=$(($padding_full - 23))
+padding_quoter=$(($padding_rest / 4))
+
+function repeat() {
+    result=""
+    i=0
+    
+    while [ $i -lt $1 ]; do
+        result="$result$2"
+        i=$(($i + 1))
+    done
+    
+    echo $result
+}
+
+echo -e "\n\n" && \
+echo -e "${cm}$(repeat $padding_full '█')${cc}" && \
+echo -e "${cm}███ ${ch}${mb}system update${mc}${cm} █████$(repeat $padding_rest '█')${cc}" && \
+echo -e "${cm}$(repeat $padding_full '█')\n${cc}" && \
+([[ "$*" != *"--no-apt"* ]] && (command -v apt &> /dev/null) && \
+    echo -e "${cm}███ ${ch}${mb}apt${mc}${cm} ███████████████$(repeat $padding_rest '█')${cc}" && \
+    ([[ "$*" != *"--no-apt-update"* ]] && \
+        echo -e "${cm}    === ${ch}${mb}update${mc}${cm}  --- ---$(repeat $padding_quoter ' ---')${cc}" && \
+        echo "debug apt update" || sudo apt update) && \
+    ([[ "$*" != *"--no-apt-upgrade"* ]] && \
+        echo -e "${cm}    === ${ch}${mb}upgrade${mc}${cm} --- ---$(repeat $padding_quoter ' ---')${cc}" && \
+        echo "debug apt upgrade" || sudo apt upgrade --with-new-pkgs) && \
+    ([[ "$*" != *"--no-apt-full-upgrade"* ]] && \
+        echo -e "${cm}    === ${ch}${mb}full-upgrade${mc}${cm} --$(repeat $padding_quoter ' ---')${cc}" && \
+        echo "debug apt full-upgrade" || sudo apt full-upgrade) && \
+    ([[ "$*" != *"--no-apt-dist-upgrade"* ]] && \
+        echo -e "${cm}    === ${ch}${mb}dist${mc}${cm} -- --- ---$(repeat $padding_quoter ' ---')${cc}" && \
+        echo "debug apt dist-upgrade" || ((command -v do-release-upgrade &> /dev/null) && sudo do-release-upgrade --allow-third-party) || \
+        sudo apt dist-upgrade) && \
+    ([[ "$*" != *"--no-apt-autoremove"* ]] && \
+        echo -e "${cm}    === ${ch}${mb}autoremove${mc}${cm}  ---$(repeat $padding_quoter ' ---')${cc}" && \
+        echo "debug apt autoremove" || sudo apt autoremove) && \
+    ([[ "$*" != *"--no-apt-purge"* ]] && \
+        echo -e "${cm}    === ${ch}${mb}purge${mc}${cm} - --- ---$(repeat $padding_quoter ' ---')${cc}" && \
+        echo "debug apt purge" || sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1)) && \
+    echo -e "${cm}███ ${ch}${mb}apt done${mc}${cm} ██████████$(repeat $padding_rest '█')\n${cc}" || true) && \
+([[ "$*" != *"--no-snap"* ]] && (command -v snap &> /dev/null) && [[ "$*" != *"apt"* ]] && \
+    echo -e "${cm}███ ${ch}${mb}snap${mc}${cm} ██████████████$(repeat $padding_rest '█')${cc}" && \
     snap refresh && \
-echo -e "${cm}-\- ${ch}${mb}snap done${mc}${cm} - --- --- --- --- --- --- --- --- --- --- --- ---${cc}" || true) && \
-([[ "$*" != *"--no-flat"* ]] && [[ "$*" != *"no-flat"* ]] && [[ "$*" != *"--noflat"* ]] && [[ "$*" != *"noflat"* ]] && \
-[[ "$*" != *"--no-flatpak"* ]] && [[ "$*" != *"no-flatpak"* ]] && [[ "$*" != *"--noflatpak"* ]] && [[ "$*" != *"noflatpak"* ]] && \
-(command -v flatpak &> /dev/null) && \
-echo -e "${cm}-/- ${ch}${mb}flatpak${mc}${cm} --- --- --- --- --- --- --- --- --- --- --- --- ---${cc}" && \
-echo -e "${cm}    === ${ch}${mb}update${mc}${cm}  --- --- --- --- --- --- --- --- --- --- --- ---${cc}" && \
-    flatpak update && \
-echo -e "${cm}    === ${ch}${mb}autoremove${mc}${cm}  --- --- --- --- --- --- --- --- --- --- ---${cc}" && \
-    flatpak uninstall --unused && \
-echo -e "${cm}-\- ${ch}${mb}flatpak done${mc}${cm} -- --- --- --- --- --- --- --- --- --- --- ---${cc}" || true) && \
-([[ "$*" == *"--full"* ]] || [[ "$*" == *"full"* ]] && [[ "$*" != *"--user"* ]] && [[ "$*" != *"user"* ]] && \
-[[ -f $script_user ]] && \
-echo -e "${cm}-/- ${ch}${mb}non-managed${mc}${cm} --- --- --- --- --- --- --- --- --- --- --- ---${cc}" && \
-    $script_user "${cm}    === ${ch}${mb}" "${mc}${cm}--- --- --- --- --- --- --- --- --- ---${cc}" && \
-echo -e "${cm}-\- ${ch}${mb}non-managed done${mc}${cm}--- --- --- --- --- --- --- --- --- --- ---${cc}" || true) && \
-([[ "$*" == *"--firmware"* ]] || [[ "$*" == *"firmware"* ]] || [[ "$*" == *"--full"* ]] || [[ "$*" == *"full"* ]] && \
-(command -v fwupdmgr &> /dev/null) && \
-echo -e "${cm}-/- ${ch}${mb}firmware${mc}${cm} -- --- --- --- --- --- --- --- --- --- --- --- ---${cc}" && \
-    sudo fwupdmgr update && \
-echo -e "${cm}-\- ${ch}${mb}firmware done${mc}${cm} - --- --- --- --- --- --- --- --- --- --- ---${cc}" || true) && \
-([[ "$*" == *"--initramfs"* ]] || [[ "$*" == *"initramfs"* ]] || [[ "$*" == *"--full"* ]] || [[ "$*" == *"full"* ]] && \
-(command -v update-initramfs &> /dev/null) && \
-echo -e "${cm}-/- ${ch}${mb}initramfs${mc}${cm} - --- --- --- --- --- --- --- --- --- --- --- ---${cc}" && \
-    sudo update-initramfs -u -k all && \
-echo -e "${cm}-\- ${ch}${mb}initramfs done${mc}${cm}  --- --- --- --- --- --- --- --- --- --- ---${cc}" || true) && \
-echo -e "${cm}${ch}${mb}done${mc}${cm} -- --- --- --- --- --- --- --- --- --- --- --- --- --- ---${cc}" || echo -e "${cm}${mc}"
+    echo -e "${cm}███ ${ch}${mb}snap done${mc}${cm} █████████$(repeat $padding_rest '█')\n${cc}" || true) && \
+([[ "$*" != *"--no-flatpak"* ]] && (command -v flatpak &> /dev/null) && [[ "$*" != *"apt"* ]] && \
+    echo -e "${cm}███ ${ch}${mb}flatpak${mc}${cm} ███████████$(repeat $padding_rest '█')${cc}" && \
+    ([[ "$*" != *"--no-flatpak-update"* ]] && \
+        echo -e "${cm}    === ${ch}${mb}update${mc}${cm}  --- ---$(repeat $padding_quoter ' ---')${cc}" && \
+        echo "debug flatpak" || flatpak update) && \
+    ([[ "$*" != *"--no-flatpak-autoremove"* ]] && \
+        echo -e "${cm}    === ${ch}${mb}autoremove${mc}${cm}  ---$(repeat $padding_quoter ' ---')${cc}" && \
+        echo "debug flatpak --uninstall" || flatpak uninstall --unused) && \
+    echo -e "${cm}███ ${ch}${mb}flatpak done${mc}${cm} ██████$(repeat $padding_rest '█')\n${cc}" || true) && \
+([[ "$*" != *"--no-user"* ]] && ([[ -f $script_user ]]) && [[ "$*" != *"apt"* ]] && \
+    echo -e "${cm}███ ${ch}${mb}unmanaged${mc}${cm} █████████$(repeat $padding_rest '█')${cc}" && \
+    $script_user "${cm}    === ${ch}${mb}" "${mc}${cm}$(repeat $padding_quoter ' ---')${cc}" && \
+    echo -e "${cm}███ ${ch}${mb}unmanaged done${mc}${cm} ████$(repeat $padding_rest '█')\n${cc}" || true) && \
+([[ "$*" != *"--no-firmware"* ]] && (command -v fwupdmgr &> /dev/null) && [[ "$*" != *"apt"* ]] && \
+    echo -e "${cm}███ ${ch}${mb}firmware${mc}${cm} ██████████$(repeat $padding_rest '█')${cc}" && \
+    echo "debug firmware" || sudo fwupdmgr update && \
+    echo -e "${cm}███ ${ch}${mb}firmware done${mc}${cm} █████$(repeat $padding_rest '█')\n${cc}" || true) && \
+echo -e "${cm}$(repeat $padding_full '█')${cc}" && \
+echo -e "${cm}███ ${ch}${mb}system update done${mc}${cm} $(repeat $padding_rest '█')${cc}" && \
+echo -e "${cm}$(repeat $padding_full '█')${cc}" && \
+echo -e "\n\n" || echo -e "${cm}${mc}"

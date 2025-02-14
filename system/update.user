@@ -10,33 +10,44 @@ original_PWD=$PWDS
 
 # d - folder; f - script;
 
-# !TODO: add navidrome and vcpkg
+# !TODO: add navidrome and vcpkg;
 
 d_volantes="$HOME/app/system/volantes-cursors"
 d_gamepad_xone="$HOME/app/system/gamepad/xone"
 d_gamepad_xpadneo="$HOME/app/system/gamepad/xpadneo"
 d_audio_share="$HOME/app/system/audio-share"
 
-# systemctl --user stop audio-external@* --all && \
+function get_last_commit_local() {
+    echo $(git rev-parse HEAD)
+}
 
+function get_last_commit_remote() {
+    git fetch
+    echo $(git log --branches --format="%H" -n 1)
+}
 
-([[ -d $d_volantes/.git ]]  && cd $d_volantes && [ $(git diff origin --name-only) ] && echo -e "${1}volantes.cursor ${2}" && \
-    git pull && \
-    make build && sudo make install && \
+function check_for_updates() {
+    current=$(get_last_commit_local)
+    remote=$(get_last_commit_remote)
+    
+    [ "$current" != "$remote" ] && echo "1"
+}
+
+(cd $d_volantes && echo -e "${1}volantes cursor ${2}" && [ "$(check_for_updates)" ] && \
+    git pull && make build && sudo make install && \
     cd $original_PWD || cd $original_PWD) && \
-([[ -d $d_gamepad_xone/.git ]]  && cd $d_gamepad_xone && [ $(git diff origin --name-only) ] && echo -e "${1}gamepad.xone -- ${2}" && \
-    git pull && \
-    sudo ./uninstall.sh && sudo ./install.sh --release && \
+(cd $d_gamepad_xone && echo -e "${1}gamepad xone    ${2}" && [ "$(check_for_updates)" ] &&  \
+    git pull && sudo ./uninstall.sh && sudo ./install.sh --release && \
     cd $original_PWD || cd $original_PWD) && \
-([[ -d $d_gamepad_xpadneo/.git ]]  && cd $d_gamepad_xpadneo && [ $(git diff origin --name-only) ] && echo -e "${1}gamepad.xpadneo ${2}" && \
-    git pull && \
-    sudo ./update.sh && \
+(cd $d_gamepad_xpadneo && echo -e "${1}gamepad xpadneo ${2}" && [ "$(check_for_updates)" ] && \
+    git pull && sudo ./update.sh && \
     cd $original_PWD || cd $original_PWD) && \
-([[ -d $d_audio_share/.git ]] && cd $d_audio_share && [ $(git diff origin --name-only) ] && echo -e "${1}audio share --- ${2}" && \
-    git pull && \
-    cd server-core && \
+(cd $d_audio_share && echo -e "${1}audio share     ${2}" && [ "$(check_for_updates)" ] && \
+    git pull && cd server-core && \
+    systemctl --user stop audio-external@* --all && \
     rm -r out.bak && mv out out.bak && \
-    cmake --preset linux-Release && \
+    vcpkg install asio protobuf wil nlohmann-json && \
+    cmake --preset linux-Release -DCMAKE_TOOLCHAIN_FILE=/home/walpy/app/system/vcpkg/scripts/buildsystems/vcpkg.cmake && \
     cmake --build --preset linux-Release && \
     cd $original_PWD || cd $original_PWD) && \
-cd $original_PWD || cd $original_PWD
+cd $original_PWD
