@@ -9,5 +9,5 @@ $script_folder/elevate
 
 echo "\n done \n"
 
-echo "press enter to exit"
-read a
+#echo "press enter to exit"
+#read a

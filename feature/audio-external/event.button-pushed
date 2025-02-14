@@ -10,6 +10,10 @@ if [[ $1 != "trigger" ]]; then
     exit
 fi
 
+script_folder=$(dirname "$(readlink -fm "$0")")
+
+$script_folder/startup
+
 # disable all previous sharing services to prevent clutter;
 systemctl stop --user audio-external@enx* --all
 
@@ -21,8 +25,6 @@ message="detected [$IFACE] // enx'like interface: [${enx//:}]"
 systemctl --user start audio-external@${enx//:}
 
 # elevate priorities to run smooth on high cpu load and fix internet;
-script_folder=$(dirname "$(readlink -fm "$0")")
-echo $script_folder
 gnome-terminal  --hide-menubar --title "sudo priveledges required" --geometry=64x16 -- $script_folder/event.button-pushed.sudo
 
 # on - media-playback-record
