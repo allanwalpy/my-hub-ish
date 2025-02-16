@@ -1,0 +1,14 @@
+[Unit]
+Description=Audio Share With %I [roc-send]
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/walpy/hub/feature/audio-external/
+ExecStart=/home/walpy/hub/feature/audio-external/start.roc %i
+SyslogIdentifier="audio-share-roc"
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
