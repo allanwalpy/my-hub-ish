@@ -6,16 +6,16 @@
 
 script_folder=$(dirname "$(readlink -fm "$0")")
 
-build="$HOME/app/system/audio-share/server-core/out/install/linux-Release/bin"
+app="$HOME/app/system/audio-share/server-core/out/install/linux-Release/bin/as-cmd"
+#app="audio-share"
 
 ip=$(ip -4 -br -j addr show $1 | jq -r '.[0].addr_info[0].local')
 sink="external-sink"
-sink_id=$($build/as-cmd --list | grep $sink | awk '{print $2}')
+sink_id=$($app --list-endpoint | grep $sink | awk '{print $2}')
 
 echo "start_script detected ip $ip in $1 interface to $sink [$sink_id] sink"
 
 notify-send -u low -c im -a audio-external -h string:desktop-entry:nm-connection-editor -t 10000 -i dialog-warning "audio-external" "sharing audio to <b>$ip</b> of $1 interface"
 
-echo "launching $build/as-cmd -b $ip -e $sink_id"
-$build/as-cmd -b $ip -e $sink_id
-
+echo "launching $app --bind=$ip --endpoint $sink_id"
+$app --bind=$ip --endpoint $sink_id
