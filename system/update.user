@@ -46,7 +46,6 @@ function check_for_updates() {
     git pull && cd server-core && \
     systemctl --user stop audio-external@* --all && \
     rm -r out.bak && mv out out.bak && \
-    vcpkg install asio protobuf wil nlohmann-json && \
     cmake --preset linux-Release -DCMAKE_TOOLCHAIN_FILE=/home/walpy/app/system/vcpkg/scripts/buildsystems/vcpkg.cmake && \
     cmake --build --preset linux-Release && \
     cd $original_PWD || cd $original_PWD) && \
