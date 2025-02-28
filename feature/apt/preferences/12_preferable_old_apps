@@ -2,7 +2,7 @@ Package: baobab gnome-logs
 Pin: release n=faye
 Pin-Priority: 1001
 
-Package: gnome-clocks gnome-system-monitor gnome-weather gnome-mahjongg
+Package: gnome-clocks gnome-system-monitor gnome-weather gnome-mahjongg file-roller zenity
 Pin: release a=stable
 Pin-Priority: 1001
 

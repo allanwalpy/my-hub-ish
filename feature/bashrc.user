@@ -5,8 +5,8 @@ export PATH="$HOME/.local/bin/:$PATH"
 
 # sys utils configurations
 export GPG_TTY=$(tty)
-export EDITOR=gedit
 export VCPKG_ROOT=$HOME/app/system/vcpkg
+export GTK_THEME=Arc-Darker-solid-git
 
 # theme'ing
 export QT_QPA_PLATFORMTHEME=qt5ct
@@ -24,4 +24,7 @@ alias icon-picker='gtk4-icon-browser'
 
 # alais://archaism
 alias neofetch='fastfetch'
+alias code='codium'
 
+# alais://mnemonic_apps
+alias medit=mousepad

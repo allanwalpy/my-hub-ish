@@ -12,6 +12,8 @@ fi
 
 script_folder=$(dirname "$(readlink -fm "$0")")
 
+$script_folder/internet.fix
+
 $script_folder/startup
 
 # disable all previous sharing services to prevent clutter;

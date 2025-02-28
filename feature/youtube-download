@@ -30,5 +30,9 @@ echo " --- detected
         location: $location
  ---"
 
-yt-dlp -o "%(title)s.%(ext)s" -R infinite -S +vcodec:$codec -f "bv*[height<=1200]+ba" --concurrent-fragments 2 --write-auto-sub --sub-lang en --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --extractor-retries infinite $link
+# sub only yt-dlp --cookies-from-browser firefox --write-auto-subs --sub-langs en --skip-download
+
+# audio only yt-dlp -o "%(title)s.%(ext)s" -R infinite --concurrent-fragments 2  --cookies-from-browser firefox -f bestaudio  --audio-format opus
+
+yt-dlp -o "%(title)s.%(ext)s" -R infinite -S +vcodec:$codec -f "bv*[height<=1200]+ba" --concurrent-fragments 2 --write-auto-sub --sub-lang en --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --extractor-retries infinite --cookies-from-browser firefox $link
 

@@ -1,0 +1,6 @@
+Suites: librewolf
+Uris: https://repo.librewolf.net
+Types: deb
+Components: main
+Architectures: amd64 arm64
+Signed-By: /var/lib/extrepo/keys/librewolf.asc

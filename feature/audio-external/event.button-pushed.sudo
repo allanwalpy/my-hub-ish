@@ -1,13 +1,3 @@
 #!/bin/bash
 
-script_folder=$(dirname "$(readlink -fm "$0")")
-echo "script folder is $script_folder\n"
-
-$script_folder/internet.fix
-
-$script_folder/elevate
-
-echo "\n done \n"
-
-#echo "press enter to exit"
-#read a
+exit 0
