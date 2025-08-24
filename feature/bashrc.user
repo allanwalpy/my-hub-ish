@@ -18,6 +18,7 @@ alias grep="grep --color"
 alias codeblocks="GTK_THEME=Arc-Dark-solid-git codeblocks"
 
 # alais://default_actions
+alias _="clear"
 alias gamma="xgamma -gamma"
 alias markdown="glow --pager"
 alias vpn_on="systemctl --user start vpn.mine"
@@ -27,7 +28,7 @@ alias vpn_off="systemctl --user stop vpn.mine"
 alias neofetch="fastfetch"
 
 # alais://mnemonic_apps
-alias medit=mousepad
+alias medit="mousepad"
 alias code="codium"
 alias paint="gnome-paint"
 alias icon-picker="gtk3-icon-browser"
