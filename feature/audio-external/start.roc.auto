@@ -1,0 +1,4 @@
+#!/bin/bash
+
+systemctl --user start audio-share-roc@192.168.1.103
+

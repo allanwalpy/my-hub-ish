@@ -15,6 +15,7 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 # alias://default_args
 alias l='ls -hal'
 alias grep='grep --color'
+alias codeblocks="GTK_THEME=Arc-Dark-solid-git codeblocks"
 
 # alais://default_actions
 alias gamma='xgamma -gamma'
@@ -24,7 +25,9 @@ alias icon-picker='gtk4-icon-browser'
 
 # alais://archaism
 alias neofetch='fastfetch'
-alias code='codium'
 
 # alais://mnemonic_apps
 alias medit=mousepad
+alias code='codium'
+alias paint='gnome-paint'
+alias vpn="hiddify"

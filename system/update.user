@@ -12,7 +12,6 @@ original_PWD=$PWDS
 
 # !TODO: add navidrome and vcpkg;
 
-d_volantes="$HOME/app/system/volantes-cursors"
 d_gamepad_xone="$HOME/app/system/gamepad/xone"
 d_gamepad_xpadneo="$HOME/app/system/gamepad/xpadneo"
 d_audio_share="$HOME/app/system/audio-share"
@@ -33,20 +32,10 @@ function check_for_updates() {
     [ "$current" != "$remote" ] && echo "1"
 }
 
-(cd $d_volantes && echo -e "${1}volantes cursor ${2}" && [ "$(check_for_updates)" ] && \
-    git pull && make build && sudo make install && \
-    cd $original_PWD || cd $original_PWD) && \
 (cd $d_gamepad_xone && echo -e "${1}gamepad xone    ${2}" && [ "$(check_for_updates)" ] &&  \
     git pull && sudo ./uninstall.sh && sudo ./install.sh --release && \
     cd $original_PWD || cd $original_PWD) && \
 (cd $d_gamepad_xpadneo && echo -e "${1}gamepad xpadneo ${2}" && [ "$(check_for_updates)" ] && \
     git pull && sudo ./update.sh && \
-    cd $original_PWD || cd $original_PWD) && \
-(cd $d_audio_share && echo -e "${1}audio share     ${2}" && [ "$(check_for_updates)" ] && \
-    git pull && cd server-core && \
-    systemctl --user stop audio-external@* --all && \
-    rm -r out.bak && mv out out.bak && \
-    cmake --preset linux-Release -DCMAKE_TOOLCHAIN_FILE=/home/walpy/app/system/vcpkg/scripts/buildsystems/vcpkg.cmake && \
-    cmake --build --preset linux-Release && \
     cd $original_PWD || cd $original_PWD) && \
 cd $original_PWD
