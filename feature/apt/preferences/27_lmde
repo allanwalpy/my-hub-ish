@@ -2,3 +2,7 @@ Package: *
 Pin: release a=faye
 Pin-Priority: 80
 
+Package: *
+Pin: release a=gigi
+Pin-Priority: 80
+

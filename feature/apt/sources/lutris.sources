@@ -1,5 +1,0 @@
-Types: deb
-URIs: https://download.opensuse.org/repositories/home:/strycore/Debian_12/
-Suites: ./
-Components: 
-Signed-By: /etc/apt/keyrings/lutris.gpg

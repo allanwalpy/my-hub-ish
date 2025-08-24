@@ -1,6 +1,0 @@
-Types: deb
-URIs: https://download.opensuse.org/repositories/home:/hawkeye116477:/waterfox/Debian_Testing/
-Suites: ./
-Components: 
-Signed-By: /etc/apt/keyrings/waterfox.gpg
-

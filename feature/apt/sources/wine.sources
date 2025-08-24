@@ -1,26 +1,8 @@
-Enabled: no
-X-Repolib-Name: wine hq bookworm
-Types: deb
-URIs: https://dl.winehq.org/wine-builds/debian
-Suites: bookworm
-Components: main
-Architectures: amd64 i386
-Signed-By: /etc/apt/keyrings/winehq-archive.key
-
 Enabled: yes
 X-Repolib-Name: wine hq trixie
 Types: deb
 URIs: https://dl.winehq.org/wine-builds/debian
 Suites: trixie
-Components: main
-Architectures: amd64 i386
-Signed-By: /etc/apt/keyrings/winehq-archive.key
-
-Enabled: no
-X-Repolib-Name: wine hq bookworm [source code]
-Types: deb-src
-URIs: https://dl.winehq.org/wine-builds/debian
-Suites: bookworm
 Components: main
 Architectures: amd64 i386
 Signed-By: /etc/apt/keyrings/winehq-archive.key

@@ -1,5 +1,5 @@
 Enabled: yes
-X-Repolib-Name: Linux Mint Debian Edition 6 Faye
+X-Repolib-Name: Linux Mint Debian 6 Faye
 Types: deb
 URIs: http://packages.linuxmint.com
 Suites: faye
@@ -8,10 +8,28 @@ Architectures: i386 amd64
 Signed-By: /etc/apt/keyrings/linuxmint-keyring.gpg
 
 Enabled: no
-X-Repolib-Name: Linux Mint Debian Edition 6 Faye [source code]
+X-Repolib-Name: Linux Mint Debian 6 Faye [source code]
 Types: deb-src
 URIs: http://packages.linuxmint.com
 Suites: faye
+Components: main upstream import backport
+Architectures: i386 amd64
+Signed-By: /etc/apt/keyrings/linuxmint-keyring.gpg
+
+Enabled: yes
+X-Repolib-Name: Linux Mint Debian 7 Gigi
+Types: deb
+URIs: http://packages.linuxmint.com
+Suites: gigi
+Components: main upstream import backport
+Architectures: i386 amd64
+Signed-By: /etc/apt/keyrings/linuxmint-keyring.gpg
+
+Enabled: no
+X-Repolib-Name: Linux Mint Debian 7 Gigi [source code]
+Types: deb-src
+URIs: http://packages.linuxmint.com
+Suites: gigi
 Components: main upstream import backport
 Architectures: i386 amd64
 Signed-By: /etc/apt/keyrings/linuxmint-keyring.gpg

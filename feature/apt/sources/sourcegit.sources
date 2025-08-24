@@ -1,3 +1,4 @@
+Enabled: no
 Types: deb
 URIs: https://codeberg.org/api/packages/yataro/debian/
 Suites: generic
