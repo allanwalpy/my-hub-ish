@@ -13,21 +13,25 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 #export GTK_THEME=Arc-Darker-solid-git
 
 # alias://default_args
-alias l='ls -hal'
-alias grep='grep --color'
+alias l="ls -hal"
+alias grep="grep --color"
 alias codeblocks="GTK_THEME=Arc-Dark-solid-git codeblocks"
 
 # alais://default_actions
-alias gamma='xgamma -gamma'
-alias markdown='glow --pager'
-alias icon-picker='gtk4-icon-browser'
-#alias color-picker-gtk=''
+alias gamma="xgamma -gamma"
+alias markdown="glow --pager"
+alias vpn_on="systemctl --user start vpn.mine"
+alias vpn_off="systemctl --user stop vpn.mine"
 
 # alais://archaism
-alias neofetch='fastfetch'
+alias neofetch="fastfetch"
 
 # alais://mnemonic_apps
 alias medit=mousepad
-alias code='codium'
-alias paint='gnome-paint'
-alias vpn="hiddify"
+alias code="codium"
+alias paint="gnome-paint"
+alias icon-picker="gtk3-icon-browser"
+#alias color-picker-gtk=""
+
+# alias://info
+alias devices_network_info="eog /home/walpy/network_client.png"
