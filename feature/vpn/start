@@ -1,0 +1,10 @@
+#!/bin/bash
+
+config_folder="/home/walpy/private/system/vpn"
+
+cd /home/walpy/app/system/hiddify-core/bin/cli/
+
+notify-send --urgency low --category network.disconnected --app-name vpn-mine --hint string:desktop-entry:hiddify --expire-time 3000 --icon network-transmit-receive "vpn" "started"
+
+./HiddifyCli run --config $config_folder/connection.json --hiddify $config_folder/app.json 
+

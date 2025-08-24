@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# ? sometimes hiddify leaves proxy settings on - this script removes proxy settings;
+
+unset HTTP_PROXY
+unset HTTPS_PROXY
+unset FTP_PROXY
+unset SOCKS_PROXY
+
+notify-send --urgency low --category network.connected --app-name vpn-mine --hint string:desktop-entry:hiddify --expire-time 3000 --icon network-offline "vpn" "stopped"
