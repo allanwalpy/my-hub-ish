@@ -1,0 +1,16 @@
+{
+  "required_api_version": "2",
+  "name": "custom allan_walpy extension",
+  "description": "mine custom extension",
+  "developer_name": "allan_walpy",
+  "icon": "icon.png",
+  "preferences": [
+        {
+            "id": "demo_kw",
+            "type": "keyword",
+            "name": "Demo",
+            "description": "Demo extension",
+            "default_value": "dm"
+        }
+    ]
+}
