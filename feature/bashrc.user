@@ -16,6 +16,7 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 alias l="ls -hal"
 alias grep="grep --color"
 alias codeblocks="GTK_THEME=Arc-Dark-solid-git codeblocks"
+alias unrar="unrar x"
 
 # alais://default_actions
 alias _="clear"
