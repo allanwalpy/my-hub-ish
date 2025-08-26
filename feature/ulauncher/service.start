@@ -1,0 +1,5 @@
+#!/bin/bash
+
+notify-send --urgency low --category im --app-name ulauncher --hint string:desktop-entry:ulauncher --expire-time 5000 --icon ulauncher "ulauncher" "started"
+
+ulauncher --verbose --no-window-shadow --hide-window

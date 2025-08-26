@@ -1,0 +1,14 @@
+[Unit]
+Description=ulauncher
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/walpy/
+ExecStart=/home/walpy/hub/feature/ulauncher/service.start
+SyslogIdentifier="ulauncher-service"
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
