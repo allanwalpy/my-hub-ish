@@ -1,0 +1,9 @@
+Enabled: yes
+X-Repolib-Name: Ulauncher
+Types: deb
+URIs: http://ppa.launchpad.net/agornostal/ulauncher/ubuntu
+Suites: noble
+Components: main
+Architectures: amd64
+Signed-By: /usr/share/keyrings/ulauncher-archive-keyring.gpg
+
