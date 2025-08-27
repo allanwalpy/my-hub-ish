@@ -7,4 +7,4 @@ unset HTTPS_PROXY
 unset FTP_PROXY
 unset SOCKS_PROXY
 
-notify-send --urgency low --category network.connected --app-name vpn-mine --hint string:desktop-entry:hiddify --expire-time 3000 --icon network-offline "vpn" "stopped"
+notify-send --urgency low --category network.connected --app-name vpn-user --hint string:desktop-entry:hiddify --expire-time 3000 --icon network-offline "vpn" "stopped"

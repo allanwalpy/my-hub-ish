@@ -5,9 +5,9 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=/home/walpy/hub/feature/vpn
-ExecStart=/home/walpy/hub/feature/vpn/start
-ExecStopPost=/home/walpy/hub/feature/vpn/stop
-SyslogIdentifier="vpn-mine"
+ExecStart=/home/walpy/hub/feature/vpn/start.system
+ExecStopPost=/home/walpy/hub/feature/vpn/stop.system
+SyslogIdentifier="vpn-system"
 Restart=always
 RestartSec=3
 

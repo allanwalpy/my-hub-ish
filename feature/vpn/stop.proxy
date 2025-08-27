@@ -1,0 +1,3 @@
+#!/bin/bash
+
+notify-send --urgency low --category network.connected --app-name vpn-proxy --hint string:desktop-entry:hiddify --expire-time 3000 --icon network-offline "vpn.proxy" "stopped"
