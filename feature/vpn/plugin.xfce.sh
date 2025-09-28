@@ -1,1 +1,1 @@
-plugin.xfce.proxy.sh
+plugin.xfce.user.sh
