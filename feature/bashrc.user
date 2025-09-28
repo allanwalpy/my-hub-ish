@@ -13,13 +13,21 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 #export GTK_THEME=Arc-Darker-solid-git
 
 # alias://default_args
+alias cp="cp --recursive --verbose"
+alias mv="mv --verbose"
+#alias rm="rm --recursive --verbose"
 alias l="ls -hal"
 alias grep="grep --color"
 alias codeblocks="GTK_THEME=Arc-Dark-solid-git codeblocks"
 alias unrar="unrar x"
+alias auth="~/app/system/authy"
 
 # alais://default_actions
+alias x="exit"
 alias _="clear"
+alias .="cd"
+alias ..="cd .."
+alias update="/home/walpy/hub/system/update"
 alias gamma="xgamma -gamma"
 alias markdown="glow --pager"
 alias vpn_on="systemctl --user start vpn.mine"
@@ -29,11 +37,16 @@ alias vpn_off="systemctl --user stop vpn.mine"
 alias neofetch="fastfetch"
 
 # alais://mnemonic_apps
+alias feed="journalctl -f -l"
+alias feed_sudo="sudo journalctl -f -l"
 alias medit="mousepad"
 alias code="codium"
 alias paint="gnome-paint"
 alias icon-picker="gtk3-icon-browser"
 #alias color-picker-gtk=""
+alias disk="dysk --color yes --cols id+label+mount+type+size+disk+used+use+free_percent+free+uuid --units binary --sort mp"
+alias astroterm="/home/walpy/app/system/astroterm/astroterm-linux-x86_64"
+alias night_sky="/home/walpy/app/system/astroterm/astroterm-linux-x86_64 --unicode --color --city=Kaluga --datetime $(date +%Y-%m-%dT%R:%S) --label-thresh 2 --metadata"
 
 # alias://info
 alias devices_network_info="eog /home/walpy/network_client.png"
