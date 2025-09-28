@@ -27,6 +27,7 @@
 # ?     --no-apt-dist-upgrade - do not run apt dist-upgrade command;
 # ?     --no-apt-autoremove - do not run apt autoremove command;
 # ?     --no-apt-purge - do not run apt purge command;
+# ?   --no-extrepo - do not run extrepo commands;
 # ?   --no-snap - do not run snap commands;
 # ?   --no-flatpak - do not run flatpak commands;
 # ?     --no-flatpak-update - do not run flatpak update command;
@@ -79,7 +80,7 @@ echo -e "${cm}$(repeat $(padding_full) '█')\n${cc}" && \
     echo -e "${cm}███ ${ch}${mb}apt${mc}${cm} ███████████████$(repeat $(padding_rest) '█')${cc}" && \
     ([[ "$*" != *"--no-apt-update"* ]] && \
         echo -e "${cm}    === ${ch}${mb}update${mc}${cm}  --- ---$(repeat $(padding_quoter) ' ---')${cc}" && \
-        sudo apt update) && \
+        sudo apt update --allow-insecure-repositories) && \
     ([[ "$*" != *"--no-apt-upgrade"* ]] && \
         echo -e "${cm}    === ${ch}${mb}upgrade${mc}${cm} --- ---$(repeat $(padding_quoter) ' ---')${cc}" && \
         sudo apt upgrade --with-new-pkgs) && \
@@ -97,6 +98,10 @@ echo -e "${cm}$(repeat $(padding_full) '█')\n${cc}" && \
         echo -e "${cm}    === ${ch}${mb}purge${mc}${cm} - --- ---$(repeat $(padding_quoter) ' ---')${cc}" && \
         sudo apt purge $(dpkg --get-selections | grep deinstall | cut -f1)) && \
     echo -e "${cm}███ ${ch}${mb}apt done${mc}${cm} ██████████$(repeat $(padding_rest) '█')\n${cc}" || true) && \
+([[ "$*" != *"--no-extrepo"* ]] && (command -v extrepo &> /dev/null) && [[ "$*" != *"apt"* ]] && \
+    echo -e "${cm}███ ${ch}${mb}extrepo${mc}${cm} ███████████$(repeat $(padding_rest) '█')${cc}" && \
+    sudo extrepo update && 
+    echo -e "${cm}███ ${ch}${mb}extrepo done${mc}${cm} ██████$(repeat $(padding_rest) '█')\n${cc}" || true) && \
 ([[ "$*" != *"--no-snap"* ]] && (command -v snap &> /dev/null) && [[ "$*" != *"apt"* ]] && \
     echo -e "${cm}███ ${ch}${mb}snap${mc}${cm} ██████████████$(repeat $(padding_rest) '█')${cc}" && \
     snap refresh && 

@@ -1,0 +1,68 @@
+[
+    {
+        "name": "audio.usb.start",
+        "description": "",
+        "icon": null,
+        "script": "systemctl",
+        "default_arguments": [
+            "--user",
+            "start",
+            "audio-share-roc@192.168.42.129.service"
+        ]
+    },
+    {
+        "name": "audio.usb.stop",
+        "description": "",
+        "icon": null,
+        "script": "systemctl",
+        "default_arguments": [
+            "--user",
+            "stop",
+            "audio-share-roc@192.168.42.129.service"
+        ]
+    },
+    {
+        "name": "audio.wifi.start",
+        "description": "",
+        "icon": null,
+        "script": "systemctl",
+        "default_arguments": [
+            "--user",
+            "start",
+            "audio-share-roc@192.168.1.103.service"
+        ]
+    },
+    {
+        "name": "audio.wifi.stop",
+        "description": "",
+        "icon": null,
+        "script": "systemctl",
+        "default_arguments": [
+            "--user",
+            "stop",
+            "audio-share-roc@192.168.1.103.service"
+        ]
+    },
+    {
+        "name": "vpn.start",
+        "description": "",
+        "icon": null,
+        "script": "systemctl",
+        "default_arguments": [
+            "--user",
+            "start",
+            "vpn.mine.service"
+        ]
+    },
+    {
+        "name": "vpn.stop",
+        "description": "",
+        "icon": null,
+        "script": "systemctl",
+        "default_arguments": [
+            "--user",
+            "stop",
+            "vpn.mine.service"
+        ]
+    }
+]
