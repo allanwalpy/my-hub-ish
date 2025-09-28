@@ -1,8 +1,8 @@
 Package: *
 Pin: release a=faye
-Pin-Priority: 80
+Pin-Priority: 50
 
 Package: *
 Pin: release a=gigi
-Pin-Priority: 80
+Pin-Priority: 50
 
