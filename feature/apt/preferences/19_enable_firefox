@@ -1,7 +1,0 @@
-Package: firefox
-Pin: origin packages.mozilla.org
-Pin-Priority: 1001
-
-Package: firefox-esr
-Pin: release o=debian
-Pin-Priority: 1001

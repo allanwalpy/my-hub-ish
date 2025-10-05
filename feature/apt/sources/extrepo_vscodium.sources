@@ -1,7 +1,0 @@
-Suites: vscodium
-Types: deb
-Uris: https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs/
-Architectures: amd64 arm64
-Components: main
-Enabled: yes
-Signed-By: /var/lib/extrepo/keys/vscodium.asc

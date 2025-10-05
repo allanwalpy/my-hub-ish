@@ -1,0 +1,11 @@
+Package: baobab
+Pin: release a=faye
+Pin-Priority: 1001
+
+Package: baobab
+Pin: release a=gigi
+Pin-Priority: 1001
+
+Package: zenity
+Pin: release a=oldstable
+Pin-Priority: 1001

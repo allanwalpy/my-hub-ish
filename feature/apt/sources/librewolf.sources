@@ -1,0 +1,9 @@
+Enabled: yes
+X-Repolib-Name: librewolf
+Types: deb
+Uris: https://repo.librewolf.net
+Suites: librewolf
+Components: main
+Architectures: amd64
+Signed-By: /etc/apt/keyrings/librewolf.gpg
+

@@ -1,0 +1,19 @@
+Package: *
+Pin: release a=oldstable
+Pin-Priority: 1
+
+Package: *
+Pin: release a=oldstable-security
+Pin-Priority: 1
+
+Package: *
+Pin: release a=oldstable-backport
+Pin-Priority: 1
+
+Package: *
+Pin: release a=oldstable-updates
+Pin-Priority: 1
+
+Package: *
+Pin: release a=oldstable-proposed-updates
+Pin-Priority: 1
