@@ -81,7 +81,7 @@ set_any_config "xsettings" "/Gtk/CursorThemeName" $cursor
 
 set_any_config $config $ck_mode_current $mode
 
-$script_folder/set_vscode_theme $vscode $vscode_appname
+# $script_folder/set_vscode_theme $vscode $vscode_appname
 
 # ! TODO FIXME
 # xfce4-panel --plugin-event=genmon-3:refresh:bool:true

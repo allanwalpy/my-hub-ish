@@ -1,26 +1,34 @@
 # user configuration & tweaks
 
+gtk_theme=$(xfconf-query --channel xsettings --property "/Net/ThemeName")
+
 # $PATH addinitions; nodejs;
 export PATH="$HOME/.local/bin/:$PATH"
 
 # sys utils configurations
 export GPG_TTY=$(tty)
 export VCPKG_ROOT=$HOME/app/system/vcpkg
-export GTK_THEME=Arc-Darker-solid-git
 
 # theme'ing
-export QT_QPA_PLATFORMTHEME=qt5ct
-#export GTK_THEME=Arc-Darker-solid-git
+# export QT_QPA_PLATFORMTHEME=qt6ct
+export GTK_THEME="$gtk_theme"
 
 # alias://default_args
-alias cp="cp --recursive --verbose"
+alias cp="cp --verbose"
 alias mv="mv --verbose"
-#alias rm="rm --recursive --verbose"
+alias rm="rm --verbose"
 alias l="ls -hal"
 alias grep="grep --color"
-alias codeblocks="GTK_THEME=Arc-Dark-solid-git codeblocks"
+alias codeblocks="GTK_THEME="$gtk_theme" codeblocks"
 alias unrar="unrar x"
+alias flatseal="flatpak run com.github.tchx84.Flatseal"
 alias auth="~/app/system/authy"
+alias rss="liferea"
+alias feed="liferea"
+alias focus="~/app/system/focus/app"
+alias nom="~/app/system/nom"
+alias nom_update="~/app/system/nom refresh"
+alias medit="mousepad"
 
 # alais://default_actions
 alias x="exit"
@@ -32,12 +40,13 @@ alias gamma="xgamma -gamma"
 alias markdown="glow --pager"
 alias vpn_on="systemctl --user start vpn.mine"
 alias vpn_off="systemctl --user stop vpn.mine"
+alias disk-blame="/home/walpy/hub/feature/disk-blame"
 
 # alais://archaism
 alias neofetch="fastfetch"
 
 # alais://mnemonic_apps
-alias feed="journalctl -f -l"
+alias sys_feed="journalctl -f -l"
 alias feed_sudo="sudo journalctl -f -l"
 alias medit="mousepad"
 alias code="codium"
@@ -47,6 +56,11 @@ alias icon-picker="gtk3-icon-browser"
 alias disk="dysk --color yes --cols id+label+mount+type+size+disk+used+use+free_percent+free+uuid --units binary --sort mp"
 alias astroterm="/home/walpy/app/system/astroterm/astroterm-linux-x86_64"
 alias night_sky="/home/walpy/app/system/astroterm/astroterm-linux-x86_64 --unicode --color --city=Kaluga --datetime $(date +%Y-%m-%dT%R:%S) --label-thresh 2 --metadata"
+# alias vlc="QT_QPA_PLATFORMTHEME=qt5ct vlc"
+
 
 # alias://info
 alias devices_network_info="eog /home/walpy/network_client.png"
+
+
+# eval "$(ssh-agent -s)"

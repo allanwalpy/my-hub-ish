@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo lsof /media/walpy/$1
