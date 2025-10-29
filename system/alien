@@ -1,3 +1,11 @@
 #!/bin/bash
 
+
+echo -e "\n--- third-partty & other distributions ---\n"
+
 apt-forktracer
+
+
+echo -e "\n--- including non 'stable' packages ---\n"
+
+apt list --installed  | grep -v "/stable," | grep -v ",stable," | grep -v "stable-backports" | grep -v "proposed-updates" | grep -v "stable-security"

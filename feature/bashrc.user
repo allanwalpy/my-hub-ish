@@ -1,5 +1,16 @@
 # user configuration & tweaks
 
+cc='\[\e[00m\]'        # clear color
+cu='\[\e[01;32m\]'     # user color
+ch='\[\e[01;34m\]'     # host color
+cw='\[\e[01;35m\]'     # working directory color
+ce='\[\e[00;37m\]'     # executable(?) color
+
+# original "\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+PS1='['$cu'\u\[\e[00;37m\]@'$ch'\h'$cc':'$cw'\w'$cc'] $(code=${?##0};echo ${code:+"\[\e[1;31m${code} "})'$ce'\$ '$cc
+PS2='> '
+
+
 gtk_theme=$(xfconf-query --channel xsettings --property "/Net/ThemeName")
 
 # $PATH addinitions; nodejs;
@@ -28,7 +39,7 @@ alias feed="liferea"
 alias focus="~/app/system/focus/app"
 alias nom="~/app/system/nom"
 alias nom_update="~/app/system/nom refresh"
-alias medit="mousepad"
+alias medit="GTK_THEME=Arc-Dark-solid-git mousepad"
 
 # alais://default_actions
 alias x="exit"
@@ -57,10 +68,16 @@ alias disk="dysk --color yes --cols id+label+mount+type+size+disk+used+use+free_
 alias astroterm="/home/walpy/app/system/astroterm/astroterm-linux-x86_64"
 alias night_sky="/home/walpy/app/system/astroterm/astroterm-linux-x86_64 --unicode --color --city=Kaluga --datetime $(date +%Y-%m-%dT%R:%S) --label-thresh 2 --metadata"
 # alias vlc="QT_QPA_PLATFORMTHEME=qt5ct vlc"
-
+alias clock="tty-clock"
+alias n="nvim"
 
 # alias://info
 alias devices_network_info="eog /home/walpy/network_client.png"
 
 
 # eval "$(ssh-agent -s)"
+
+alias findfile="find ./ -depth -name"
+
+alias au="systemctl --user start audio-share-roc@192.168.42.129"
+alias au.stop="systemctl --user stop audio-share-roc@192.168.42.129"

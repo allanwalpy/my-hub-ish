@@ -32,7 +32,7 @@
 # ?   --no-flatpak - do not run flatpak commands;
 # ?     --no-flatpak-update - do not run flatpak update command;
 # ?   --no-user - do not run `update.user` script in the same folder;
-# ?   --no-firmware - do not run firmware update comand;
+# ?   --firmware - run firmware update comand;
 
 script_folder=$(dirname "$(readlink -fm "$0")")
 script_user=$script_folder/update.user
@@ -119,7 +119,7 @@ echo -e "${cm}$(repeat $(padding_full) '█')\n${cc}" && \
     echo -e "${cm}███ ${ch}${mb}unmanaged${mc}${cm} █████████$(repeat $(padding_rest) '█')${cc}" && \
     $script_user "${cm}    === ${ch}${mb}" "${mc}${cm}$(repeat $(padding_quoter) ' ---')${cc}" && \
     echo -e "${cm}███ ${ch}${mb}unmanaged done${mc}${cm} ████$(repeat $(padding_rest) '█')\n${cc}" || true) && \
-([[ "$*" != *"--no-firmware"* ]] && (command -v fwupdmgr &> /dev/null) && [[ "$*" != *"apt"* ]] && \
+([[ "$*" == *"--firmware"* ]] && (command -v fwupdmgr &> /dev/null) && [[ "$*" != *"apt"* ]] && \
     echo -e "${cm}███ ${ch}${mb}firmware${mc}${cm} ██████████$(repeat $(padding_rest) '█')${cc}" && \
     sudo fwupdmgr update && \
     echo -e "${cm}███ ${ch}${mb}firmware done${mc}${cm} █████$(repeat $(padding_rest) '█')\n${cc}" || true) && \
