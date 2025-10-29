@@ -9,3 +9,11 @@ Pin-Priority: 1001
 Package: zenity
 Pin: release a=oldstable
 Pin-Priority: 1001
+
+Package: gnome-system-monitor
+Pin: release a=oldstable
+Pin-Priority: 1001
+
+Package: nemo-font-manager
+Pin: release a=oldstable
+Pin-Priority: 1001

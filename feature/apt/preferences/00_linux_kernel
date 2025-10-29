@@ -1,3 +1,0 @@
-Package: linux-image-amd64 linux-image-amd64
-Pin: release a=stable-backport
-Pin-Priority: 700

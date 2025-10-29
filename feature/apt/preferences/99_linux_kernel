@@ -1,0 +1,8 @@
+Package: linux-image-amd64 linux-headers-amd64
+Pin: release a=stable-backports
+Pin-Priority: 700
+
+Package: linux-image-amd64 linux-headers-amd64
+Pin: release a=stable-security
+Pin-Priority: 700
+
