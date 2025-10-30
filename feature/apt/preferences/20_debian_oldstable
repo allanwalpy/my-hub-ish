@@ -7,7 +7,7 @@ Pin: release a=oldstable-security
 Pin-Priority: 1
 
 Package: *
-Pin: release a=oldstable-backport
+Pin: release a=oldstable-backports
 Pin-Priority: 1
 
 Package: *

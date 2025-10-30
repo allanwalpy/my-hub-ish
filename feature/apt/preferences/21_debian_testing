@@ -3,7 +3,7 @@ Pin: release a=testing
 Pin-Priority: 100
 
 Package: *
-Pin: release a=testing-backport
+Pin: release a=testing-backports
 Pin-Priority: 100
 
 Package: *

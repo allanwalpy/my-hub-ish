@@ -7,7 +7,7 @@ Pin: release a=stable-security
 Pin-Priority: 500
 
 Package: *
-Pin: release a=stable-backport
+Pin: release a=stable-backports
 Pin-Priority: 500
 
 Package: *
