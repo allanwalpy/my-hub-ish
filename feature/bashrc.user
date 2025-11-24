@@ -7,7 +7,7 @@ cw='\[\e[01;35m\]'     # working directory color
 ce='\[\e[00;37m\]'     # executable(?) color
 
 # original "\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
-PS1='['$cu'\u\[\e[00;37m\]@'$ch'\h'$cc':'$cw'\w'$cc'] $(code=${?##0};echo ${code:+"\[\e[1;31m${code} "})'$ce'\$ '$cc
+PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}['$cu'\u\[\e[00;37m\]@'$ch'\h'$cc':'$cw'\w'$cc'] $(code=${?##0};echo ${code:+"\[\e[1;31m${code} "})'$ce'\$ '$cc
 PS2='> '
 
 
@@ -70,6 +70,7 @@ alias night_sky="/home/walpy/app/system/astroterm/astroterm-linux-x86_64 --unico
 # alias vlc="QT_QPA_PLATFORMTHEME=qt5ct vlc"
 alias clock="tty-clock"
 alias n="nvim"
+alias limit="sudo cpupower frequency-set -g performance --max 2400000"
 
 # alias://info
 alias devices_network_info="eog /home/walpy/network_client.png"
@@ -81,3 +82,12 @@ alias findfile="find ./ -depth -name"
 
 alias au="systemctl --user start audio-share-roc@192.168.42.129"
 alias au.stop="systemctl --user stop audio-share-roc@192.168.42.129"
+
+# vim detection
+
+echo -ne "\e]12;#224488\a"
+
+# if [ -n "$NVIM" ]; then
+    # echo -ne "\e]12;#ffaaaa\a"
+    # echo -ne "\e[3 q"
+# fi

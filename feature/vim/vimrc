@@ -1,0 +1,121 @@
+set nocompatible
+
+" set im
+
+set rtp+=/home/walpy/.vim/plugins
+
+set pp+=/home/walpy/.vim/plugins
+
+set wrap
+
+set lbr
+
+set nobri
+
+set ruler
+
+set showcmd
+
+set showmode
+
+" set ttimeout
+" set ttimeoutlen=500
+
+set display=truncate
+
+set scrolloff=1
+
+set nrformats-=octal
+
+map Q gq
+sunmap Q
+
+set number
+
+set nuw=6
+
+filetype plugin indent on
+
+augroup vimStartup
+  autocmd!
+
+  autocmd BufReadPost *
+    \ let line = line("'\"")
+    \ | if line >= 1 && line <= line("$") && &filetype !~# 'commit'
+    \      && index(['xxd', 'gitrebase', 'tutor'], &filetype) == -1
+    \ |   execute "normal! g`\""
+    \ | endif
+
+  autocmd TermResponse * if v:termresponse == "\e[>0;136;0c" | set bg=dark | endif
+augroup END
+
+syntax on
+
+let c_comment_strings=1
+
+" command diffbuff vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
+
+set nolangremap
+
+set incsearch
+
+set backspace=indent,eol,start
+
+set history=512
+
+set wildmenu
+
+set nolangremap
+
+set notgc
+
+set cursorline
+
+set nospell
+
+set spl=en
+
+set title
+
+" %F - full filename;
+set titlestring=vim\ %t\ %M
+
+set icon
+
+" /usr/share/icons/Numix-Circle/48/apps/vim.svg
+set iconstring=vim
+
+set mouse=a
+
+set scrollfocus
+
+set mousemodel=popup_setpos
+
+set ttymouse=sgr
+
+set noscrollbind
+
+set tabstop=4
+
+set shiftwidth=4
+
+set whichwrap=b,s,<,>,[,]
+
+" set list
+
+set listchars=tab:>-,trail:-
+
+set cmdheight=1
+
+" colorscheme walpy
+
+" vim gui
+
+" set guifont=      
+
+set guioptions-=T
+
+set guiheadroom=0
+
+" set guipty
+

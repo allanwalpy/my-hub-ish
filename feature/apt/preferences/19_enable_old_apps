@@ -17,3 +17,7 @@ Pin-Priority: 1001
 Package: nemo-font-manager
 Pin: release a=oldstable
 Pin-Priority: 1001
+
+Package: gnome-logs
+Pin: release a=faye
+Pin-Priority: 1001
