@@ -1,0 +1,11 @@
+[Unit]
+Description=Limit cpu to extend lifespan of laptop with cracked motherboard
+
+[Service]
+Type=oneshot
+ExecStart=/home/walpy/hub/feature/cpu-limit/enable
+ExecStop=/home/walpy/hub/feature/cpu-limit/disable
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
