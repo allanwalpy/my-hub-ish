@@ -83,6 +83,8 @@ alias findfile="find ./ -depth -name"
 alias au="systemctl --user start audio-share-roc@192.168.42.129"
 alias au.stop="systemctl --user stop audio-share-roc@192.168.42.129"
 
+alias search_bash="cat ~/.bash_history | grep "
+
 # vim detection
 
 echo -ne "\e]12;#224488\a"
@@ -91,3 +93,5 @@ echo -ne "\e]12;#224488\a"
     # echo -ne "\e]12;#ffaaaa\a"
     # echo -ne "\e[3 q"
 # fi
+#
+_split_longopt() { _comp__split_longopt "$@"; }
