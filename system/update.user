@@ -16,6 +16,9 @@ d_gamepad_xone="$HOME/app/system/gamepad/xone"
 d_gamepad_xpadneo="$HOME/app/system/gamepad/xpadneo"
 d_audio_share="$HOME/app/system/audio-share"
 
+# NB!: temporary disabling script;
+exit 0
+
 function get_last_commit_local() {
     echo $(git rev-parse HEAD)
 }

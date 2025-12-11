@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ $1 == "cpu" ] && cat /sys/class/hwmon/hwmon4/temp1_input | sed 's/.\{3\}$//'
+[ $1 == "cpu" ] && cat /sys/class/hwmon/hwmon1/temp1_input | sed 's/.\{3\}$//'
 
 [ $1 == "nvme" ] && cat /sys/class/hwmon/hwmon0/temp1_input | sed 's/.\{3\}$//'
 
