@@ -1,0 +1,5 @@
+#!/bin/bash
+
+gcc app.c -o monitor.bin
+
+# to watch file in termux on android do `tail -n +1 -F /tmp/monitor` or `watch -n 1 cat /tmp/monitor

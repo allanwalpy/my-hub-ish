@@ -1,0 +1,14 @@
+[Unit]
+Description=Conky %I
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/walpy/hub/feature/conky/
+ExecStart=/bin/bash /home/walpy/hub/feature/conky/monitor/start %i
+SyslogIdentifier="conky-moitor-daemon"
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
