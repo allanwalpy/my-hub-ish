@@ -1,0 +1,5 @@
+#!/bin/bash
+
+while inotifywait -q -e modify "/tmp/monitor"; do
+	clear && cat /tmp/monitor
+done
